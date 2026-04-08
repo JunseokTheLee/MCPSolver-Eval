@@ -1,0 +1,653 @@
+Found 1 MAXSAT problem(s) to test
+
+┌───────────────────────────────────────────┐
+│ Testing problem [MAXSAT]: task_assignment │
+└───────────────────────────────────────────┘
+Running command: cd /Users/jayden/MCPSolver-Eval && uv run test-client --query /Users/jayden/MCPSolver-Eval/tests/problems/maxsat/task_assignment.md --server "uv run mcp-solver-maxsat" --react-input-log "/Users/jayden/MCPSolver-Eval/logs/task_assignment_MCP-maxsat_20260408_192851_input.txt"
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Detected mode: maxsat
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for maxsat mode:
+- Instructions: 26502 characters
+- Review: 3802 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+Using model: AT:claude-sonnet-4-20250514
+Using custom server command: uv run mcp-solver-maxsat
+2026-04-08 19:28:54,278 - mcp_solver.maxsat.model_manager - INFO - MaxSAT model manager initialized
+2026-04-08 19:28:54,278 - mcp_solver.core.server - INFO - Using MaxSAT model manager
+2026-04-08 19:28:54,280 - mcp_solver.core.server - INFO - Starting MCP server
+2026-04-08 19:28:54,283 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+
+📋 Available tools:
+  1. clear_model
+  2. add_item
+  3. replace_item
+  4. delete_item
+  5. get_model
+  6. solve_model
+
+Using recursion limit: 200
+[1;34msystem[0m: Entering ReAct Agent
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-08 19:28:56,918 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:28:56,919 - mcp_solver.maxsat.model_manager - INFO - Model cleared
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"from pysat.formula import WCNF\nfrom pysat.examples.rc2 import RC2\n# Note: Helper [0m
+[32mfunctions are already available\n\nwcnf = WCNF[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 19:28:59,122 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"# PARAMETER VERIFICATION\n# Problem parameters [0m[32m([0m[32mDO NOT CHANGE[0m[32m)[0m[32m:\n# - 2 tasks: A [0m[32m([0m[32mData [0m
+[32mAnalysis[0m[32m)[0m[32m, B [0m[32m([0m[32mReport Writing[0m[32m)[0m[32m\n# - 2 employees: Alice, Bob\n# - Each task assigned to exactly one [0m
+[32memployee\n# - Alice cannot do both tasks [0m[32m([0m[32mpart-time[0m[32m)[0m[32m\n\n# Variables: \n# 1 = Alice does Task A\n# 2 = [0m
+[32mAlice does Task B\n# 3 = Bob does Task A\n# 4 = Bob does Task B\n\nalice_taskA = 1\nalice_taskB = [0m
+[32m2\nbob_taskA = 3\nbob_taskB = 4\n\n# Variable groups for easier reference\nalice_vars = [0m[32m\nbob_vars = [0m
+[32m\ntaskA_vars = [0m[32m\ntaskB_vars = [0m[32m"[0m
+[1m}[0m
+2026-04-08 19:29:03,702 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - [1;36m2[0m tasks: A [1m([0mData Analysis[1m)[0m, B [1m([0mReport Writing[1m)[0m
+# - [1;36m2[0m employees: Alice, Bob
+# - Each task assigned to exactly one employee
+# - Alice cannot do both tasks [1m([0mpart-time[1m)[0m
+
+# Variables: 
+# [1;36m1[0m = Alice does Task A
+# [1;36m2[0m = Alice does Task B
+# [1;36m3[0m = Bob does Task A
+# [1;36m4[0m = Bob does Task B
+
+alice_taskA = [1;36m1[0m
+alice_taskB = [1;36m2[0m
+bob_taskA = [1;36m3[0m
+bob_taskB = [1;36m4[0m
+
+# Variable groups for easier reference
+alice_vars = 
+bob_vars = 
+taskA_vars = 
+taskB_vars = 
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"# Hard constraints\n\n# 1. Each task must be assigned to exactly one employee\n# Task A [0m
+[32mmust be assigned to exactly one person\nfor clause in exactly_one[0m[32m([0m[32mtaskA_vars[0m[32m)[0m[32m:\n    [0m
+[32mwcnf.append[0m[32m([0m[32mclause[0m[32m)[0m[32m\n\n# Task B must be assigned to exactly one person  \nfor clause in [0m
+[32mexactly_one[0m[32m([0m[32mtaskB_vars[0m[32m)[0m[32m:\n    wcnf.append[0m[32m([0m[32mclause[0m[32m)[0m[32m\n\n# 2. Alice cannot do both tasks [0m[32m([0m[32mshe's part-time[0m[32m)[0m[32m\n#[0m
+[32mAt most one task for Alice\nfor clause in at_most_one[0m[32m([0m[32malice_vars[0m[32m)[0m[32m:\n    wcnf.append[0m[32m([0m[32mclause[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 19:29:07,661 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - [1;36m2[0m tasks: A [1m([0mData Analysis[1m)[0m, B [1m([0mReport Writing[1m)[0m
+# - [1;36m2[0m employees: Alice, Bob
+# - Each task assigned to exactly one employee
+# - Alice cannot do both tasks [1m([0mpart-time[1m)[0m
+
+# Variables: 
+# [1;36m1[0m = Alice does Task A
+# [1;36m2[0m = Alice does Task B
+# [1;36m3[0m = Bob does Task A
+# [1;36m4[0m = Bob does Task B
+
+alice_taskA = [1;36m1[0m
+alice_taskB = [1;36m2[0m
+bob_taskA = [1;36m3[0m
+bob_taskB = [1;36m4[0m
+
+# Variable groups for easier reference
+alice_vars = 
+bob_vars = 
+taskA_vars = 
+taskB_vars = 
+[1;36m2[0m | # Hard constraints
+
+# [1;36m1[0m. Each task must be assigned to exactly one employee
+# Task A must be assigned to exactly one person
+for clause in [1;35mexactly_one[0m[1m([0mtaskA_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+
+# Task B must be assigned to exactly one person  
+for clause in [1;35mexactly_one[0m[1m([0mtaskB_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+
+# [1;36m2[0m. Alice cannot do both tasks [1m([0mshe's part-time[1m)[0m
+# At most one task for Alice
+for clause in [1;35mat_most_one[0m[1m([0malice_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"# Soft constraints [0m[32m([0m[32mpenalties to minimize[0m[32m)[0m[32m\n\n# 1. Alice prefers Task A [0m[32m([0m[32mpenalty of 3 if [0m
+[32mshe doesn't get it[0m[32m)[0m[32m\n# Penalize NOT assigning Task A to Alice\nwcnf.append[0m[32m([0m[32m, [0m[32mweight[0m[32m=[0m[32m3[0m[32m)[0m[32m\n\n# 2. Bob [0m
+[32mprefers Task B [0m[32m([0m[32mpenalty of 2 if he doesn't get it[0m[32m)[0m[32m\n# Penalize NOT assigning Task B to Bob\nwcnf.append[0m[32m([0m[32m,[0m
+[32mweight[0m[32m=[0m[32m2[0m[32m)[0m[32m\n\n# 3. Task A should ideally go to Alice [0m[32m([0m[32mpenalty of 1 if assigned to Bob[0m[32m)[0m[32m\n# Penalize [0m
+[32massigning Task A to Bob\nwcnf.append[0m[32m([0m[32m[[0m[32m-bob_taskA[0m[32m][0m[32m, [0m[32mweight[0m[32m=[0m[32m1[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 19:29:11,231 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - [1;36m2[0m tasks: A [1m([0mData Analysis[1m)[0m, B [1m([0mReport Writing[1m)[0m
+# - [1;36m2[0m employees: Alice, Bob
+# - Each task assigned to exactly one employee
+# - Alice cannot do both tasks [1m([0mpart-time[1m)[0m
+
+# Variables: 
+# [1;36m1[0m = Alice does Task A
+# [1;36m2[0m = Alice does Task B
+# [1;36m3[0m = Bob does Task A
+# [1;36m4[0m = Bob does Task B
+
+alice_taskA = [1;36m1[0m
+alice_taskB = [1;36m2[0m
+bob_taskA = [1;36m3[0m
+bob_taskB = [1;36m4[0m
+
+# Variable groups for easier reference
+alice_vars = 
+bob_vars = 
+taskA_vars = 
+taskB_vars = 
+[1;36m2[0m | # Hard constraints
+
+# [1;36m1[0m. Each task must be assigned to exactly one employee
+# Task A must be assigned to exactly one person
+for clause in [1;35mexactly_one[0m[1m([0mtaskA_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+
+# Task B must be assigned to exactly one person  
+for clause in [1;35mexactly_one[0m[1m([0mtaskB_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+
+# [1;36m2[0m. Alice cannot do both tasks [1m([0mshe's part-time[1m)[0m
+# At most one task for Alice
+for clause in [1;35mat_most_one[0m[1m([0malice_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+[1;36m3[0m | # Soft constraints [1m([0mpenalties to minimize[1m)[0m
+
+# [1;36m1[0m. Alice prefers Task A [1m([0mpenalty of [1;36m3[0m if she doesn't get it[1m)[0m
+# Penalize NOT assigning Task A to Alice
+[1;35mwcnf.append[0m[1m([0m, [33mweight[0m=[1;36m3[0m[1m)[0m
+
+# [1;36m2[0m. Bob prefers Task B [1m([0mpenalty of [1;36m2[0m if he doesn't get it[1m)[0m
+# Penalize NOT assigning Task B to Bob
+[1;35mwcnf.append[0m[1m([0m, [33mweight[0m=[1;36m2[0m[1m)[0m
+
+# [1;36m3[0m. Task A should ideally go to Alice [1m([0mpenalty of [1;36m1[0m if assigned to Bob[1m)[0m
+# Penalize assigning Task A to Bob
+[1;35mwcnf.append[0m[1m([0m[1m[[0m-bob_taskA[1m][0m, [33mweight[0m=[1;36m1[0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"# MANDATORY: Solve and export solution\nwith RC2[0m[32m([0m[32mwcnf[0m[32m)[0m[32m as solver:\n    model = [0m
+[32msolver.compute[0m[32m([0m[32m)[0m[32m\n    \n    if model:\n        # Extract assignment from model\n        assignments = [0m[32m{[0m[32m\n[0m
+[32m\"Alice_TaskA\": alice_taskA in model,\n            \"Alice_TaskB\": alice_taskB in model,\n            [0m
+[32m\"Bob_TaskA\": bob_taskA in model,\n            \"Bob_TaskB\": bob_taskB in model\n        [0m[32m}[0m[32m\n        \n [0m
+[32m# Create readable assignment\n        task_assignments = [0m[32m{[0m[32m}[0m[32m\n        if assignments[0m[32m[[0m[32m\"Alice_TaskA\"[0m[32m][0m[32m:\n  [0m
+[32mtask_assignments[0m[32m[[0m[32m\"Task A [0m[32m([0m[32mData Analysis[0m[32m)[0m[32m\"[0m[32m][0m[32m = \"Alice\"\n        elif assignments[0m[32m[[0m[32m\"Bob_TaskA\"[0m[32m][0m[32m:\n     [0m
+[32mtask_assignments[0m[32m[[0m[32m\"Task A [0m[32m([0m[32mData Analysis[0m[32m)[0m[32m\"[0m[32m][0m[32m = \"Bob\"\n            \n        if [0m
+[32massignments[0m[32m[[0m[32m\"Alice_TaskB\"[0m[32m][0m[32m:\n            task_assignments[0m[32m[[0m[32m\"Task B [0m[32m([0m[32mReport Writing[0m[32m)[0m[32m\"[0m[32m][0m[32m = \"Alice\"\n   [0m
+[32melif assignments[0m[32m[[0m[32m\"Bob_TaskB\"[0m[32m][0m[32m:\n            task_assignments[0m[32m[[0m[32m\"Task B [0m[32m([0m[32mReport Writing[0m[32m)[0m[32m\"[0m[32m][0m[32m = \"Bob\"\n  [0m
+[32m\n        # Verify constraints are satisfied\n        constraint_checks = [0m[32m{[0m[32m\n            \"Each task [0m
+[32massigned\": len[0m[32m([0m[32mtask_assignments[0m[32m)[0m[32m == 2,\n            \"Alice at most one task\": [0m
+[32msum[0m[32m([0m[32m[[0m[32massignments[0m[32m[[0m[32m\"Alice_TaskA\"[0m[32m][0m[32m, assignments[0m[32m[[0m[32m\"Alice_TaskB\"[0m[32m][0m[32m][0m[32m)[0m[32m <= 1,\n            \"Task A assigned [0m
+[32monce\": assignments[0m[32m[[0m[32m\"Alice_TaskA\"[0m[32m][0m[32m + assignments[0m[32m[[0m[32m\"Bob_TaskA\"[0m[32m][0m[32m == 1,\n            \"Task B assigned [0m
+[32monce\": assignments[0m[32m[[0m[32m\"Alice_TaskB\"[0m[32m][0m[32m + assignments[0m[32m[[0m[32m\"Bob_TaskB\"[0m[32m][0m[32m == 1\n        [0m[32m}[0m[32m\n        \n        # [0m
+[32mCalculate penalty breakdown\n        penalties = [0m[32m[[0m[32m][0m[32m\n        total_manual_penalty = 0\n        \n        [0m
+[32mif not assignments[0m[32m[[0m[32m\"Alice_TaskA\"[0m[32m][0m[32m:\n            penalties.append[0m[32m([0m[32m\"Alice doesn't get Task A: +3\"[0m[32m)[0m[32m\n   [0m
+[32mtotal_manual_penalty += 3\n            \n        if not assignments[0m[32m[[0m[32m\"Bob_TaskB\"[0m[32m][0m[32m:\n            [0m
+[32mpenalties.append[0m[32m([0m[32m\"Bob doesn't get Task B: +2\"[0m[32m)[0m[32m\n            total_manual_penalty += 2\n            \n  [0m
+[32mif assignments[0m[32m[[0m[32m\"Bob_TaskA\"[0m[32m][0m[32m:\n            penalties.append[0m[32m([0m[32m\"Task A assigned to Bob: +1\"[0m[32m)[0m[32m\n           [0m
+[32mtotal_manual_penalty += 1\n        \n        export_solution[0m[32m([0m[32m{[0m[32m\n            \"satisfiable\": True,\n     [0m
+[32m\"cost\": solver.cost,\n            \"task_assignments\": task_assignments,\n            [0m
+[32m\"detailed_assignments\": assignments,\n            \"constraint_verification\": constraint_checks,\n    [0m
+[32m\"penalty_breakdown\": penalties,\n            \"total_penalty\": total_manual_penalty,\n            [0m
+[32m\"solver_cost_matches\": solver.cost == total_manual_penalty\n        [0m[32m}[0m[32m)[0m[32m\n    else:\n        [0m
+[32mexport_solution[0m[32m([0m[32m{[0m[32m\n            \"satisfiable\": False,\n            \"message\": \"No valid assignment [0m
+[32mexists that satisfies all hard constraints\"\n        [0m[32m}[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 19:29:21,985 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - [1;36m2[0m tasks: A [1m([0mData Analysis[1m)[0m, B [1m([0mReport Writing[1m)[0m
+# - [1;36m2[0m employees: Alice, Bob
+# - Each task assigned to exactly one employee
+# - Alice cannot do both tasks [1m([0mpart-time[1m)[0m
+
+# Variables: 
+# [1;36m1[0m = Alice does Task A
+# [1;36m2[0m = Alice does Task B
+# [1;36m3[0m = Bob does Task A
+# [1;36m4[0m = Bob does Task B
+
+alice_taskA = [1;36m1[0m
+alice_taskB = [1;36m2[0m
+bob_taskA = [1;36m3[0m
+bob_taskB = [1;36m4[0m
+
+# Variable groups for easier reference
+alice_vars = 
+bob_vars = 
+taskA_vars = 
+taskB_vars = 
+[1;36m2[0m | # Hard constraints
+
+# [1;36m1[0m. Each task must be assigned to exactly one employee
+# Task A must be assigned to exactly one person
+for clause in [1;35mexactly_one[0m[1m([0mtaskA_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+
+# Task B must be assigned to exactly one person  
+for clause in [1;35mexactly_one[0m[1m([0mtaskB_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+
+# [1;36m2[0m. Alice cannot do both tasks [1m([0mshe's part-time[1m)[0m
+# At most one task for Alice
+for clause in [1;35mat_most_one[0m[1m([0malice_vars[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0mclause[1m)[0m
+[1;36m3[0m | # Soft constraints [1m([0mpenalties to minimize[1m)[0m
+
+# [1;36m1[0m. Alice prefers Task A [1m([0mpenalty of [1;36m3[0m if she doesn't get it[1m)[0m
+# Penalize NOT assigning Task A to Alice
+[1;35mwcnf.append[0m[1m([0m, [33mweight[0m=[1;36m3[0m[1m)[0m
+
+# [1;36m2[0m. Bob prefers Task B [1m([0mpenalty of [1;36m2[0m if he doesn't get it[1m)[0m
+# Penalize NOT assigning Task B to Bob
+[1;35mwcnf.append[0m[1m([0m, [33mweight[0m=[1;36m2[0m[1m)[0m
+
+# [1;36m3[0m. Task A should ideally go to Alice [1m([0mpenalty of [1;36m1[0m if assigned to Bob[1m)[0m
+# Penalize assigning Task A to Bob
+[1;35mwcnf.append[0m[1m([0m[1m[[0m-bob_taskA[1m][0m, [33mweight[0m=[1;36m1[0m[1m)[0m
+[1;36m4[0m | # MANDATORY: Solve and export solution
+with [1;35mRC2[0m[1m([0mwcnf[1m)[0m as solver:
+    model = [1;35msolver.compute[0m[1m([0m[1m)[0m
+    
+    if model:
+        # Extract assignment from model
+        assignments = [1m{[0m
+            [32m"Alice_TaskA"[0m: alice_taskA in model,
+            [32m"Alice_TaskB"[0m: alice_taskB in model,
+            [32m"Bob_TaskA"[0m: bob_taskA in model,
+            [32m"Bob_TaskB"[0m: bob_taskB in model
+        [1m}[0m
+        
+        # Create readable assignment
+        task_assignments = [1m{[0m[1m}[0m
+        if assignments[1m[[0m[32m"Alice_TaskA"[0m[1m][0m:
+            task_assignments[1m[[0m[32m"Task A [0m[32m([0m[32mData Analysis[0m[32m)[0m[32m"[0m[1m][0m = [32m"Alice"[0m
+        elif assignments[1m[[0m[32m"Bob_TaskA"[0m[1m][0m:
+            task_assignments[1m[[0m[32m"Task A [0m[32m([0m[32mData Analysis[0m[32m)[0m[32m"[0m[1m][0m = [32m"Bob"[0m
+            
+        if assignments[1m[[0m[32m"Alice_TaskB"[0m[1m][0m:
+            task_assignments[1m[[0m[32m"Task B [0m[32m([0m[32mReport Writing[0m[32m)[0m[32m"[0m[1m][0m = [32m"Alice"[0m
+        elif assignments[1m[[0m[32m"Bob_TaskB"[0m[1m][0m:
+            task_assignments[1m[[0m[32m"Task B [0m[32m([0m[32mReport Writing[0m[32m)[0m[32m"[0m[1m][0m = [32m"Bob"[0m
+        
+        # Verify constraints are satisfied
+        constraint_checks = [1m{[0m
+            [32m"Each task assigned"[0m: [1;35mlen[0m[1m([0mtask_assignments[1m)[0m == [1;36m2[0m,
+            [32m"Alice at most one task"[0m: [1;35msum[0m[1m([0m[1m[[0massignments[1m[[0m[32m"Alice_TaskA"[0m[1m][0m, assignments[1m[[0m[32m"Alice_TaskB"[0m[1m][0m[1m][0m[1m)[0m <= [1;36m1[0m,
+            [32m"Task A assigned once"[0m: assignments[1m[[0m[32m"Alice_TaskA"[0m[1m][0m + assignments[1m[[0m[32m"Bob_TaskA"[0m[1m][0m == [1;36m1[0m,
+            [32m"Task B assigned once"[0m: assignments[1m[[0m[32m"Alice_TaskB"[0m[1m][0m + assignments[1m[[0m[32m"Bob_TaskB"[0m[1m][0m == [1;36m1[0m
+        [1m}[0m
+        
+        # Calculate penalty breakdown
+        penalties = [1m[[0m[1m][0m
+        total_manual_penalty = [1;36m0[0m
+        
+        if not assignments[1m[[0m[32m"Alice_TaskA"[0m[1m][0m:
+            [1;35mpenalties.append[0m[1m([0m[32m"Alice doesn't get Task A: +3"[0m[1m)[0m
+            total_manual_penalty += [1;36m3[0m
+            
+        if not assignments[1m[[0m[32m"Bob_TaskB"[0m[1m][0m:
+            [1;35mpenalties.append[0m[1m([0m[32m"Bob doesn't get Task B: +2"[0m[1m)[0m
+            total_manual_penalty += [1;36m2[0m
+            
+        if assignments[1m[[0m[32m"Bob_TaskA"[0m[1m][0m:
+            [1;35mpenalties.append[0m[1m([0m[32m"Task A assigned to Bob: +1"[0m[1m)[0m
+            total_manual_penalty += [1;36m1[0m
+        
+        [1;35mexport_solution[0m[1m([0m[1m{[0m
+            [32m"satisfiable"[0m: [3;92mTrue[0m,
+            [32m"cost"[0m: solver.cost,
+            [32m"task_assignments"[0m: task_assignments,
+            [32m"detailed_assignments"[0m: assignments,
+            [32m"constraint_verification"[0m: constraint_checks,
+            [32m"penalty_breakdown"[0m: penalties,
+            [32m"total_penalty"[0m: total_manual_penalty,
+            [32m"solver_cost_matches"[0m: solver.cost == total_manual_penalty
+        [1m}[0m[1m)[0m
+    else:
+        [1;35mexport_solution[0m[1m([0m[1m{[0m
+            [32m"satisfiable"[0m: [3;91mFalse[0m,
+            [32m"message"[0m: [32m"No valid assignment exists that satisfies all hard constraints"[0m
+        [1m}[0m[1m)[0m
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m10[0m
+[1m}[0m
+2026-04-08 19:29:24,337 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:29:24,339 - mcp_solver.core.server - INFO - Solving model with timeout 10.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'message'[0m: [32m'MaxSAT optimization completed successfully [0m[32m([0m[32moptimal solution [0m
+[32mfound[0m[32m)[0m[32m with cost: 0'[0m, [32m'success'[0m: [3;92mTrue[0m, [32m'solve_time'[0m: [32m'0.447265 seconds'[0m, [32m'output'[0m: [32m"PYSAT_DEBUG_OUTPUT: [0m
+[32mcompute_returned_value[0m[32m=[0m[32mTrue[0m[32m\nPYSAT_DEBUG_OUTPUT: [0m[32msolver[0m[32m='solver'\nDEBUG - _LAST_SOLUTION set to: [0m
+[32m{[0m[32m'satisfiable': True, 'cost': 0, 'task_assignments': [0m[32m{[0m[32m'Task A [0m[32m([0m[32mData Analysis[0m[32m)[0m[32m': 'Alice', 'Task B [0m[32m([0m[32mReport [0m
+[32mWriting[0m[32m)[0m[32m': 'Bob'[0m[32m}[0m[32m, 'detailed_assignments': [0m[32m{[0m[32m'Alice_TaskA': True, 'Alice_TaskB': False, 'Bob_TaskA': [0m
+[32mFalse, 'Bob_TaskB': True[0m[32m}[0m[32m, 'constraint_verification': [0m[32m{[0m[32m'Each task assigned': True, 'Alice at most one [0m
+[32mtask': True, 'Task A assigned once': True, 'Task B assigned once': True[0m[32m}[0m[32m, 'penalty_breakdown': [0m[32m[[0m[32m][0m[32m, [0m
+[32m'total_penalty': 0, 'solver_cost_matches': True, 'status': 'optimal', 'values': [0m[32m{[0m[32m'Task A [0m[32m([0m[32mData [0m
+[32mAnalysis[0m[32m)[0m[32m': 'Alice', 'Task B [0m[32m([0m[32mReport Writing[0m[32m)[0m[32m': 'Bob', 'Alice_TaskA': True, 'Alice_TaskB': False, [0m
+[32m'Bob_TaskA': False, 'Bob_TaskB': True, 'Each task assigned': True, 'Alice at most one task': True, 'Task [0m
+[32mA assigned once': True, 'Task B assigned once': True[0m[32m}[0m[32m, '_is_maxsat_solution': True[0m[32m}[0m[32m\n\n"[0m, [32m'satisfiable'[0m: 
+[3;92mTrue[0m, [32m'status'[0m: [32m'optimal'[0m, [32m'is_optimization'[0m: [3;92mTrue[0m, [32m'cost'[0m: [1;36m0[0m, [32m'values'[0m: [1m{[0m[32m'Task A [0m[32m([0m[32mData Analysis[0m[32m)[0m[32m'[0m: 
+[32m'Alice'[0m, [32m'Task B [0m[32m([0m[32mReport Writing[0m[32m)[0m[32m'[0m: [32m'Bob'[0m, [32m'Alice_TaskA'[0m: [3;92mTrue[0m, [32m'Alice_TaskB'[0m: [3;91mFalse[0m, [32m'Bob_TaskA'[0m: [3;91mFalse[0m,
+[32m'Bob_TaskB'[0m: [3;92mTrue[0m, [32m'Each task assigned'[0m: [3;92mTrue[0m, [32m'Alice at most one task'[0m: [3;92mTrue[0m, [32m'Task A assigned once'[0m: 
+[3;92mTrue[0m, [32m'Task B assigned once'[0m: [3;92mTrue[0m[1m}[0m[1m}[0m
+2026-04-08 19:29:24,795 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+Agent response keys: ['messages']
+Agent reply received, length: 1613
+
+
+┌───────────────────┐
+│ PROBLEM STATEMENT │
+└───────────────────┘
+# Task Assignment
+
+A manager needs to assign two tasks to two employees with certain constraints and preferences.
+
+## Tasks and Employees
+- Task A: Data Analysis
+- Task B: Report Writing
+- Employee 1: Alice
+- Employee 2: Bob
+
+## Constraints
+
+### Hard Constraints
+1. Each task must be assigned to exactly one employee
+2. Alice cannot do both tasks (she's part-time)
+
+### Preferences (minimize penalties)
+1. Alice prefers Task A (penalty of 3 if she doesn't get it)
+2. Bob prefers Task B (penalty of 2 if he doesn't get it)
+3. Task A should ideally go to Alice (penalty of 1 if assigned to Bob)
+
+## Task
+Find the optimal assignment that satisfies all constraints and minimizes the total penalty.
+
+## Expected Output
+- Assignment of each task to an employee
+- Total penalty incurred
+- Verification that constraints are satisfied
+
+
+
+┌─────────────┐
+│ FINAL MODEL │
+└─────────────┘
+0 | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = WCNF()
+1 | # PARAMETER VERIFICATION
+# Problem parameters (DO NOT CHANGE):
+# - 2 tasks: A (Data Analysis), B (Report Writing)
+# - 2 employees: Alice, Bob
+# - Each task assigned to exactly one employee
+# - Alice cannot do both tasks (part-time)
+
+# Variables: 
+# 1 = Alice does Task A
+# 2 = Alice does Task B
+# 3 = Bob does Task A
+# 4 = Bob does Task B
+
+alice_taskA = 1
+alice_taskB = 2
+bob_taskA = 3
+bob_taskB = 4
+
+# Variable groups for easier reference
+alice_vars = [alice_taskA, alice_taskB]
+bob_vars = [bob_taskA, bob_taskB]
+taskA_vars = [alice_taskA, bob_taskA]
+taskB_vars = [alice_taskB, bob_taskB]
+2 | # Hard constraints
+
+# 1. Each task must be assigned to exactly one employee
+# Task A must be assigned to exactly one person
+for clause in exactly_one(taskA_vars):
+    wcnf.append(clause)
+
+# Task B must be assigned to exactly one person  
+for clause in exactly_one(taskB_vars):
+    wcnf.append(clause)
+
+# 2. Alice cannot do both tasks (she's part-time)
+# At most one task for Alice
+for clause in at_most_one(alice_vars):
+    wcnf.append(clause)
+3 | # Soft constraints (penalties to minimize)
+
+# 1. Alice prefers Task A (penalty of 3 if she doesn't get it)
+# Penalize NOT assigning Task A to Alice
+wcnf.append([alice_taskA], weight=3)
+
+# 2. Bob prefers Task B (penalty of 2 if he doesn't get it)
+# Penalize NOT assigning Task B to Bob
+wcnf.append([bob_taskB], weight=2)
+
+# 3. Task A should ideally go to Alice (penalty of 1 if assigned to Bob)
+# Penalize assigning Task A to Bob
+wcnf.append([-bob_taskA], weight=1)
+4 | # MANDATORY: Solve and export solution
+with RC2(wcnf) as solver:
+    model = solver.compute()
+    
+    if model:
+        # Extract assignment from model
+        assignments = {
+            "Alice_TaskA": alice_taskA in model,
+            "Alice_TaskB": alice_taskB in model,
+            "Bob_TaskA": bob_taskA in model,
+            "Bob_TaskB": bob_taskB in model
+        }
+        
+        # Create readable assignment
+        task_assignments = {}
+        if assignments["Alice_TaskA"]:
+            task_assignments["Task A (Data Analysis)"] = "Alice"
+        elif assignments["Bob_TaskA"]:
+            task_assignments["Task A (Data Analysis)"] = "Bob"
+            
+        if assignments["Alice_TaskB"]:
+            task_assignments["Task B (Report Writing)"] = "Alice"
+        elif assignments["Bob_TaskB"]:
+            task_assignments["Task B (Report Writing)"] = "Bob"
+        
+        # Verify constraints are satisfied
+        constraint_checks = {
+            "Each task assigned": len(task_assignments) == 2,
+            "Alice at most one task": sum([assignments["Alice_TaskA"], assignments["Alice_TaskB"]]) <= 1,
+            "Task A assigned once": assignments["Alice_TaskA"] + assignments["Bob_TaskA"] == 1,
+            "Task B assigned once": assignments["Alice_TaskB"] + assignments["Bob_TaskB"] == 1
+        }
+        
+        # Calculate penalty breakdown
+        penalties = []
+        total_manual_penalty = 0
+        
+        if not assignments["Alice_TaskA"]:
+            penalties.append("Alice doesn't get Task A: +3")
+            total_manual_penalty += 3
+            
+        if not assignments["Bob_TaskB"]:
+            penalties.append("Bob doesn't get Task B: +2")
+            total_manual_penalty += 2
+            
+        if assignments["Bob_TaskA"]:
+            penalties.append("Task A assigned to Bob: +1")
+            total_manual_penalty += 1
+        
+        export_solution({
+            "satisfiable": True,
+            "cost": solver.cost,
+            "task_assignments": task_assignments,
+            "detailed_assignments": assignments,
+            "constraint_verification": constraint_checks,
+            "penalty_breakdown": penalties,
+            "total_penalty": total_manual_penalty,
+            "solver_cost_matches": solver.cost == total_manual_penalty
+        })
+    else:
+        export_solution({
+            "satisfiable": False,
+            "message": "No valid assignment exists that satisfies all hard constraints"
+        })
+
+
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+{'message': 'MaxSAT optimization completed successfully (optimal solution found) with cost: 0', 'success': True, 'solve_time': '0.447265 seconds', 'output': "PYSAT_DEBUG_OUTPUT: compute_returned_value=True\nPYSAT_DEBUG_OUTPUT: solver='solver'\nDEBUG - _LAST_SOLUTION set to: {'satisfiable': True, 'cost': 0, 'task_assignments': {'Task A (Data Analysis)': 'Alice', 'Task B (Report Writing)': 'Bob'}, 'detailed_assignments': {'Alice_TaskA': True, 'Alice_TaskB': False, 'Bob_TaskA': False, 'Bob_TaskB': True}, 'constraint_verification': {'Each task assigned': True, 'Alice at most one task': True, 'Task A assigned once': True, 'Task B assigned once': True}, 'penalty_breakdown': [], 'total_penalty': 0, 'solver_cost_matches': True, 'status': 'optimal', 'values': {'Task A (Data Analysis)': 'Alice', 'Task B (Report Writing)': 'Bob', 'Alice_TaskA': True, 'Alice_TaskB': False, 'Bob_TaskA': False, 'Bob_TaskB': True, 'Each task assigned': True, 'Alice at most one task': True, 'Task A assigned once': True, 'Task B assigned once': True}, '_is_maxsat_solution': True}\n\n", 'satisfiable': True, 'status': 'optimal', 'is_optimization': True, 'cost': 0, 'values': {'Task A (Data Analysis)': 'Alice', 'Task B (Report Writing)': 'Bob', 'Alice_TaskA': True, 'Alice_TaskB': False, 'Bob_TaskA': False, 'Bob_TaskB': True, 'Each task assigned': True, 'Alice at most one task': True, 'Task A assigned once': True, 'Task B assigned once': True}}
+
+[1;34msystem[0m: Entering Review Agent
+Starting solution review process...
+Preparing review prompt (10157 characters)...
+Calling model for review...
+Found verdict tag: correct
+Review complete: verdict is 'correct'
+Review complete: ✅ correct
+
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Correctness: ✅ correct
+Explanation: Looking at this MaxSAT solution, I'll review it systematically according to the guidelines.
+
+## 1. Structural Correctness ✅
+
+- **WCNF used correctly**: Yes, `from pysat.formula import WCNF` and `wcnf = WCNF()`
+- **Hard constraints without weights**: Yes, all hard constraints use `wcnf.append(clause)` without weights
+- **Soft constraints with weights**: Yes, all soft constraints use `wcnf.append([literals], weight=value)`
+- **RC2 solver**: Yes, `from pysat.examples.rc2 import RC2` and `with RC2(wcnf) as solver:`
+- **export_solution called**: Yes, with comprehensive results
+
+## 2. Hard Constraint Satisfaction ✅
+
+Let me verify the solution satisfies the stated hard constraints:
+
+**Solution**: Alice gets Task A, Bob gets Task B
+
+- **Constraint 1**: "Each task must be assigned to exactly one employee"
+  - Task A → Alice ✅
+  - Task B → Bob ✅
+  - Both tasks assigned to exactly one person
+
+- **Constraint 2**: "Alice cannot do both tasks (she's part-time)"
+  - Alice only gets Task A (not both) ✅
+
+## 3. Solution Format & Completeness ✅
+
+- ✅ `"satisfiable": True`
+- ✅ Cost included from `solver.cost` (cost = 0)
+- ✅ Task assignments clearly shown
+- ✅ All required outputs present:
+  - Assignment of each task to employee
+  - Total penalty (0)
+  - Constraint verification
+- ✅ Variable count matches (2 tasks, 2 employees, 4 boolean variables)
+
+## 4. Basic Sanity Checks ✅
+
+- ✅ Positive integer variables (1, 2, 3, 4)
+- ✅ Cost is non-negative (0)
+- ✅ Values are consistent - cost of 0 with empty penalty breakdown makes sense
+- ✅ Manual penalty calculation matches solver cost
+
+## 5. Solution Logic Verification ✅
+
+The solution Alice→Task A, Bob→Task B results in:
+- Alice gets her preferred Task A (no penalty of 3)
+- Bob gets his preferred Task B (no penalty of 2) 
+- Task A goes to Alice, not Bob (no penalty of 1)
+- **Total penalty: 0** ✅
+
+This is indeed optimal - all preferences are satisfied simultaneously.
+
+## 6. Code Structure ✅
+
+The implementation is well-organized with:
+- Clear variable definitions
+- Proper constraint encoding structure
+- Comprehensive solution extraction
+- Detailed constraint verification
+- Penalty breakdown calculation
+
+
+
+             Tool Usage and Token Statistics              
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Category    ┃ Item                       ┃ Count/Value ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ TOOL USAGE  │                            │             │
+│ Tool        │ add_item                   │ 5           │
+│ Tool        │ clear_model                │ 1           │
+│ Tool        │ solve_model                │ 1           │
+│ Tool        │ get_model                  │ 1           │
+│ Tool        │ replace_item               │ 0           │
+│ Tool        │ delete_item                │ 0           │
+│ Tool        │ TOTAL                      │ 8           │
+│ TOKEN USAGE │                            │             │
+│ Token       │ ReAct Agent Input (exact)  │ 84k         │
+│ Token       │ ReAct Agent Output (exact) │ 2.1k        │
+│ Token       │ ReAct Agent Total (exact)  │ 86k         │
+│ Token       │ Reviewer Input (exact)     │ 2.9k        │
+│ Token       │ Reviewer Output (exact)    │ 704         │
+│ Token       │ Reviewer Total (exact)     │ 3.6k        │
+│ Token       │ COMBINED TOTAL             │ 90k         │
+└─────────────┴────────────────────────────┴─────────────┘
+Test completed successfully
+
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1

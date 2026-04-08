@@ -1,0 +1,149 @@
+Found 1 problem(s) to test
+
+┌──────────────────────────────┐
+│ Testing problem [LLM]: zebra │
+└──────────────────────────────┘
+Calling LLM (AT:claude-sonnet-4-20250514) directly...
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+I need to solve this step-by-step using the given constraints.
+
+=== MODEL ===
+
+Let me identify the variables and constraints:
+
+Variables:
+- 4 students: Anna, Ben, Emily, Liam
+- 4 desks: 1, 2, 3, 4
+- 4 subjects: Biology, Chemistry, Physics, Literature
+- 4 foods: Pizza, Pasta, Apples, Ice cream
+
+Constraints:
+1. Biology student is at Desk 3
+2. Pizza lover sits next to Chemistry student
+3. Physics student is not at Desk 2
+4. Student at Desk 2 likes Pasta
+5. Anna likes Apples
+6. Ben is not studying Biology
+7. Emily is at Desk 1
+8. Student at Desk 4 likes Ice cream
+9. Physics student's name has even number of letters (Anna=4 or Liam=4)
+
+Let me work through this systematically:
+
+From constraint 7: Emily is at Desk 1
+From constraint 1: Biology student is at Desk 3
+From constraint 6: Ben is not studying Biology
+Since Emily is at Desk 1 and Biology student is at Desk 3, Emily is not studying Biology.
+So either Anna or Liam is studying Biology and sitting at Desk 3.
+
+From constraint 9: Physics student is Anna or Liam (even letter names)
+From constraint 3: Physics student is not at Desk 2
+
+From constraint 4: Student at Desk 2 likes Pasta
+From constraint 5: Anna likes Apples
+So Anna is not at Desk 2 (since she likes Apples, not Pasta)
+
+From constraint 8: Student at Desk 4 likes Ice cream
+
+Since Emily is at Desk 1, and Anna is not at Desk 2, we have:
+- Emily at Desk 1
+- Someone at Desk 2 (likes Pasta) - must be Ben or Liam
+- Someone at Desk 3 (studies Biology) - must be Anna or Liam
+- Someone at Desk 4 (likes Ice cream) - must be Ben or Liam
+
+Since Anna likes Apples (constraint 5), Anna is not at Desk 2 (Pasta) or Desk 4 (Ice cream).
+So Anna must be at Desk 3 (studying Biology).
+
+This means:
+- Emily at Desk 1
+- Anna at Desk 3 (studying Biology, likes Apples)
+- Ben and Liam at Desks 2 and 4
+
+Since Physics student has even letters (Anna or Liam) and Anna studies Biology, Liam studies Physics.
+From constraint 3: Physics student (Liam) is not at Desk 2.
+So Liam is at Desk 4, and Ben is at Desk 2.
+
+Current state:
+- Emily at Desk 1
+- Ben at Desk 2 (likes Pasta)
+- Anna at Desk 3 (studies Biology, likes Apples)
+- Liam at Desk 4 (studies Physics, likes Ice cream)
+
+This leaves Chemistry and Literature for Emily and Ben.
+
+From constraint 2: Pizza lover sits next to Chemistry student.
+Adjacent desks are: (1,2), (2,3), (3,4)
+We know: Ben likes Pasta, Anna likes Apples, Liam likes Ice cream.
+So Emily must like Pizza.
+
+Emily (Desk 1, likes Pizza) sits next to Ben (Desk 2).
+So Ben studies Chemistry.
+This leaves Literature for Emily.
+
+Final arrangement:
+- Emily at Desk 1 (studies Literature, likes Pizza)
+- Ben at Desk 2 (studies Chemistry, likes Pasta)
+- Anna at Desk 3 (studies Biology, likes Apples)
+- Liam at Desk 4 (studies Physics, likes Ice cream)
+
+Let me verify constraint 2: Pizza lover (Emily at Desk 1) sits next to Chemistry student (Ben at Desk 2). ✓
+
+=== END MODEL ===
+
+=== SOLUTION ===
+
+Liam likes Ice cream.
+Emily is studying Literature.
+
+Complete arrangement:
+- Emily: Desk 1, Literature, Pizza
+- Ben: Desk 2, Chemistry, Pasta
+- Anna: Desk 3, Biology, Apples
+- Liam: Desk 4, Physics, Ice cream
+
+=== END SOLUTION ===
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Let me verify the solution against all constraints:
+
+1. Biology student is at Desk 3: Anna at Desk 3 studies Biology ✓
+2. Pizza lover sits next to Chemistry student: Emily (Pizza, Desk 1) sits next to Ben (Chemistry, Desk 2) ✓
+3. Physics student is not at Desk 2: Liam (Physics) is at Desk 4 ✓
+4. Student at Desk 2 likes Pasta: Ben at Desk 2 likes Pasta ✓
+5. Anna likes Apples: Anna likes Apples ✓
+6. Ben is not studying Biology: Ben studies Chemistry ✓
+7. Emily is at Desk 1: Emily is at Desk 1 ✓
+8. Student at Desk 4 likes Ice cream: Liam at Desk 4 likes Ice cream ✓
+9. Physics student's name has even number of letters: Liam (4 letters) studies Physics ✓
+
+All constraints are satisfied. The reasoning is logical and systematic:
+- Correctly placed Emily at Desk 1
+- Correctly deduced Anna must be at Desk 3 (Biology) since she can't be at Desk 2 (Pasta) or Desk 4 (Ice cream) due to liking Apples
+- Correctly identified Liam as Physics student (even letters) and placed him at Desk 4 (not Desk 2)
+- Correctly deduced Ben at Desk 2
+- Correctly used the adjacency constraint to determine Emily likes Pizza and Ben studies Chemistry
+- Literature assignment to Emily follows logically
+
+<verdict>correct</verdict>
+
+Verdict: correct
+
+
+             Token Usage Statistics             
+┏━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃ Agent       ┃ Input ┃ Output ┃ Total ┃ Type  ┃
+┡━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ ReAct Agent │   264 │   1.0k │  1.3k │ Exact │
+│ Reviewer    │  1.2k │    388 │  1.6k │ Exact │
+│ COMBINED    │  1.5k │   1.4k │  2.9k │ Exact │
+└─────────────┴───────┴────────┴───────┴───────┘
+
+Completed in 21.4s
+
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1

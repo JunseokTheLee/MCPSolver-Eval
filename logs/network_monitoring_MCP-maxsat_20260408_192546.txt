@@ -1,0 +1,778 @@
+Found 1 MAXSAT problem(s) to test
+
+┌──────────────────────────────────────────────┐
+│ Testing problem [MAXSAT]: network_monitoring │
+└──────────────────────────────────────────────┘
+Running command: cd /Users/jayden/MCPSolver-Eval && uv run test-client --query /Users/jayden/MCPSolver-Eval/tests/problems/maxsat/network_monitoring.md --server "uv run mcp-solver-maxsat" --react-input-log "/Users/jayden/MCPSolver-Eval/logs/network_monitoring_MCP-maxsat_20260408_192546_input.txt"
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Detected mode: maxsat
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for maxsat mode:
+- Instructions: 26502 characters
+- Review: 3802 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+Using model: AT:claude-sonnet-4-20250514
+Using custom server command: uv run mcp-solver-maxsat
+2026-04-08 19:25:49,048 - mcp_solver.maxsat.model_manager - INFO - MaxSAT model manager initialized
+2026-04-08 19:25:49,048 - mcp_solver.core.server - INFO - Using MaxSAT model manager
+2026-04-08 19:25:49,049 - mcp_solver.core.server - INFO - Starting MCP server
+2026-04-08 19:25:49,052 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+
+📋 Available tools:
+  1. clear_model
+  2. add_item
+  3. replace_item
+  4. delete_item
+  5. get_model
+  6. solve_model
+
+Using recursion limit: 200
+[1;34msystem[0m: Entering ReAct Agent
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-08 19:25:51,427 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:25:51,427 - mcp_solver.maxsat.model_manager - INFO - Model cleared
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"from pysat.formula import WCNF\nfrom pysat.examples.rc2 import RC2\n# Note: Helper [0m
+[32mfunctions are already available\n\nwcnf = WCNF[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 19:25:53,787 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"# PARAMETER VERIFICATION\n# Problem parameters [0m[32m([0m[32mDO NOT CHANGE[0m[32m)[0m[32m:\n# - Number of servers: [0m
+[32m6\n# - Network edges: 8 connections\n# - Server values: Core1/[0m[32mCore2[0m[32m=[0m[32m10[0m[32m, Web1/[0m[32mWeb2[0m[32m=[0m[32m6[0m[32m, [0m[32mDB1[0m[32m=[0m[32m8[0m[32m, [0m[32mEdge1[0m[32m=[0m[32m5[0m[32m\n# - [0m
+[32mServer costs: Core1/[0m[32mCore2[0m[32m=[0m[32m3[0m[32m, Web1/[0m[32mWeb2[0m[32m=[0m[32m2[0m[32m, [0m[32mDB1[0m[32m=[0m[32m3[0m[32m, [0m[32mEdge1[0m[32m=[0m[32m1[0m[32m\n\n# Variables: [0m[32m1[0m[32m=[0m[32mCore1[0m[32m, [0m[32m2[0m[32m=[0m[32mCore2[0m[32m, [0m[32m3[0m[32m=[0m[32mWeb1[0m[32m, [0m
+[32m4[0m[32m=[0m[32mWeb2[0m[32m, [0m[32m5[0m[32m=[0m[32mDB1[0m[32m, [0m[32m6[0m[32m=[0m[32mEdge1[0m[32m\ncore1 = 1\ncore2 = 2\nweb1 = 3\nweb2 = 4\ndb1 = 5\nedge1 = 6\n\n# Server [0m
+[32mproperties\nserver_values = [0m[32m{[0m[32m\n    core1: 10,   # Core1\n    core2: 10,   # Core2\n    web1: 6,     # [0m
+[32mWeb1\n    web2: 6,     # Web2\n    db1: 8,      # DB1\n    edge1: 5     # Edge1\n[0m[32m}[0m[32m\n\nserver_costs = [0m[32m{[0m[32m\n [0m
+[32mcore1: 3,    # Core1\n    core2: 3,    # Core2\n    web1: 2,     # Web1\n    web2: 2,     # Web2\n    [0m
+[32mdb1: 3,      # DB1\n    edge1: 1     # Edge1\n[0m[32m}[0m[32m\n\n# Network connections [0m[32m([0m[32medges that must be [0m
+[32mcovered[0m[32m)[0m[32m\nnetwork_edges = [0m[32m[[0m[32m\n    [0m[32m([0m[32mcore1, core2[0m[32m)[0m[32m,  # Core1 - Core2\n    [0m[32m([0m[32mcore1, web1[0m[32m)[0m[32m,   # Core1 - Web1\n [0m
+[32m([0m[32mcore1, db1[0m[32m)[0m[32m,    # Core1 - DB1\n    [0m[32m([0m[32mcore2, web2[0m[32m)[0m[32m,   # Core2 - Web2\n    [0m[32m([0m[32mcore2, db1[0m[32m)[0m[32m,    # Core2 - DB1\n[0m
+[32m([0m[32mcore2, edge1[0m[32m)[0m[32m,  # Core2 - Edge1\n    [0m[32m([0m[32mweb1, web2[0m[32m)[0m[32m,    # Web1 - Web2\n    [0m[32m([0m[32mweb2, edge1[0m[32m)[0m[32m    # Web2 - [0m
+[32mEdge1\n[0m[32m][0m[32m\n\n# Verify parameters\nassert len[0m[32m([0m[32mnetwork_edges[0m[32m)[0m[32m == 8, \"Should have 8 network [0m
+[32mconnections\"\nassert len[0m[32m([0m[32mserver_values[0m[32m)[0m[32m == 6, \"Should have 6 servers\""[0m
+[1m}[0m
+2026-04-08 19:26:02,361 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of servers: [1;36m6[0m
+# - Network edges: [1;36m8[0m connections
+# - Server values: Core1/[33mCore2[0m=[1;36m10[0m, Web1/[33mWeb2[0m=[1;36m6[0m, [33mDB1[0m=[1;36m8[0m, [33mEdge1[0m=[1;36m5[0m
+# - Server costs: Core1/[33mCore2[0m=[1;36m3[0m, Web1/[33mWeb2[0m=[1;36m2[0m, [33mDB1[0m=[1;36m3[0m, [33mEdge1[0m=[1;36m1[0m
+
+# Variables: [1;36m1[0m=[35mCore1[0m, [1;36m2[0m=[35mCore2[0m, [1;36m3[0m=[35mWeb1[0m, [1;36m4[0m=[35mWeb2[0m, [1;36m5[0m=[35mDB1[0m, [1;36m6[0m=[35mEdge1[0m
+core1 = [1;36m1[0m
+core2 = [1;36m2[0m
+web1 = [1;36m3[0m
+web2 = [1;36m4[0m
+db1 = [1;36m5[0m
+edge1 = [1;36m6[0m
+
+# Server properties
+server_values = [1m{[0m
+    core1: [1;36m10[0m,   # Core1
+    core2: [1;36m10[0m,   # Core2
+    web1: [1;36m6[0m,     # Web1
+    web2: [1;36m6[0m,     # Web2
+    db1: [1;36m8[0m,      # DB1
+    edge1: [1;36m5[0m     # Edge1
+[1m}[0m
+
+server_costs = [1m{[0m
+    core1: [1;36m3[0m,    # Core1
+    core2: [1;36m3[0m,    # Core2
+    web1: [1;36m2[0m,     # Web1
+    web2: [1;36m2[0m,     # Web2
+    db1: [1;36m3[0m,      # DB1
+    edge1: [1;36m1[0m     # Edge1
+[1m}[0m
+
+# Network connections [1m([0medges that must be covered[1m)[0m
+network_edges = [1m[[0m
+    [1m([0mcore1, core2[1m)[0m,  # Core1 - Core2
+    [1m([0mcore1, web1[1m)[0m,   # Core1 - Web1
+    [1m([0mcore1, db1[1m)[0m,    # Core1 - DB1
+    [1m([0mcore2, web2[1m)[0m,   # Core2 - Web2
+    [1m([0mcore2, db1[1m)[0m,    # Core2 - DB1
+    [1m([0mcore2, edge1[1m)[0m,  # Core2 - Edge1
+    [1m([0mweb1, web2[1m)[0m,    # Web1 - Web2
+    [1m([0mweb2, edge1[1m)[0m    # Web2 - Edge1
+[1m][0m
+
+# Verify parameters
+assert [1;35mlen[0m[1m([0mnetwork_edges[1m)[0m == [1;36m8[0m, [32m"Should have 8 network connections"[0m
+assert [1;35mlen[0m[1m([0mserver_values[1m)[0m == [1;36m6[0m, [32m"Should have 6 servers"[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"# Hard constraints\n\n# 1. Edge Coverage: Every network connection must be monitored by at [0m
+[32mleast one server on either end\nfor server1, server2 in network_edges:\n    # At least one of the two [0m
+[32mservers connected by this edge must be monitored\n    wcnf.append[0m[32m([0m[32m)[0m[32m\n\n# 2. Critical Server: At least one[0m
+[32mCore server [0m[32m([0m[32mCore1 or Core2[0m[32m)[0m[32m must have monitoring\nwcnf.append[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 19:26:05,911 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of servers: [1;36m6[0m
+# - Network edges: [1;36m8[0m connections
+# - Server values: Core1/[33mCore2[0m=[1;36m10[0m, Web1/[33mWeb2[0m=[1;36m6[0m, [33mDB1[0m=[1;36m8[0m, [33mEdge1[0m=[1;36m5[0m
+# - Server costs: Core1/[33mCore2[0m=[1;36m3[0m, Web1/[33mWeb2[0m=[1;36m2[0m, [33mDB1[0m=[1;36m3[0m, [33mEdge1[0m=[1;36m1[0m
+
+# Variables: [1;36m1[0m=[35mCore1[0m, [1;36m2[0m=[35mCore2[0m, [1;36m3[0m=[35mWeb1[0m, [1;36m4[0m=[35mWeb2[0m, [1;36m5[0m=[35mDB1[0m, [1;36m6[0m=[35mEdge1[0m
+core1 = [1;36m1[0m
+core2 = [1;36m2[0m
+web1 = [1;36m3[0m
+web2 = [1;36m4[0m
+db1 = [1;36m5[0m
+edge1 = [1;36m6[0m
+
+# Server properties
+server_values = [1m{[0m
+    core1: [1;36m10[0m,   # Core1
+    core2: [1;36m10[0m,   # Core2
+    web1: [1;36m6[0m,     # Web1
+    web2: [1;36m6[0m,     # Web2
+    db1: [1;36m8[0m,      # DB1
+    edge1: [1;36m5[0m     # Edge1
+[1m}[0m
+
+server_costs = [1m{[0m
+    core1: [1;36m3[0m,    # Core1
+    core2: [1;36m3[0m,    # Core2
+    web1: [1;36m2[0m,     # Web1
+    web2: [1;36m2[0m,     # Web2
+    db1: [1;36m3[0m,      # DB1
+    edge1: [1;36m1[0m     # Edge1
+[1m}[0m
+
+# Network connections [1m([0medges that must be covered[1m)[0m
+network_edges = [1m[[0m
+    [1m([0mcore1, core2[1m)[0m,  # Core1 - Core2
+    [1m([0mcore1, web1[1m)[0m,   # Core1 - Web1
+    [1m([0mcore1, db1[1m)[0m,    # Core1 - DB1
+    [1m([0mcore2, web2[1m)[0m,   # Core2 - Web2
+    [1m([0mcore2, db1[1m)[0m,    # Core2 - DB1
+    [1m([0mcore2, edge1[1m)[0m,  # Core2 - Edge1
+    [1m([0mweb1, web2[1m)[0m,    # Web1 - Web2
+    [1m([0mweb2, edge1[1m)[0m    # Web2 - Edge1
+[1m][0m
+
+# Verify parameters
+assert [1;35mlen[0m[1m([0mnetwork_edges[1m)[0m == [1;36m8[0m, [32m"Should have 8 network connections"[0m
+assert [1;35mlen[0m[1m([0mserver_values[1m)[0m == [1;36m6[0m, [32m"Should have 6 servers"[0m
+[1;36m2[0m | # Hard constraints
+
+# [1;36m1[0m. Edge Coverage: Every network connection must be monitored by at least one server on either end
+for server1, server2 in network_edges:
+    # At least one of the two servers connected by this edge must be monitored
+    [1;35mwcnf.append[0m[1m([0m[1m)[0m
+
+# [1;36m2[0m. Critical Server: At least one Core server [1m([0mCore1 or Core2[1m)[0m must have monitoring
+[1;35mwcnf.append[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"# Soft constraints\n\n# 1. Cost Minimization: Minimize total deployment cost\n# Strategy: [0m
+[32mPenalize selecting each server by its cost\nfor server, cost in server_costs.items[0m[32m([0m[32m)[0m[32m:\n    [0m
+[32mwcnf.append[0m[32m([0m[32m[[0m[32m-server[0m[32m][0m[32m, [0m[32mweight[0m[32m=[0m[32mcost[0m[32m)[0m[32m  # Penalty = cost if server IS selected\n\n# 2. Value Maximization: [0m
+[32mMaximize monitoring value [0m[32m([0m[32mweight = 20 - value[0m[32m)[0m[32m\n# Strategy: Use the given formula to penalize NOT [0m
+[32mselecting valuable servers\nfor server, value in server_values.items[0m[32m([0m[32m)[0m[32m:\n    weight = 20 - value  # As [0m
+[32mspecified in problem\n    wcnf.append[0m[32m([0m[32m, [0m[32mweight[0m[32m=[0m[32mweight[0m[32m)[0m[32m  # Penalty = [0m[32m([0m[32m20-value[0m[32m)[0m[32m if server NOT [0m
+[32mselected\n\n# The optimization will balance:\n# - Cost penalties when servers are selected\n# - Value [0m
+[32mpenalties when servers are not selected"[0m
+[1m}[0m
+2026-04-08 19:26:11,175 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of servers: [1;36m6[0m
+# - Network edges: [1;36m8[0m connections
+# - Server values: Core1/[33mCore2[0m=[1;36m10[0m, Web1/[33mWeb2[0m=[1;36m6[0m, [33mDB1[0m=[1;36m8[0m, [33mEdge1[0m=[1;36m5[0m
+# - Server costs: Core1/[33mCore2[0m=[1;36m3[0m, Web1/[33mWeb2[0m=[1;36m2[0m, [33mDB1[0m=[1;36m3[0m, [33mEdge1[0m=[1;36m1[0m
+
+# Variables: [1;36m1[0m=[35mCore1[0m, [1;36m2[0m=[35mCore2[0m, [1;36m3[0m=[35mWeb1[0m, [1;36m4[0m=[35mWeb2[0m, [1;36m5[0m=[35mDB1[0m, [1;36m6[0m=[35mEdge1[0m
+core1 = [1;36m1[0m
+core2 = [1;36m2[0m
+web1 = [1;36m3[0m
+web2 = [1;36m4[0m
+db1 = [1;36m5[0m
+edge1 = [1;36m6[0m
+
+# Server properties
+server_values = [1m{[0m
+    core1: [1;36m10[0m,   # Core1
+    core2: [1;36m10[0m,   # Core2
+    web1: [1;36m6[0m,     # Web1
+    web2: [1;36m6[0m,     # Web2
+    db1: [1;36m8[0m,      # DB1
+    edge1: [1;36m5[0m     # Edge1
+[1m}[0m
+
+server_costs = [1m{[0m
+    core1: [1;36m3[0m,    # Core1
+    core2: [1;36m3[0m,    # Core2
+    web1: [1;36m2[0m,     # Web1
+    web2: [1;36m2[0m,     # Web2
+    db1: [1;36m3[0m,      # DB1
+    edge1: [1;36m1[0m     # Edge1
+[1m}[0m
+
+# Network connections [1m([0medges that must be covered[1m)[0m
+network_edges = [1m[[0m
+    [1m([0mcore1, core2[1m)[0m,  # Core1 - Core2
+    [1m([0mcore1, web1[1m)[0m,   # Core1 - Web1
+    [1m([0mcore1, db1[1m)[0m,    # Core1 - DB1
+    [1m([0mcore2, web2[1m)[0m,   # Core2 - Web2
+    [1m([0mcore2, db1[1m)[0m,    # Core2 - DB1
+    [1m([0mcore2, edge1[1m)[0m,  # Core2 - Edge1
+    [1m([0mweb1, web2[1m)[0m,    # Web1 - Web2
+    [1m([0mweb2, edge1[1m)[0m    # Web2 - Edge1
+[1m][0m
+
+# Verify parameters
+assert [1;35mlen[0m[1m([0mnetwork_edges[1m)[0m == [1;36m8[0m, [32m"Should have 8 network connections"[0m
+assert [1;35mlen[0m[1m([0mserver_values[1m)[0m == [1;36m6[0m, [32m"Should have 6 servers"[0m
+[1;36m2[0m | # Hard constraints
+
+# [1;36m1[0m. Edge Coverage: Every network connection must be monitored by at least one server on either end
+for server1, server2 in network_edges:
+    # At least one of the two servers connected by this edge must be monitored
+    [1;35mwcnf.append[0m[1m([0m[1m)[0m
+
+# [1;36m2[0m. Critical Server: At least one Core server [1m([0mCore1 or Core2[1m)[0m must have monitoring
+[1;35mwcnf.append[0m[1m([0m[1m)[0m
+[1;36m3[0m | # Soft constraints
+
+# [1;36m1[0m. Cost Minimization: Minimize total deployment cost
+# Strategy: Penalize selecting each server by its cost
+for server, cost in [1;35mserver_costs.items[0m[1m([0m[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0m[1m[[0m-server[1m][0m, [33mweight[0m=[35mcost[0m[1m)[0m  # Penalty = cost if server IS selected
+
+# [1;36m2[0m. Value Maximization: Maximize monitoring value [1m([0mweight = [1;36m20[0m - value[1m)[0m
+# Strategy: Use the given formula to penalize NOT selecting valuable servers
+for server, value in [1;35mserver_values.items[0m[1m([0m[1m)[0m:
+    weight = [1;36m20[0m - value  # As specified in problem
+    [1;35mwcnf.append[0m[1m([0m, [33mweight[0m=[35mweight[0m[1m)[0m  # Penalty = [1m([0m[1;36m20[0m-value[1m)[0m if server NOT selected
+
+# The optimization will balance:
+# - Cost penalties when servers are selected
+# - Value penalties when servers are not selected
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"# Solve and export solution\nwith RC2[0m[32m([0m[32mwcnf[0m[32m)[0m[32m as solver:\n    model = solver.compute[0m[32m([0m[32m)[0m[32m\n    [0m
+[32m\n    if model:\n        # Extract selected servers\n        selected_servers = [0m[32m[[0m[32m][0m[32m\n        server_names [0m
+[32m= [0m[32m{[0m[32m\n            core1: \"Core1\",\n            core2: \"Core2\", \n            web1: \"Web1\",\n        [0m
+[32mweb2: \"Web2\",\n            db1: \"DB1\",\n            edge1: \"Edge1\"\n        [0m[32m}[0m[32m\n        \n        [0m
+[32mfor server_var in model:\n            if server_var in server_names:\n                [0m
+[32mselected_servers.append[0m[32m([0m[32mserver_names[0m[32m)[0m[32m\n        \n        # Calculate total cost and value\n        [0m
+[32mtotal_cost = sum[0m[32m([0m[32mserver_costs[0m[32m for server in model if server in server_costs[0m[32m)[0m[32m\n        total_value = [0m
+[32msum[0m[32m([0m[32mserver_values[0m[32m for server in model if server in server_values[0m[32m)[0m[32m\n        \n        # Verify edge [0m
+[32mcoverage\n        covered_edges = [0m[32m[[0m[32m][0m[32m\n        for server1, server2 in network_edges:\n            if [0m
+[32mserver1 in model or server2 in model:\n                edge_name = f\"[0m[32m{[0m[32mserver_names[0m[32m}[0m[32m - [0m[32m{[0m[32mserver_names[0m[32m}[0m[32m\"\n[0m
+[32mcovered_edges.append[0m[32m([0m[32medge_name[0m[32m)[0m[32m\n        \n        # Verify critical server requirement\n        [0m
+[32mcore_selected = core1 in model or core2 in model\n        \n        # Create detailed solution\n        [0m
+[32msolution = [0m[32m{[0m[32m\n            \"selected_servers\": sorted[0m[32m([0m[32mselected_servers[0m[32m)[0m[32m,\n            \"total_cost\": [0m
+[32mtotal_cost,\n            \"total_value\": total_value,\n            \"core_server_selected\": [0m
+[32mcore_selected,\n            \"covered_edges\": covered_edges,\n            \"edge_coverage_complete\": [0m
+[32mlen[0m[32m([0m[32mcovered_edges[0m[32m)[0m[32m == 8\n        [0m[32m}[0m[32m\n        \n        export_solution[0m[32m([0m[32m{[0m[32m\n            \"satisfiable\": [0m
+[32mTrue,\n            \"cost\": solver.cost,\n            \"solution\": solution,\n            [0m
+[32m\"verification\": [0m[32m{[0m[32m\n                \"all_edges_covered\": len[0m[32m([0m[32mcovered_edges[0m[32m)[0m[32m == 8,\n                [0m
+[32m\"core_requirement_met\": core_selected,\n                \"edges_covered\": covered_edges\n            [0m
+[32m}[0m[32m\n        [0m[32m}[0m[32m)[0m[32m\n    else:\n        export_solution[0m[32m([0m[32m{[0m[32m\n            \"satisfiable\": False,\n            [0m
+[32m\"message\": \"No valid server selection exists that satisfies all constraints\"\n        [0m[32m}[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 19:26:20,023 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of servers: [1;36m6[0m
+# - Network edges: [1;36m8[0m connections
+# - Server values: Core1/[33mCore2[0m=[1;36m10[0m, Web1/[33mWeb2[0m=[1;36m6[0m, [33mDB1[0m=[1;36m8[0m, [33mEdge1[0m=[1;36m5[0m
+# - Server costs: Core1/[33mCore2[0m=[1;36m3[0m, Web1/[33mWeb2[0m=[1;36m2[0m, [33mDB1[0m=[1;36m3[0m, [33mEdge1[0m=[1;36m1[0m
+
+# Variables: [1;36m1[0m=[35mCore1[0m, [1;36m2[0m=[35mCore2[0m, [1;36m3[0m=[35mWeb1[0m, [1;36m4[0m=[35mWeb2[0m, [1;36m5[0m=[35mDB1[0m, [1;36m6[0m=[35mEdge1[0m
+core1 = [1;36m1[0m
+core2 = [1;36m2[0m
+web1 = [1;36m3[0m
+web2 = [1;36m4[0m
+db1 = [1;36m5[0m
+edge1 = [1;36m6[0m
+
+# Server properties
+server_values = [1m{[0m
+    core1: [1;36m10[0m,   # Core1
+    core2: [1;36m10[0m,   # Core2
+    web1: [1;36m6[0m,     # Web1
+    web2: [1;36m6[0m,     # Web2
+    db1: [1;36m8[0m,      # DB1
+    edge1: [1;36m5[0m     # Edge1
+[1m}[0m
+
+server_costs = [1m{[0m
+    core1: [1;36m3[0m,    # Core1
+    core2: [1;36m3[0m,    # Core2
+    web1: [1;36m2[0m,     # Web1
+    web2: [1;36m2[0m,     # Web2
+    db1: [1;36m3[0m,      # DB1
+    edge1: [1;36m1[0m     # Edge1
+[1m}[0m
+
+# Network connections [1m([0medges that must be covered[1m)[0m
+network_edges = [1m[[0m
+    [1m([0mcore1, core2[1m)[0m,  # Core1 - Core2
+    [1m([0mcore1, web1[1m)[0m,   # Core1 - Web1
+    [1m([0mcore1, db1[1m)[0m,    # Core1 - DB1
+    [1m([0mcore2, web2[1m)[0m,   # Core2 - Web2
+    [1m([0mcore2, db1[1m)[0m,    # Core2 - DB1
+    [1m([0mcore2, edge1[1m)[0m,  # Core2 - Edge1
+    [1m([0mweb1, web2[1m)[0m,    # Web1 - Web2
+    [1m([0mweb2, edge1[1m)[0m    # Web2 - Edge1
+[1m][0m
+
+# Verify parameters
+assert [1;35mlen[0m[1m([0mnetwork_edges[1m)[0m == [1;36m8[0m, [32m"Should have 8 network connections"[0m
+assert [1;35mlen[0m[1m([0mserver_values[1m)[0m == [1;36m6[0m, [32m"Should have 6 servers"[0m
+[1;36m2[0m | # Hard constraints
+
+# [1;36m1[0m. Edge Coverage: Every network connection must be monitored by at least one server on either end
+for server1, server2 in network_edges:
+    # At least one of the two servers connected by this edge must be monitored
+    [1;35mwcnf.append[0m[1m([0m[1m)[0m
+
+# [1;36m2[0m. Critical Server: At least one Core server [1m([0mCore1 or Core2[1m)[0m must have monitoring
+[1;35mwcnf.append[0m[1m([0m[1m)[0m
+[1;36m3[0m | # Soft constraints
+
+# [1;36m1[0m. Cost Minimization: Minimize total deployment cost
+# Strategy: Penalize selecting each server by its cost
+for server, cost in [1;35mserver_costs.items[0m[1m([0m[1m)[0m:
+    [1;35mwcnf.append[0m[1m([0m[1m[[0m-server[1m][0m, [33mweight[0m=[35mcost[0m[1m)[0m  # Penalty = cost if server IS selected
+
+# [1;36m2[0m. Value Maximization: Maximize monitoring value [1m([0mweight = [1;36m20[0m - value[1m)[0m
+# Strategy: Use the given formula to penalize NOT selecting valuable servers
+for server, value in [1;35mserver_values.items[0m[1m([0m[1m)[0m:
+    weight = [1;36m20[0m - value  # As specified in problem
+    [1;35mwcnf.append[0m[1m([0m, [33mweight[0m=[35mweight[0m[1m)[0m  # Penalty = [1m([0m[1;36m20[0m-value[1m)[0m if server NOT selected
+
+# The optimization will balance:
+# - Cost penalties when servers are selected
+# - Value penalties when servers are not selected
+[1;36m4[0m | # Solve and export solution
+with [1;35mRC2[0m[1m([0mwcnf[1m)[0m as solver:
+    model = [1;35msolver.compute[0m[1m([0m[1m)[0m
+    
+    if model:
+        # Extract selected servers
+        selected_servers = [1m[[0m[1m][0m
+        server_names = [1m{[0m
+            core1: [32m"Core1"[0m,
+            core2: [32m"Core2"[0m, 
+            web1: [32m"Web1"[0m,
+            web2: [32m"Web2"[0m,
+            db1: [32m"DB1"[0m,
+            edge1: [32m"Edge1"[0m
+        [1m}[0m
+        
+        for server_var in model:
+            if server_var in server_names:
+                [1;35mselected_servers.append[0m[1m([0mserver_names[1m)[0m
+        
+        # Calculate total cost and value
+        total_cost = [1;35msum[0m[1m([0mserver_costs for server in model if server in server_costs[1m)[0m
+        total_value = [1;35msum[0m[1m([0mserver_values for server in model if server in server_values[1m)[0m
+        
+        # Verify edge coverage
+        covered_edges = [1m[[0m[1m][0m
+        for server1, server2 in network_edges:
+            if server1 in model or server2 in model:
+                edge_name = f"[1m{[0mserver_names[1m}[0m - [1m{[0mserver_names[1m}[0m"
+                [1;35mcovered_edges.append[0m[1m([0medge_name[1m)[0m
+        
+        # Verify critical server requirement
+        core_selected = core1 in model or core2 in model
+        
+        # Create detailed solution
+        solution = [1m{[0m
+            [32m"selected_servers"[0m: [1;35msorted[0m[1m([0mselected_servers[1m)[0m,
+            [32m"total_cost"[0m: total_cost,
+            [32m"total_value"[0m: total_value,
+            [32m"core_server_selected"[0m: core_selected,
+            [32m"covered_edges"[0m: covered_edges,
+            [32m"edge_coverage_complete"[0m: [1;35mlen[0m[1m([0mcovered_edges[1m)[0m == [1;36m8[0m
+        [1m}[0m
+        
+        [1;35mexport_solution[0m[1m([0m[1m{[0m
+            [32m"satisfiable"[0m: [3;92mTrue[0m,
+            [32m"cost"[0m: solver.cost,
+            [32m"solution"[0m: solution,
+            [32m"verification"[0m: [1m{[0m
+                [32m"all_edges_covered"[0m: [1;35mlen[0m[1m([0mcovered_edges[1m)[0m == [1;36m8[0m,
+                [32m"core_requirement_met"[0m: core_selected,
+                [32m"edges_covered"[0m: covered_edges
+            [1m}[0m
+        [1m}[0m[1m)[0m
+    else:
+        [1;35mexport_solution[0m[1m([0m[1m{[0m
+            [32m"satisfiable"[0m: [3;91mFalse[0m,
+            [32m"message"[0m: [32m"No valid server selection exists that satisfies all constraints"[0m
+        [1m}[0m[1m)[0m
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m10[0m
+[1m}[0m
+2026-04-08 19:26:22,170 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:26:22,171 - mcp_solver.core.server - INFO - Solving model with timeout 10.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'message'[0m: [32m'MaxSAT optimization completed successfully [0m[32m([0m[32moptimal solution [0m
+[32mfound[0m[32m)[0m[32m with cost: 14'[0m, [32m'success'[0m: [3;92mTrue[0m, [32m'solve_time'[0m: [32m'0.428631 seconds'[0m, [32m'output'[0m: [32m"PYSAT_DEBUG_OUTPUT: [0m
+[32mcompute_returned_value[0m[32m=[0m[32mTrue[0m[32m\nPYSAT_DEBUG_OUTPUT: [0m[32msolver[0m[32m='solver'\nDEBUG - _LAST_SOLUTION set to: [0m
+[32m{[0m[32m'satisfiable': True, 'cost': 14, 'solution': [0m[32m{[0m[32m'selected_servers': [0m[32m[[0m[32m'Core1', 'Core2', 'DB1', 'Edge1', [0m
+[32m'Web1', 'Web2'[0m[32m][0m[32m, 'total_cost': 14, 'total_value': 45, 'core_server_selected': True, 'covered_edges': [0m
+[32m[[0m[32m'Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - [0m
+[32mWeb2', 'Web2 - Edge1'[0m[32m][0m[32m, 'edge_coverage_complete': True[0m[32m}[0m[32m, 'verification': [0m[32m{[0m[32m'all_edges_covered': True, [0m
+[32m'core_requirement_met': True, 'edges_covered': [0m[32m[[0m[32m'Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - [0m
+[32mWeb2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1'[0m[32m][0m[32m}[0m[32m, 'status': 'optimal', 'values': [0m
+[32m{[0m[32m'selected_servers': [0m[32m[[0m[32m'Core1', 'Core2', 'DB1', 'Edge1', 'Web1', 'Web2'[0m[32m][0m[32m, 'total_cost': 14, 'total_value':[0m
+[32m45, 'core_server_selected': True, 'covered_edges': [0m[32m[[0m[32m'Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', [0m
+[32m'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1'[0m[32m][0m[32m, 'edge_coverage_complete':[0m
+[32mTrue, 'all_edges_covered': True, 'core_requirement_met': True, 'edges_covered': [0m[32m[[0m[32m'Core1 - Core2', 'Core1 [0m
+[32m- Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1'[0m[32m][0m[32m}[0m[32m, [0m
+[32m'_is_maxsat_solution': True[0m[32m}[0m[32m\n\n"[0m, [32m'satisfiable'[0m: [3;92mTrue[0m, [32m'status'[0m: [32m'optimal'[0m, [32m'is_optimization'[0m: [3;92mTrue[0m, 
+[32m'cost'[0m: [1;36m14[0m, [32m'values'[0m: [1m{[0m[32m'selected_servers'[0m: [1m[[0m[32m'Core1'[0m, [32m'Core2'[0m, [32m'DB1'[0m, [32m'Edge1'[0m, [32m'Web1'[0m, [32m'Web2'[0m[1m][0m, 
+[32m'total_cost'[0m: [1;36m14[0m, [32m'total_value'[0m: [1;36m45[0m, [32m'core_server_selected'[0m: [3;92mTrue[0m, [32m'covered_edges'[0m: [1m[[0m[32m'Core1 - Core2'[0m, 
+[32m'Core1 - Web1'[0m, [32m'Core1 - DB1'[0m, [32m'Core2 - Web2'[0m, [32m'Core2 - DB1'[0m, [32m'Core2 - Edge1'[0m, [32m'Web1 - Web2'[0m, [32m'Web2 - [0m
+[32mEdge1'[0m[1m][0m, [32m'edge_coverage_complete'[0m: [3;92mTrue[0m, [32m'all_edges_covered'[0m: [3;92mTrue[0m, [32m'core_requirement_met'[0m: [3;92mTrue[0m, 
+[32m'edges_covered'[0m: [1m[[0m[32m'Core1 - Core2'[0m, [32m'Core1 - Web1'[0m, [32m'Core1 - DB1'[0m, [32m'Core2 - Web2'[0m, [32m'Core2 - DB1'[0m, [32m'Core2 -[0m
+[32mEdge1'[0m, [32m'Web1 - Web2'[0m, [32m'Web2 - Edge1'[0m[1m][0m[1m}[0m[1m}[0m
+2026-04-08 19:26:22,611 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+Agent response keys: ['messages']
+Agent reply received, length: 1746
+
+
+┌───────────────────┐
+│ PROBLEM STATEMENT │
+└───────────────────┘
+# Network Monitoring (Simplified)
+
+A company needs to place monitoring software on servers to ensure all network connections are monitored. Each server has a cost and monitoring value.
+
+## Network Structure
+
+### Servers (6 total)
+| Server | Type | Value | Cost |
+|--------|------|-------|------|
+| Core1 | Core | 10 | 3 |
+| Core2 | Core | 10 | 3 |
+| Web1 | Web | 6 | 2 |
+| Web2 | Web | 6 | 2 |
+| DB1 | Database | 8 | 3 |
+| Edge1 | Edge | 5 | 1 |
+
+### Network Connections (8 edges)
+- Core1 connects to: Core2, Web1, DB1
+- Core2 connects to: Web2, DB1, Edge1
+- Web1 connects to: Web2
+- Web2 connects to: Edge1
+
+## Constraints
+
+### Hard Constraints
+1. **Edge Coverage**: Every network connection must be monitored by at least one server on either end
+2. **Critical Server**: At least one Core server (Core1 or Core2) must have monitoring
+
+### Soft Constraints
+1. **Cost Minimization**: Minimize total deployment cost (weight = cost)
+2. **Value Maximization**: Maximize monitoring value (weight = 20 - value)
+
+## Task
+Find the optimal set of servers to monitor that:
+- Covers all network connections
+- Includes at least one Core server
+- Balances cost and value
+
+## Expected Output
+- List of servers selected for monitoring
+- Total cost
+- Total monitoring value
+- Verification that all edges are covered
+
+
+
+┌─────────────┐
+│ FINAL MODEL │
+└─────────────┘
+0 | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = WCNF()
+1 | # PARAMETER VERIFICATION
+# Problem parameters (DO NOT CHANGE):
+# - Number of servers: 6
+# - Network edges: 8 connections
+# - Server values: Core1/Core2=10, Web1/Web2=6, DB1=8, Edge1=5
+# - Server costs: Core1/Core2=3, Web1/Web2=2, DB1=3, Edge1=1
+
+# Variables: 1=Core1, 2=Core2, 3=Web1, 4=Web2, 5=DB1, 6=Edge1
+core1 = 1
+core2 = 2
+web1 = 3
+web2 = 4
+db1 = 5
+edge1 = 6
+
+# Server properties
+server_values = {
+    core1: 10,   # Core1
+    core2: 10,   # Core2
+    web1: 6,     # Web1
+    web2: 6,     # Web2
+    db1: 8,      # DB1
+    edge1: 5     # Edge1
+}
+
+server_costs = {
+    core1: 3,    # Core1
+    core2: 3,    # Core2
+    web1: 2,     # Web1
+    web2: 2,     # Web2
+    db1: 3,      # DB1
+    edge1: 1     # Edge1
+}
+
+# Network connections (edges that must be covered)
+network_edges = [
+    (core1, core2),  # Core1 - Core2
+    (core1, web1),   # Core1 - Web1
+    (core1, db1),    # Core1 - DB1
+    (core2, web2),   # Core2 - Web2
+    (core2, db1),    # Core2 - DB1
+    (core2, edge1),  # Core2 - Edge1
+    (web1, web2),    # Web1 - Web2
+    (web2, edge1)    # Web2 - Edge1
+]
+
+# Verify parameters
+assert len(network_edges) == 8, "Should have 8 network connections"
+assert len(server_values) == 6, "Should have 6 servers"
+2 | # Hard constraints
+
+# 1. Edge Coverage: Every network connection must be monitored by at least one server on either end
+for server1, server2 in network_edges:
+    # At least one of the two servers connected by this edge must be monitored
+    wcnf.append([server1, server2])
+
+# 2. Critical Server: At least one Core server (Core1 or Core2) must have monitoring
+wcnf.append([core1, core2])
+3 | # Soft constraints
+
+# 1. Cost Minimization: Minimize total deployment cost
+# Strategy: Penalize selecting each server by its cost
+for server, cost in server_costs.items():
+    wcnf.append([-server], weight=cost)  # Penalty = cost if server IS selected
+
+# 2. Value Maximization: Maximize monitoring value (weight = 20 - value)
+# Strategy: Use the given formula to penalize NOT selecting valuable servers
+for server, value in server_values.items():
+    weight = 20 - value  # As specified in problem
+    wcnf.append([server], weight=weight)  # Penalty = (20-value) if server NOT selected
+
+# The optimization will balance:
+# - Cost penalties when servers are selected
+# - Value penalties when servers are not selected
+4 | # Solve and export solution
+with RC2(wcnf) as solver:
+    model = solver.compute()
+    
+    if model:
+        # Extract selected servers
+        selected_servers = []
+        server_names = {
+            core1: "Core1",
+            core2: "Core2", 
+            web1: "Web1",
+            web2: "Web2",
+            db1: "DB1",
+            edge1: "Edge1"
+        }
+        
+        for server_var in model:
+            if server_var in server_names:
+                selected_servers.append(server_names[server_var])
+        
+        # Calculate total cost and value
+        total_cost = sum(server_costs[server] for server in model if server in server_costs)
+        total_value = sum(server_values[server] for server in model if server in server_values)
+        
+        # Verify edge coverage
+        covered_edges = []
+        for server1, server2 in network_edges:
+            if server1 in model or server2 in model:
+                edge_name = f"{server_names[server1]} - {server_names[server2]}"
+                covered_edges.append(edge_name)
+        
+        # Verify critical server requirement
+        core_selected = core1 in model or core2 in model
+        
+        # Create detailed solution
+        solution = {
+            "selected_servers": sorted(selected_servers),
+            "total_cost": total_cost,
+            "total_value": total_value,
+            "core_server_selected": core_selected,
+            "covered_edges": covered_edges,
+            "edge_coverage_complete": len(covered_edges) == 8
+        }
+        
+        export_solution({
+            "satisfiable": True,
+            "cost": solver.cost,
+            "solution": solution,
+            "verification": {
+                "all_edges_covered": len(covered_edges) == 8,
+                "core_requirement_met": core_selected,
+                "edges_covered": covered_edges
+            }
+        })
+    else:
+        export_solution({
+            "satisfiable": False,
+            "message": "No valid server selection exists that satisfies all constraints"
+        })
+
+
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+{'message': 'MaxSAT optimization completed successfully (optimal solution found) with cost: 14', 'success': True, 'solve_time': '0.428631 seconds', 'output': "PYSAT_DEBUG_OUTPUT: compute_returned_value=True\nPYSAT_DEBUG_OUTPUT: solver='solver'\nDEBUG - _LAST_SOLUTION set to: {'satisfiable': True, 'cost': 14, 'solution': {'selected_servers': ['Core1', 'Core2', 'DB1', 'Edge1', 'Web1', 'Web2'], 'total_cost': 14, 'total_value': 45, 'core_server_selected': True, 'covered_edges': ['Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1'], 'edge_coverage_complete': True}, 'verification': {'all_edges_covered': True, 'core_requirement_met': True, 'edges_covered': ['Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1']}, 'status': 'optimal', 'values': {'selected_servers': ['Core1', 'Core2', 'DB1', 'Edge1', 'Web1', 'Web2'], 'total_cost': 14, 'total_value': 45, 'core_server_selected': True, 'covered_edges': ['Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1'], 'edge_coverage_complete': True, 'all_edges_covered': True, 'core_requirement_met': True, 'edges_covered': ['Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1']}, '_is_maxsat_solution': True}\n\n", 'satisfiable': True, 'status': 'optimal', 'is_optimization': True, 'cost': 14, 'values': {'selected_servers': ['Core1', 'Core2', 'DB1', 'Edge1', 'Web1', 'Web2'], 'total_cost': 14, 'total_value': 45, 'core_server_selected': True, 'covered_edges': ['Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1'], 'edge_coverage_complete': True, 'all_edges_covered': True, 'core_requirement_met': True, 'edges_covered': ['Core1 - Core2', 'Core1 - Web1', 'Core1 - DB1', 'Core2 - Web2', 'Core2 - DB1', 'Core2 - Edge1', 'Web1 - Web2', 'Web2 - Edge1']}}
+
+[1;34msystem[0m: Entering Review Agent
+Starting solution review process...
+Preparing review prompt (11654 characters)...
+Calling model for review...
+Found verdict tag: correct
+Review complete: verdict is 'correct'
+Review complete: ✅ correct
+
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Correctness: ✅ correct
+Explanation: Looking at this MaxSAT solution for the network monitoring problem, I'll review it systematically:
+
+## 1. Structural Correctness ✅
+- **WCNF usage**: Correctly uses `WCNF()` for MaxSAT
+- **Hard constraints**: Properly added without weights using `wcnf.append([literals])`
+- **Soft constraints**: Correctly added with weights using `wcnf.append([literals], weight=value)`
+- **Solver**: Uses RC2 solver correctly with `RC2(wcnf)`
+- **Export**: Calls `export_solution()` with results
+
+## 2. Hard Constraint Satisfaction ✅
+Let me verify the solution satisfies the stated hard constraints:
+
+**Solution selects**: Core1, Core2, DB1, Edge1, Web1, Web2 (all 6 servers)
+
+**Hard Constraint 1 - Edge Coverage**: Every network connection must be monitored by at least one server on either end
+- Core1-Core2: ✅ (both selected)
+- Core1-Web1: ✅ (both selected)  
+- Core1-DB1: ✅ (both selected)
+- Core2-Web2: ✅ (both selected)
+- Core2-DB1: ✅ (both selected)
+- Core2-Edge1: ✅ (both selected)
+- Web1-Web2: ✅ (both selected)
+- Web2-Edge1: ✅ (both selected)
+
+**Hard Constraint 2 - Critical Server**: At least one Core server must have monitoring
+- ✅ Both Core1 and Core2 are selected
+
+## 3. Solution Format & Completeness ✅
+- Includes `"satisfiable": True`
+- Includes solver cost (14)
+- Provides all required outputs:
+  - List of selected servers ✅
+  - Total cost (14) ✅
+  - Total monitoring value (45) ✅
+  - Verification that all edges are covered ✅
+- Variable count matches problem (6 servers) ✅
+
+## 4. Basic Sanity Checks ✅
+- Uses positive integer variables (1-6) ✅
+- Cost is non-negative (14) ✅
+- Reported values are consistent:
+  - Total cost: 3+3+2+2+3+1 = 14 ✅
+  - Total value: 10+10+6+6+8+5 = 45 ✅
+
+## 5. Optimality Context ✅
+The solver reports optimal status with cost 14. This makes sense because:
+- All hard constraints are satisfied
+- The solution selects all 6 servers, which ensures complete coverage
+- While this might seem like overkill, the soft constraints balance cost vs. value, and the solver determined this is optimal given the constraint weights
+
+## Code Quality ✅
+- Clean variable definitions with meaningful names
+- Proper parameter verification
+- Good documentation and comments
+- Comprehensive solution verification and reporting
+
+
+
+             Tool Usage and Token Statistics              
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Category    ┃ Item                       ┃ Count/Value ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ TOOL USAGE  │                            │             │
+│ Tool        │ add_item                   │ 5           │
+│ Tool        │ clear_model                │ 1           │
+│ Tool        │ solve_model                │ 1           │
+│ Tool        │ get_model                  │ 1           │
+│ Tool        │ replace_item               │ 0           │
+│ Tool        │ delete_item                │ 0           │
+│ Tool        │ TOTAL                      │ 8           │
+│ TOKEN USAGE │                            │             │
+│ Token       │ ReAct Agent Input (exact)  │ 92k         │
+│ Token       │ ReAct Agent Output (exact) │ 2.5k        │
+│ Token       │ ReAct Agent Total (exact)  │ 94k         │
+│ Token       │ Reviewer Input (exact)     │ 3.7k        │
+│ Token       │ Reviewer Output (exact)    │ 760         │
+│ Token       │ Reviewer Total (exact)     │ 4.5k        │
+│ Token       │ COMBINED TOTAL             │ 99k         │
+└─────────────┴────────────────────────────┴─────────────┘
+Test completed successfully
+
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1

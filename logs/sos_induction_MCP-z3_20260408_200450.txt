@@ -1,0 +1,1237 @@
+Found 1 Z3 problem(s) to test
+
+┌─────────────────────────────────────┐
+│ Testing problem [Z3]: sos_induction │
+└─────────────────────────────────────┘
+Running command: cd /Users/jayden/MCPSolver-Eval && uv run test-client --query /Users/jayden/MCPSolver-Eval/tests/problems/z3/sos_induction.md --server "uv run mcp-solver-z3" --react-input-log "/Users/jayden/MCPSolver-Eval/logs/sos_induction_MCP-z3_20260408_200450_input.txt"
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Detected mode: z3
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for z3 mode:
+- Instructions: 27641 characters
+- Review: 2499 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+Using model: AT:claude-sonnet-4-20250514
+Using custom server command: uv run mcp-solver-z3
+2026-04-08 20:04:53,571 - mcp_solver.z3.model_manager - INFO - Z3 model manager initialized
+2026-04-08 20:04:53,571 - mcp_solver.core.server - INFO - Using Z3 model manager
+2026-04-08 20:04:53,573 - mcp_solver.core.server - INFO - Starting MCP server
+2026-04-08 20:04:53,575 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+
+📋 Available tools:
+  1. clear_model
+  2. add_item
+  3. replace_item
+  4. delete_item
+  5. get_model
+  6. solve_model
+
+Using recursion limit: 200
+[1;34msystem[0m: Entering ReAct Agent
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-08 20:04:56,542 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:04:56,542 - mcp_solver.z3.model_manager - INFO - Model cleared
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"# Mathematical Induction Proof: Sum of Cubes Formula\n# Proving: 1\u00b3 + 2\u00b3 + [0m
+[32m3\u00b3 + ... + n\u00b3 = n\u00b2[0m[32m([0m[32mn+1[0m[32m)[0m[32m\u00b2/4\n\nfrom z3 import *\nfrom mcp_solver.z3 import [0m
+[32mexport_solution\nimport math\n\nprint[0m[32m([0m[32m\"PROOF BY MATHEMATICAL INDUCTION\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"=\" * [0m
+[32m50[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"Formula to prove: 1\u00b3 + 2\u00b3 + ... + n\u00b3 = n\u00b2[0m[32m([0m[32mn+1[0m[32m)[0m[32m\u00b2/4\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:00,719 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:00,723 - mcp_solver.z3.model_manager - INFO - Added item at index 0
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"# STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"-\" * 30[0m[32m)[0m[32m\n\n# [0m
+[32mLeft side: 1\u00b3 = 1\nleft_side_base = 1\n\n# Right side: 1\u00b2[0m[32m([0m[32m1+1[0m[32m)[0m[32m\u00b2/4 = 1\u00b74/4 = [0m
+[32m1\nright_side_base = [0m[32m([0m[32m1**2 * [0m[32m([0m[32m1+1[0m[32m)[0m[32m**2[0m[32m)[0m[32m // 4\n\nprint[0m[32m([0m[32mf\"Left side:  1\u00b3 = [0m
+[32m{[0m[32mleft_side_base[0m[32m}[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32mf\"Right side: 1\u00b2[0m[32m([0m[32m2[0m[32m)[0m[32m\u00b2/4 = 1\u00b74/4 = [0m
+[32m{[0m[32mright_side_base[0m[32m}[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32mf\"Base case verified: [0m[32m{[0m[32mleft_side_base[0m[32m}[0m[32m = [0m
+[32m{[0m[32mright_side_base[0m[32m}[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m)[0m[32m\n\nbase_case_holds = [0m[32m([0m[32mleft_side_base == right_side_base[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:04,881 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:04,883 - mcp_solver.z3.model_manager - INFO - Added item at index 1
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m1[0m | # STEP [1;36m1[0m: BASE CASE [1m([0mn = [1;36m1[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m30[0m[1m)[0m
+
+# Left side: 1³ = [1;36m1[0m
+left_side_base = [1;36m1[0m
+
+# Right side: [1;35m1²[0m[1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1;36m1[0m
+right_side_base = [1m([0m[1;36m1[0m**[1;36m2[0m * [1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0mf"Left side:  1³ = [1m{[0mleft_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side: [1;35m1²[0m[1m([0m[1;36m2[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Base case verified: [1m{[0mleft_side_base[1m}[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+base_case_holds = [1m([0mleft_side_base == right_side_base[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"# STEP 2: INDUCTIVE HYPOTHESIS\nprint[0m[32m([0m[32m\"STEP 2: INDUCTIVE HYPOTHESIS\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"-\" * [0m
+[32m35[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"Assume the formula holds for some positive integer k:\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"1\u00b3 + 2\u00b3 + ... + [0m
+[32mk\u00b3 = k\u00b2[0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2/4\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m)[0m[32m\n\n# Define symbolic variable k\nk = Int[0m[32m([0m[32m'k'[0m[32m)[0m[32m\n\n# Inductive [0m
+[32mhypothesis: sum from 1 to k equals k\u00b2[0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2/4\nsum_to_k = k*k*[0m[32m([0m[32mk+1[0m[32m)[0m[32m*[0m[32m([0m[32mk+1[0m[32m)[0m[32m / 4\n\nprint[0m[32m([0m[32m\"We [0m
+[32massume this is true for k, and will prove it for k+1.\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:08,960 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:08,963 - mcp_solver.z3.model_manager - INFO - Added item at index 2
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m1[0m | # STEP [1;36m1[0m: BASE CASE [1m([0mn = [1;36m1[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m30[0m[1m)[0m
+
+# Left side: 1³ = [1;36m1[0m
+left_side_base = [1;36m1[0m
+
+# Right side: [1;35m1²[0m[1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1;36m1[0m
+right_side_base = [1m([0m[1;36m1[0m**[1;36m2[0m * [1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0mf"Left side:  1³ = [1m{[0mleft_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side: [1;35m1²[0m[1m([0m[1;36m2[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Base case verified: [1m{[0mleft_side_base[1m}[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+base_case_holds = [1m([0mleft_side_base == right_side_base[1m)[0m
+[1;36m2[0m | # STEP [1;36m2[0m: INDUCTIVE HYPOTHESIS
+[1;35mprint[0m[1m([0m[32m"STEP 2: INDUCTIVE HYPOTHESIS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Assume the formula holds for some positive integer k:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ = k²[0m[32m([0m[32mk+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Define symbolic variable k
+k = [1;35mInt[0m[1m([0m[32m'k'[0m[1m)[0m
+
+# Inductive hypothesis: sum from [1;36m1[0m to k equals [1;35mk²[0m[1m([0mk+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+sum_to_k = k*k*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"We assume this is true for k, and will prove it for k+1."[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"# STEP 3: INDUCTIVE STEP\nprint[0m[32m([0m[32m\"STEP 3: INDUCTIVE STEP\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"-\" * [0m
+[32m25[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"Prove the formula holds for k+1:\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"1\u00b3 + 2\u00b3 + ... + k\u00b3 + [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b3[0m
+[32m= [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2[0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2/4\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m)[0m[32m\n\n# Left side: sum to k + [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b3\n# Using inductive [0m
+[32mhypothesis: sum_to_k + [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b3\nleft_side = sum_to_k + [0m[32m([0m[32mk+1[0m[32m)[0m[32m*[0m[32m([0m[32mk+1[0m[32m)[0m[32m*[0m[32m([0m[32mk+1[0m[32m)[0m[32m\n\n# Right side: [0m
+[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2[0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2/4\nright_side = [0m[32m([0m[32mk+1[0m[32m)[0m[32m*[0m[32m([0m[32mk+1[0m[32m)[0m[32m*[0m[32m([0m[32mk+2[0m[32m)[0m[32m*[0m[32m([0m[32mk+2[0m[32m)[0m[32m / 4\n\nprint[0m[32m([0m[32m\"ALGEBRAIC [0m
+[32mMANIPULATION:\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"Left side = [0m[32m + [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b3\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"    [0m
+[32m= [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2[0m[32m/4\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2[0m[32m/4\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"          = [0m
+[32m([0m[32mk+1[0m[32m)[0m[32m\u00b2[0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2/4\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"          = Right side\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:15,281 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:15,284 - mcp_solver.z3.model_manager - INFO - Added item at index 3
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m1[0m | # STEP [1;36m1[0m: BASE CASE [1m([0mn = [1;36m1[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m30[0m[1m)[0m
+
+# Left side: 1³ = [1;36m1[0m
+left_side_base = [1;36m1[0m
+
+# Right side: [1;35m1²[0m[1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1;36m1[0m
+right_side_base = [1m([0m[1;36m1[0m**[1;36m2[0m * [1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0mf"Left side:  1³ = [1m{[0mleft_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side: [1;35m1²[0m[1m([0m[1;36m2[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Base case verified: [1m{[0mleft_side_base[1m}[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+base_case_holds = [1m([0mleft_side_base == right_side_base[1m)[0m
+[1;36m2[0m | # STEP [1;36m2[0m: INDUCTIVE HYPOTHESIS
+[1;35mprint[0m[1m([0m[32m"STEP 2: INDUCTIVE HYPOTHESIS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Assume the formula holds for some positive integer k:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ = k²[0m[32m([0m[32mk+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Define symbolic variable k
+k = [1;35mInt[0m[1m([0m[32m'k'[0m[1m)[0m
+
+# Inductive hypothesis: sum from [1;36m1[0m to k equals [1;35mk²[0m[1m([0mk+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+sum_to_k = k*k*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"We assume this is true for k, and will prove it for k+1."[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m3[0m | # STEP [1;36m3[0m: INDUCTIVE STEP
+[1;35mprint[0m[1m([0m[32m"STEP 3: INDUCTIVE STEP"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m25[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Prove the formula holds for k+1:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³ = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Left side: sum to k + [1m([0mk+[1;36m1[0m[1m)[0m³
+# Using inductive hypothesis: sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m³
+left_side = sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m
+
+# Right side: [1m([0mk+[1;36m1[0m[1m)[0m[1;35m²[0m[1m([0mk+[1;36m2[0m[1m)[0m²/[1;36m4[0m
+right_side = [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"ALGEBRAIC MANIPULATION:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Left side = [0m[32m + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = Right side"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"# STEP 4: FORMAL VERIFICATION WITH Z3\nprint[0m[32m([0m[32m\"STEP 4: FORMAL VERIFICATION WITH [0m
+[32mZ3\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"-\" * 35[0m[32m)[0m[32m\n\n# Create solver to verify algebraic equality\nsolver = Solver[0m[32m([0m[32m)[0m[32m\n\n# Add [0m
+[32mconstraint that k is positive\nsolver.add[0m[32m([0m[32mk > 0[0m[32m)[0m[32m\n\n# Simplify both sides\nleft_simplified = [0m
+[32msimplify[0m[32m([0m[32mleft_side[0m[32m)[0m[32m\nright_simplified = simplify[0m[32m([0m[32mright_side[0m[32m)[0m[32m\n\nprint[0m[32m([0m[32mf\"Left side simplified:  [0m
+[32m{[0m[32mleft_simplified[0m[32m}[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32mf\"Right side simplified: [0m[32m{[0m[32mright_simplified[0m[32m}[0m[32m\"[0m[32m)[0m[32m\n\n# Try to find a [0m
+[32mcounterexample where they're not equal\nsolver.add[0m[32m([0m[32mleft_simplified != right_simplified[0m[32m)[0m[32m\n\n# Check if [0m
+[32mcounterexample exists\nresult = solver.check[0m[32m([0m[32m)[0m[32m\n\nif result == unsat:\n    print[0m[32m([0m[32m\"\u2713 Z3 [0m
+[32mverification: No counterexample found\"[0m[32m)[0m[32m\n    print[0m[32m([0m[32m\"\u2713 Algebraic equality proven for all positive [0m
+[32mk\"[0m[32m)[0m[32m\n    inductive_step_verified = True\nelse:\n    print[0m[32m([0m[32m\"\u2717 Counterexample found!\"[0m[32m)[0m[32m\n    [0m
+[32mprint[0m[32m([0m[32m\"Model:\", solver.model[0m[32m([0m[32m)[0m[32m)[0m[32m\n    inductive_step_verified = False\n\nprint[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:21,547 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:21,550 - mcp_solver.z3.model_manager - INFO - Added item at index 4
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m1[0m | # STEP [1;36m1[0m: BASE CASE [1m([0mn = [1;36m1[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m30[0m[1m)[0m
+
+# Left side: 1³ = [1;36m1[0m
+left_side_base = [1;36m1[0m
+
+# Right side: [1;35m1²[0m[1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1;36m1[0m
+right_side_base = [1m([0m[1;36m1[0m**[1;36m2[0m * [1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0mf"Left side:  1³ = [1m{[0mleft_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side: [1;35m1²[0m[1m([0m[1;36m2[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Base case verified: [1m{[0mleft_side_base[1m}[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+base_case_holds = [1m([0mleft_side_base == right_side_base[1m)[0m
+[1;36m2[0m | # STEP [1;36m2[0m: INDUCTIVE HYPOTHESIS
+[1;35mprint[0m[1m([0m[32m"STEP 2: INDUCTIVE HYPOTHESIS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Assume the formula holds for some positive integer k:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ = k²[0m[32m([0m[32mk+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Define symbolic variable k
+k = [1;35mInt[0m[1m([0m[32m'k'[0m[1m)[0m
+
+# Inductive hypothesis: sum from [1;36m1[0m to k equals [1;35mk²[0m[1m([0mk+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+sum_to_k = k*k*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"We assume this is true for k, and will prove it for k+1."[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m3[0m | # STEP [1;36m3[0m: INDUCTIVE STEP
+[1;35mprint[0m[1m([0m[32m"STEP 3: INDUCTIVE STEP"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m25[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Prove the formula holds for k+1:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³ = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Left side: sum to k + [1m([0mk+[1;36m1[0m[1m)[0m³
+# Using inductive hypothesis: sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m³
+left_side = sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m
+
+# Right side: [1m([0mk+[1;36m1[0m[1m)[0m[1;35m²[0m[1m([0mk+[1;36m2[0m[1m)[0m²/[1;36m4[0m
+right_side = [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"ALGEBRAIC MANIPULATION:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Left side = [0m[32m + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = Right side"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m4[0m | # STEP [1;36m4[0m: FORMAL VERIFICATION WITH Z3
+[1;35mprint[0m[1m([0m[32m"STEP 4: FORMAL VERIFICATION WITH Z3"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+
+# Create solver to verify algebraic equality
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Add constraint that k is positive
+[1;35msolver.add[0m[1m([0mk > [1;36m0[0m[1m)[0m
+
+# Simplify both sides
+left_simplified = [1;35msimplify[0m[1m([0mleft_side[1m)[0m
+right_simplified = [1;35msimplify[0m[1m([0mright_side[1m)[0m
+
+[1;35mprint[0m[1m([0mf"Left side simplified:  [1m{[0mleft_simplified[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side simplified: [1m{[0mright_simplified[1m}[0m"[1m)[0m
+
+# Try to find a counterexample where they're not equal
+[1;35msolver.add[0m[1m([0mleft_simplified != right_simplified[1m)[0m
+
+# Check if counterexample exists
+result = [1;35msolver.check[0m[1m([0m[1m)[0m
+
+if result == unsat:
+    [1;35mprint[0m[1m([0m[32m"✓ Z3 verification: No counterexample found"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"✓ Algebraic equality proven for all positive k"[0m[1m)[0m
+    inductive_step_verified = [3;92mTrue[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Counterexample found!"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"Model:"[0m, [1;35msolver.model[0m[1m([0m[1m)[0m[1m)[0m
+    inductive_step_verified = [3;91mFalse[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m5[0m,
+  [32m"content"[0m: [32m"# STEP 5: DETAILED ALGEBRAIC VERIFICATION\nprint[0m[32m([0m[32m\"STEP 5: DETAILED ALGEBRAIC [0m
+[32mSTEPS\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"-\" * 35[0m[32m)[0m[32m\n\n# Let's manually verify the key algebraic step: k\u00b2 + 4k + 4 = [0m
+[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2\nprint[0m[32m([0m[32m\"Key algebraic identity to verify: k\u00b2 + 4k + 4 = [0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2\"[0m[32m)[0m[32m\n\n# Define [0m
+[32mexpressions\nk_var = Int[0m[32m([0m[32m'k_detailed'[0m[32m)[0m[32m\nexpr1 = k_var*k_var + 4*k_var + 4\nexpr2 = [0m[32m([0m[32mk_var + 2[0m[32m)[0m[32m*[0m[32m([0m[32mk_var + [0m
+[32m2[0m[32m)[0m[32m\n\n# Expand [0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2\nprint[0m[32m([0m[32m\"Expanding [0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2:\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"[0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2 = k\u00b2 + 2k + 2k + [0m
+[32m4 = k\u00b2 + 4k + 4 \u2713\"[0m[32m)[0m[32m\n\n# Verify with Z3\nidentity_solver = Solver[0m[32m([0m[32m)[0m[32m\nidentity_solver.add[0m[32m([0m[32mexpr1[0m
+[32m!= expr2[0m[32m)[0m[32m\n\nif identity_solver.check[0m[32m([0m[32m)[0m[32m == unsat:\n    print[0m[32m([0m[32m\"\u2713 Z3 confirms: k\u00b2 + 4k + 4 [0m
+[32m\u2261 [0m[32m([0m[32mk+2[0m[32m)[0m[32m\u00b2 for all k\"[0m[32m)[0m[32m\nelse:\n    print[0m[32m([0m[32m\"\u2717 Identity verification failed\"[0m[32m)[0m[32m\n\nprint[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:28,023 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:28,026 - mcp_solver.z3.model_manager - INFO - Added item at index 5
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m1[0m | # STEP [1;36m1[0m: BASE CASE [1m([0mn = [1;36m1[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m30[0m[1m)[0m
+
+# Left side: 1³ = [1;36m1[0m
+left_side_base = [1;36m1[0m
+
+# Right side: [1;35m1²[0m[1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1;36m1[0m
+right_side_base = [1m([0m[1;36m1[0m**[1;36m2[0m * [1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0mf"Left side:  1³ = [1m{[0mleft_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side: [1;35m1²[0m[1m([0m[1;36m2[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Base case verified: [1m{[0mleft_side_base[1m}[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+base_case_holds = [1m([0mleft_side_base == right_side_base[1m)[0m
+[1;36m2[0m | # STEP [1;36m2[0m: INDUCTIVE HYPOTHESIS
+[1;35mprint[0m[1m([0m[32m"STEP 2: INDUCTIVE HYPOTHESIS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Assume the formula holds for some positive integer k:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ = k²[0m[32m([0m[32mk+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Define symbolic variable k
+k = [1;35mInt[0m[1m([0m[32m'k'[0m[1m)[0m
+
+# Inductive hypothesis: sum from [1;36m1[0m to k equals [1;35mk²[0m[1m([0mk+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+sum_to_k = k*k*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"We assume this is true for k, and will prove it for k+1."[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m3[0m | # STEP [1;36m3[0m: INDUCTIVE STEP
+[1;35mprint[0m[1m([0m[32m"STEP 3: INDUCTIVE STEP"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m25[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Prove the formula holds for k+1:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³ = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Left side: sum to k + [1m([0mk+[1;36m1[0m[1m)[0m³
+# Using inductive hypothesis: sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m³
+left_side = sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m
+
+# Right side: [1m([0mk+[1;36m1[0m[1m)[0m[1;35m²[0m[1m([0mk+[1;36m2[0m[1m)[0m²/[1;36m4[0m
+right_side = [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"ALGEBRAIC MANIPULATION:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Left side = [0m[32m + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = Right side"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m4[0m | # STEP [1;36m4[0m: FORMAL VERIFICATION WITH Z3
+[1;35mprint[0m[1m([0m[32m"STEP 4: FORMAL VERIFICATION WITH Z3"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+
+# Create solver to verify algebraic equality
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Add constraint that k is positive
+[1;35msolver.add[0m[1m([0mk > [1;36m0[0m[1m)[0m
+
+# Simplify both sides
+left_simplified = [1;35msimplify[0m[1m([0mleft_side[1m)[0m
+right_simplified = [1;35msimplify[0m[1m([0mright_side[1m)[0m
+
+[1;35mprint[0m[1m([0mf"Left side simplified:  [1m{[0mleft_simplified[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side simplified: [1m{[0mright_simplified[1m}[0m"[1m)[0m
+
+# Try to find a counterexample where they're not equal
+[1;35msolver.add[0m[1m([0mleft_simplified != right_simplified[1m)[0m
+
+# Check if counterexample exists
+result = [1;35msolver.check[0m[1m([0m[1m)[0m
+
+if result == unsat:
+    [1;35mprint[0m[1m([0m[32m"✓ Z3 verification: No counterexample found"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"✓ Algebraic equality proven for all positive k"[0m[1m)[0m
+    inductive_step_verified = [3;92mTrue[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Counterexample found!"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"Model:"[0m, [1;35msolver.model[0m[1m([0m[1m)[0m[1m)[0m
+    inductive_step_verified = [3;91mFalse[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m5[0m | # STEP [1;36m5[0m: DETAILED ALGEBRAIC VERIFICATION
+[1;35mprint[0m[1m([0m[32m"STEP 5: DETAILED ALGEBRAIC STEPS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+
+# Let's manually verify the key algebraic step: k² + 4k + [1;36m4[0m = [1m([0mk+[1;36m2[0m[1m)[0m²
+[1;35mprint[0m[1m([0m[32m"Key algebraic identity to verify: k² + 4k + 4 = [0m[32m([0m[32mk+2[0m[32m)[0m[32m²"[0m[1m)[0m
+
+# Define expressions
+k_var = [1;35mInt[0m[1m([0m[32m'k_detailed'[0m[1m)[0m
+expr1 = k_var*k_var + [1;36m4[0m*k_var + [1;36m4[0m
+expr2 = [1m([0mk_var + [1;36m2[0m[1m)[0m*[1m([0mk_var + [1;36m2[0m[1m)[0m
+
+# Expand [1m([0mk+[1;36m2[0m[1m)[0m²
+[1;35mprint[0m[1m([0m[32m"Expanding [0m[32m([0m[32mk+2[0m[32m)[0m[32m²:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"[0m[32m([0m[32mk+2[0m[32m)[0m[32m² = k² + 2k + 2k + 4 = k² + 4k + 4 ✓"[0m[1m)[0m
+
+# Verify with Z3
+identity_solver = [1;35mSolver[0m[1m([0m[1m)[0m
+[1;35midentity_solver.add[0m[1m([0mexpr1 != expr2[1m)[0m
+
+if [1;35midentity_solver.check[0m[1m([0m[1m)[0m == unsat:
+    [1;35mprint[0m[1m([0m[32m"✓ Z3 confirms: k² + 4k + 4 ≡ [0m[32m([0m[32mk+2[0m[32m)[0m[32m² for all k"[0m[1m)[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Identity verification failed"[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m6[0m,
+  [32m"content"[0m: [32m"# STEP 6: NUMERICAL VERIFICATION\nprint[0m[32m([0m[32m\"STEP 6: NUMERICAL VERIFICATION\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"-\" * [0m
+[32m32[0m[32m)[0m[32m\n\nprint[0m[32m([0m[32m\"Verifying formula for specific values:\"[0m[32m)[0m[32m\nverification_passed = True\n\nfor n_val in [0m
+[32mrange[0m[32m([0m[32m1, 8[0m[32m)[0m[32m:\n    # Calculate sum of cubes using the program logic\n    result = 0\n    i = 1\n    while [0m
+[32mi <= n_val:\n        result = result + [0m[32m([0m[32mi * i * i[0m[32m)[0m[32m\n        i = i + 1\n    \n    # Calculate using the [0m
+[32mformula\n    formula_result = [0m[32m([0m[32mn_val**2 * [0m[32m([0m[32mn_val + 1[0m[32m)[0m[32m**2[0m[32m)[0m[32m // 4\n    \n    print[0m[32m([0m[32mf\"n = [0m[32m{[0m[32mn_val[0m[32m}[0m[32m: Program [0m
+[32mresult = [0m[32m{[0m[32mresult[0m[32m}[0m[32m, Formula = [0m[32m{[0m[32mformula_result[0m[32m}[0m[32m\"[0m[32m)[0m[32m\n    \n    if result != formula_result:\n        [0m
+[32mverification_passed = False\n        print[0m[32m([0m[32mf\"  \u2717 MISMATCH!\"[0m[32m)[0m[32m\n    else:\n        print[0m[32m([0m[32mf\"  \u2713[0m
+[32mMatch\"[0m[32m)[0m[32m\n\nprint[0m[32m([0m[32m)[0m[32m\nif verification_passed:\n    print[0m[32m([0m[32m\"\u2713 All numerical tests passed\"[0m[32m)[0m[32m\nelse:\n  [0m
+[32mprint[0m[32m([0m[32m\"\u2717 Some numerical tests failed\"[0m[32m)[0m[32m\n\nprint[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:33,348 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:33,349 - mcp_solver.z3.model_manager - INFO - Added item at index 6
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m1[0m | # STEP [1;36m1[0m: BASE CASE [1m([0mn = [1;36m1[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m30[0m[1m)[0m
+
+# Left side: 1³ = [1;36m1[0m
+left_side_base = [1;36m1[0m
+
+# Right side: [1;35m1²[0m[1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1;36m1[0m
+right_side_base = [1m([0m[1;36m1[0m**[1;36m2[0m * [1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0mf"Left side:  1³ = [1m{[0mleft_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side: [1;35m1²[0m[1m([0m[1;36m2[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Base case verified: [1m{[0mleft_side_base[1m}[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+base_case_holds = [1m([0mleft_side_base == right_side_base[1m)[0m
+[1;36m2[0m | # STEP [1;36m2[0m: INDUCTIVE HYPOTHESIS
+[1;35mprint[0m[1m([0m[32m"STEP 2: INDUCTIVE HYPOTHESIS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Assume the formula holds for some positive integer k:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ = k²[0m[32m([0m[32mk+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Define symbolic variable k
+k = [1;35mInt[0m[1m([0m[32m'k'[0m[1m)[0m
+
+# Inductive hypothesis: sum from [1;36m1[0m to k equals [1;35mk²[0m[1m([0mk+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+sum_to_k = k*k*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"We assume this is true for k, and will prove it for k+1."[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m3[0m | # STEP [1;36m3[0m: INDUCTIVE STEP
+[1;35mprint[0m[1m([0m[32m"STEP 3: INDUCTIVE STEP"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m25[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Prove the formula holds for k+1:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³ = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Left side: sum to k + [1m([0mk+[1;36m1[0m[1m)[0m³
+# Using inductive hypothesis: sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m³
+left_side = sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m
+
+# Right side: [1m([0mk+[1;36m1[0m[1m)[0m[1;35m²[0m[1m([0mk+[1;36m2[0m[1m)[0m²/[1;36m4[0m
+right_side = [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"ALGEBRAIC MANIPULATION:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Left side = [0m[32m + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = Right side"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m4[0m | # STEP [1;36m4[0m: FORMAL VERIFICATION WITH Z3
+[1;35mprint[0m[1m([0m[32m"STEP 4: FORMAL VERIFICATION WITH Z3"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+
+# Create solver to verify algebraic equality
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Add constraint that k is positive
+[1;35msolver.add[0m[1m([0mk > [1;36m0[0m[1m)[0m
+
+# Simplify both sides
+left_simplified = [1;35msimplify[0m[1m([0mleft_side[1m)[0m
+right_simplified = [1;35msimplify[0m[1m([0mright_side[1m)[0m
+
+[1;35mprint[0m[1m([0mf"Left side simplified:  [1m{[0mleft_simplified[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side simplified: [1m{[0mright_simplified[1m}[0m"[1m)[0m
+
+# Try to find a counterexample where they're not equal
+[1;35msolver.add[0m[1m([0mleft_simplified != right_simplified[1m)[0m
+
+# Check if counterexample exists
+result = [1;35msolver.check[0m[1m([0m[1m)[0m
+
+if result == unsat:
+    [1;35mprint[0m[1m([0m[32m"✓ Z3 verification: No counterexample found"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"✓ Algebraic equality proven for all positive k"[0m[1m)[0m
+    inductive_step_verified = [3;92mTrue[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Counterexample found!"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"Model:"[0m, [1;35msolver.model[0m[1m([0m[1m)[0m[1m)[0m
+    inductive_step_verified = [3;91mFalse[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m5[0m | # STEP [1;36m5[0m: DETAILED ALGEBRAIC VERIFICATION
+[1;35mprint[0m[1m([0m[32m"STEP 5: DETAILED ALGEBRAIC STEPS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+
+# Let's manually verify the key algebraic step: k² + 4k + [1;36m4[0m = [1m([0mk+[1;36m2[0m[1m)[0m²
+[1;35mprint[0m[1m([0m[32m"Key algebraic identity to verify: k² + 4k + 4 = [0m[32m([0m[32mk+2[0m[32m)[0m[32m²"[0m[1m)[0m
+
+# Define expressions
+k_var = [1;35mInt[0m[1m([0m[32m'k_detailed'[0m[1m)[0m
+expr1 = k_var*k_var + [1;36m4[0m*k_var + [1;36m4[0m
+expr2 = [1m([0mk_var + [1;36m2[0m[1m)[0m*[1m([0mk_var + [1;36m2[0m[1m)[0m
+
+# Expand [1m([0mk+[1;36m2[0m[1m)[0m²
+[1;35mprint[0m[1m([0m[32m"Expanding [0m[32m([0m[32mk+2[0m[32m)[0m[32m²:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"[0m[32m([0m[32mk+2[0m[32m)[0m[32m² = k² + 2k + 2k + 4 = k² + 4k + 4 ✓"[0m[1m)[0m
+
+# Verify with Z3
+identity_solver = [1;35mSolver[0m[1m([0m[1m)[0m
+[1;35midentity_solver.add[0m[1m([0mexpr1 != expr2[1m)[0m
+
+if [1;35midentity_solver.check[0m[1m([0m[1m)[0m == unsat:
+    [1;35mprint[0m[1m([0m[32m"✓ Z3 confirms: k² + 4k + 4 ≡ [0m[32m([0m[32mk+2[0m[32m)[0m[32m² for all k"[0m[1m)[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Identity verification failed"[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m6[0m | # STEP [1;36m6[0m: NUMERICAL VERIFICATION
+[1;35mprint[0m[1m([0m[32m"STEP 6: NUMERICAL VERIFICATION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m32[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[32m"Verifying formula for specific values:"[0m[1m)[0m
+verification_passed = [3;92mTrue[0m
+
+for n_val in [1;35mrange[0m[1m([0m[1;36m1[0m, [1;36m8[0m[1m)[0m:
+    # Calculate sum of cubes using the program logic
+    result = [1;36m0[0m
+    i = [1;36m1[0m
+    while i <= n_val:
+        result = result + [1m([0mi * i * i[1m)[0m
+        i = i + [1;36m1[0m
+    
+    # Calculate using the formula
+    formula_result = [1m([0mn_val**[1;36m2[0m * [1m([0mn_val + [1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+    
+    [1;35mprint[0m[1m([0mf"n = [1m{[0mn_val[1m}[0m: Program result = [1m{[0mresult[1m}[0m, Formula = [1m{[0mformula_result[1m}[0m"[1m)[0m
+    
+    if result != formula_result:
+        verification_passed = [3;91mFalse[0m
+        [1;35mprint[0m[1m([0mf"  ✗ MISMATCH!"[1m)[0m
+    else:
+        [1;35mprint[0m[1m([0mf"  ✓ Match"[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+if verification_passed:
+    [1;35mprint[0m[1m([0m[32m"✓ All numerical tests passed"[0m[1m)[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Some numerical tests failed"[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m7[0m,
+  [32m"content"[0m: [32m"# FINAL CONCLUSION AND EXPORT\nprint[0m[32m([0m[32m\"CONCLUSION\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"=\" * 50[0m[32m)[0m[32m\n\n# Determine if [0m
+[32mthe proof is complete and valid\nproof_complete = base_case_holds and inductive_step_verified and [0m
+[32mverification_passed\n\nif proof_complete:\n    print[0m[32m([0m[32m\"\u2713 PROOF SUCCESSFULLY COMPLETED!\"[0m[32m)[0m[32m\n    [0m
+[32mprint[0m[32m([0m[32m)[0m[32m\n    print[0m[32m([0m[32m\"By mathematical induction, we have proven that:\"[0m[32m)[0m[32m\n    print[0m[32m([0m[32m\"For any positive [0m
+[32minteger n, the sum 1\u00b3 + 2\u00b3 + ... + n\u00b3 = n\u00b2[0m[32m([0m[32mn+1[0m[32m)[0m[32m\u00b2/4\"[0m[32m)[0m[32m\n    print[0m[32m([0m[32m)[0m[32m\n    [0m
+[32mprint[0m[32m([0m[32m\"This confirms that the given program correctly computes n\u00b2[0m[32m([0m[32mn+1[0m[32m)[0m[32m\u00b2/4\"[0m[32m)[0m[32m\nelse:\n    [0m
+[32mprint[0m[32m([0m[32m\"\u2717 PROOF INCOMPLETE OR INVALID\"[0m[32m)[0m[32m\n    print[0m[32m([0m[32m\"Some verification steps [0m
+[32mfailed.\"[0m[32m)[0m[32m\n\nprint[0m[32m([0m[32m)[0m[32m\nprint[0m[32m([0m[32m\"Components verified:\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32mf\"  Base case [0m[32m([0m[32mn[0m[32m=[0m[32m1[0m[32m)[0m[32m: [0m[32m{[0m[32m'\u2713' if [0m
+[32mbase_case_holds else '\u2717'[0m[32m}[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32mf\"  Inductive step:   [0m[32m{[0m[32m'\u2713' if inductive_step_verified else[0m
+[32m'\u2717'[0m[32m}[0m[32m\"[0m[32m)[0m[32m\nprint[0m[32m([0m[32mf\"  Numerical tests:  [0m[32m{[0m[32m'\u2713' if verification_passed else '\u2717'[0m[32m}[0m[32m\"[0m[32m)[0m[32m\n\n# Create[0m
+[32mZ3 variable to export the proof result\nproof_verified = Bool[0m[32m([0m[32m'proof_verified'[0m[32m)[0m[32m\nfinal_solver = [0m
+[32mSolver[0m[32m([0m[32m)[0m[32m\nfinal_solver.add[0m[32m([0m[32mproof_verified == proof_complete[0m[32m)[0m[32m\n\nexport_solution[0m[32m([0m[32msolver[0m[32m=[0m[32mfinal_solver[0m[32m, [0m
+[32mvariables[0m[32m=[0m[32m{[0m[32m\"proof_verified\": proof_verified[0m[32m}[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-08 20:05:40,616 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:40,619 - mcp_solver.z3.model_manager - INFO - Added item at index 7
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + [33m...[0m + n³ = [1;35mn²[0m[1m([0mn+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+[1;35mprint[0m[1m([0m[32m"PROOF BY MATHEMATICAL INDUCTION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Formula to prove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m1[0m | # STEP [1;36m1[0m: BASE CASE [1m([0mn = [1;36m1[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m30[0m[1m)[0m
+
+# Left side: 1³ = [1;36m1[0m
+left_side_base = [1;36m1[0m
+
+# Right side: [1;35m1²[0m[1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1;36m1[0m
+right_side_base = [1m([0m[1;36m1[0m**[1;36m2[0m * [1m([0m[1;36m1[0m+[1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0mf"Left side:  1³ = [1m{[0mleft_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side: [1;35m1²[0m[1m([0m[1;36m2[0m[1m)[0m²/[1;36m4[0m = [1;36m1[0m·[1;36m4[0m/[1;36m4[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Base case verified: [1m{[0mleft_side_base[1m}[0m = [1m{[0mright_side_base[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+base_case_holds = [1m([0mleft_side_base == right_side_base[1m)[0m
+[1;36m2[0m | # STEP [1;36m2[0m: INDUCTIVE HYPOTHESIS
+[1;35mprint[0m[1m([0m[32m"STEP 2: INDUCTIVE HYPOTHESIS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Assume the formula holds for some positive integer k:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ = k²[0m[32m([0m[32mk+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Define symbolic variable k
+k = [1;35mInt[0m[1m([0m[32m'k'[0m[1m)[0m
+
+# Inductive hypothesis: sum from [1;36m1[0m to k equals [1;35mk²[0m[1m([0mk+[1;36m1[0m[1m)[0m²/[1;36m4[0m
+sum_to_k = k*k*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"We assume this is true for k, and will prove it for k+1."[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m3[0m | # STEP [1;36m3[0m: INDUCTIVE STEP
+[1;35mprint[0m[1m([0m[32m"STEP 3: INDUCTIVE STEP"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m25[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Prove the formula holds for k+1:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"1³ + 2³ + ... + k³ + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³ = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+
+# Left side: sum to k + [1m([0mk+[1;36m1[0m[1m)[0m³
+# Using inductive hypothesis: sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m³
+left_side = sum_to_k + [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m
+
+# Right side: [1m([0mk+[1;36m1[0m[1m)[0m[1;35m²[0m[1m([0mk+[1;36m2[0m[1m)[0m²/[1;36m4[0m
+right_side = [1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m1[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m*[1m([0mk+[1;36m2[0m[1m)[0m [35m/[0m [1;36m4[0m
+
+[1;35mprint[0m[1m([0m[32m"ALGEBRAIC MANIPULATION:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Left side = [0m[32m + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"          = Right side"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m4[0m | # STEP [1;36m4[0m: FORMAL VERIFICATION WITH Z3
+[1;35mprint[0m[1m([0m[32m"STEP 4: FORMAL VERIFICATION WITH Z3"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+
+# Create solver to verify algebraic equality
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Add constraint that k is positive
+[1;35msolver.add[0m[1m([0mk > [1;36m0[0m[1m)[0m
+
+# Simplify both sides
+left_simplified = [1;35msimplify[0m[1m([0mleft_side[1m)[0m
+right_simplified = [1;35msimplify[0m[1m([0mright_side[1m)[0m
+
+[1;35mprint[0m[1m([0mf"Left side simplified:  [1m{[0mleft_simplified[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"Right side simplified: [1m{[0mright_simplified[1m}[0m"[1m)[0m
+
+# Try to find a counterexample where they're not equal
+[1;35msolver.add[0m[1m([0mleft_simplified != right_simplified[1m)[0m
+
+# Check if counterexample exists
+result = [1;35msolver.check[0m[1m([0m[1m)[0m
+
+if result == unsat:
+    [1;35mprint[0m[1m([0m[32m"✓ Z3 verification: No counterexample found"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"✓ Algebraic equality proven for all positive k"[0m[1m)[0m
+    inductive_step_verified = [3;92mTrue[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Counterexample found!"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"Model:"[0m, [1;35msolver.model[0m[1m([0m[1m)[0m[1m)[0m
+    inductive_step_verified = [3;91mFalse[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m5[0m | # STEP [1;36m5[0m: DETAILED ALGEBRAIC VERIFICATION
+[1;35mprint[0m[1m([0m[32m"STEP 5: DETAILED ALGEBRAIC STEPS"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m35[0m[1m)[0m
+
+# Let's manually verify the key algebraic step: k² + 4k + [1;36m4[0m = [1m([0mk+[1;36m2[0m[1m)[0m²
+[1;35mprint[0m[1m([0m[32m"Key algebraic identity to verify: k² + 4k + 4 = [0m[32m([0m[32mk+2[0m[32m)[0m[32m²"[0m[1m)[0m
+
+# Define expressions
+k_var = [1;35mInt[0m[1m([0m[32m'k_detailed'[0m[1m)[0m
+expr1 = k_var*k_var + [1;36m4[0m*k_var + [1;36m4[0m
+expr2 = [1m([0mk_var + [1;36m2[0m[1m)[0m*[1m([0mk_var + [1;36m2[0m[1m)[0m
+
+# Expand [1m([0mk+[1;36m2[0m[1m)[0m²
+[1;35mprint[0m[1m([0m[32m"Expanding [0m[32m([0m[32mk+2[0m[32m)[0m[32m²:"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"[0m[32m([0m[32mk+2[0m[32m)[0m[32m² = k² + 2k + 2k + 4 = k² + 4k + 4 ✓"[0m[1m)[0m
+
+# Verify with Z3
+identity_solver = [1;35mSolver[0m[1m([0m[1m)[0m
+[1;35midentity_solver.add[0m[1m([0mexpr1 != expr2[1m)[0m
+
+if [1;35midentity_solver.check[0m[1m([0m[1m)[0m == unsat:
+    [1;35mprint[0m[1m([0m[32m"✓ Z3 confirms: k² + 4k + 4 ≡ [0m[32m([0m[32mk+2[0m[32m)[0m[32m² for all k"[0m[1m)[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Identity verification failed"[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m6[0m | # STEP [1;36m6[0m: NUMERICAL VERIFICATION
+[1;35mprint[0m[1m([0m[32m"STEP 6: NUMERICAL VERIFICATION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"-"[0m * [1;36m32[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[32m"Verifying formula for specific values:"[0m[1m)[0m
+verification_passed = [3;92mTrue[0m
+
+for n_val in [1;35mrange[0m[1m([0m[1;36m1[0m, [1;36m8[0m[1m)[0m:
+    # Calculate sum of cubes using the program logic
+    result = [1;36m0[0m
+    i = [1;36m1[0m
+    while i <= n_val:
+        result = result + [1m([0mi * i * i[1m)[0m
+        i = i + [1;36m1[0m
+    
+    # Calculate using the formula
+    formula_result = [1m([0mn_val**[1;36m2[0m * [1m([0mn_val + [1;36m1[0m[1m)[0m**[1;36m2[0m[1m)[0m [35m/[0m[35m/[0m [1;36m4[0m
+    
+    [1;35mprint[0m[1m([0mf"n = [1m{[0mn_val[1m}[0m: Program result = [1m{[0mresult[1m}[0m, Formula = [1m{[0mformula_result[1m}[0m"[1m)[0m
+    
+    if result != formula_result:
+        verification_passed = [3;91mFalse[0m
+        [1;35mprint[0m[1m([0mf"  ✗ MISMATCH!"[1m)[0m
+    else:
+        [1;35mprint[0m[1m([0mf"  ✓ Match"[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+if verification_passed:
+    [1;35mprint[0m[1m([0m[32m"✓ All numerical tests passed"[0m[1m)[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ Some numerical tests failed"[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;36m7[0m | # FINAL CONCLUSION AND EXPORT
+[1;35mprint[0m[1m([0m[32m"CONCLUSION"[0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"="[0m * [1;36m50[0m[1m)[0m
+
+# Determine if the proof is complete and valid
+proof_complete = base_case_holds and inductive_step_verified and verification_passed
+
+if proof_complete:
+    [1;35mprint[0m[1m([0m[32m"✓ PROOF SUCCESSFULLY COMPLETED!"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"By mathematical induction, we have proven that:"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"For any positive integer n, the sum 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"This confirms that the given program correctly computes n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4"[0m[1m)[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"✗ PROOF INCOMPLETE OR INVALID"[0m[1m)[0m
+    [1;35mprint[0m[1m([0m[32m"Some verification steps failed."[0m[1m)[0m
+
+[1;35mprint[0m[1m([0m[1m)[0m
+[1;35mprint[0m[1m([0m[32m"Components verified:"[0m[1m)[0m
+[1;35mprint[0m[1m([0mf"  Base case [1m([0m[33mn[0m=[1;36m1[0m[1m)[0m: [1m{[0m[32m'✓'[0m if base_case_holds else [32m'✗'[0m[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"  Inductive step:   [1m{[0m[32m'✓'[0m if inductive_step_verified else [32m'✗'[0m[1m}[0m"[1m)[0m
+[1;35mprint[0m[1m([0mf"  Numerical tests:  [1m{[0m[32m'✓'[0m if verification_passed else [32m'✗'[0m[1m}[0m"[1m)[0m
+
+# Create Z3 variable to export the proof result
+proof_verified = [1;35mBool[0m[1m([0m[32m'proof_verified'[0m[1m)[0m
+final_solver = [1;35mSolver[0m[1m([0m[1m)[0m
+[1;35mfinal_solver.add[0m[1m([0mproof_verified == proof_complete[1m)[0m
+
+[1;35mexport_solution[0m[1m([0m[33msolver[0m=[35mfinal_solver[0m, [33mvariables[0m=[1m{[0m[32m"proof_verified"[0m: proof_verified[1m}[0m[1m)[0m
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m15[0m
+[1m}[0m
+2026-04-08 20:05:43,175 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 20:05:43,176 - mcp_solver.core.server - INFO - Solving model with timeout 15.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'success'[0m: [3;92mTrue[0m, [32m'message'[0m: [32m'Model solved'[0m, [32m'status'[0m: [32m'success'[0m, [32m'output'[0m:
+
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│ [1m[[0m[32m'PROOF BY MATHEMATICAL INDUCTION'[0m, [32m''[0m, [32m'Formula to [0m │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+[32mprove: 1³ + 2³ + ... + n³ = n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4'[0m, [32m''[0m, [32m'STEP 1: BASE CASE [0m[32m([0m[32mn = 1[0m[32m)[0m[32m'[0m, 
+[32m'------------------------------'[0m, [32m'Left side:  1³ = 1'[0m, [32m'Right side: 1²[0m[32m([0m[32m2[0m[32m)[0m[32m²/4 = 1·4/4 = 1'[0m, [32m'Base case [0m
+[32mverified: 1 = 1'[0m, [32m''[0m, [32m'STEP 2: INDUCTIVE HYPOTHESIS'[0m, [32m'-----------------------------------'[0m, [32m'Assume the [0m
+[32mformula holds for some positive integer k:'[0m, [32m'1³ + 2³ + ... + k³ = k²[0m[32m([0m[32mk+1[0m[32m)[0m[32m²/4'[0m, [32m''[0m, [32m'We assume this is [0m
+[32mtrue for k, and will prove it for k+1.'[0m, [32m''[0m, [32m'STEP 3: INDUCTIVE STEP'[0m, [32m'-------------------------'[0m, 
+[32m'Prove the formula holds for k+1:'[0m, [32m'1³ + 2³ + ... + k³ + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³ = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4'[0m, [32m''[0m, [32m'ALGEBRAIC [0m
+[32mMANIPULATION:'[0m, [32m'Left side = [0m[32m + [0m[32m([0m[32mk+1[0m[32m)[0m[32m³'[0m, [32m'          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m'[0m, [32m'          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4'[0m, [32m'          = [0m
+[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m/4'[0m, [32m'          = [0m[32m([0m[32mk+1[0m[32m)[0m[32m²[0m[32m([0m[32mk+2[0m[32m)[0m[32m²/4'[0m, [32m'          = Right side'[0m, [32m''[0m, [32m'STEP 4: FORMAL VERIFICATION WITH [0m
+[32mZ3'[0m, [32m'-----------------------------------'[0m, [32m'Left side simplified:  [0m[32m([0m[32mk*k*[0m[32m([0m[32m1 + k[0m[32m)[0m[32m*[0m[32m([0m[32m1 + k[0m[32m)[0m[32m)[0m[32m/4 + [0m[32m([0m[32m1 + k[0m[32m)[0m[32m*[0m[32m([0m[32m1 [0m
+[32m+ k[0m[32m)[0m[32m*[0m[32m([0m[32m1 + k[0m[32m)[0m[32m'[0m, [32m'Right side simplified: [0m[32m([0m[32m([0m[32m1 + k[0m[32m)[0m[32m*[0m[32m([0m[32m1 + k[0m[32m)[0m[32m*[0m[32m([0m[32m2 + k[0m[32m)[0m[32m*[0m[32m([0m[32m2 + k[0m[32m)[0m[32m)[0m[32m/4'[0m, [32m'✓ Z3 verification: No [0m
+[32mcounterexample found'[0m, [32m'✓ Algebraic equality proven for all positive k'[0m, [32m''[0m, [32m'STEP 5: DETAILED ALGEBRAIC [0m
+[32mSTEPS'[0m, [32m'-----------------------------------'[0m, [32m'Key algebraic identity to verify: k² + 4k + 4 = [0m[32m([0m[32mk+2[0m[32m)[0m[32m²'[0m, 
+[32m'Expanding [0m[32m([0m[32mk+2[0m[32m)[0m[32m²:'[0m, [32m'[0m[32m([0m[32mk+2[0m[32m)[0m[32m² = k² + 2k + 2k + 4 = k² + 4k + 4 ✓'[0m, [32m'✓ Z3 confirms: k² + 4k + 4 ≡ [0m[32m([0m[32mk+2[0m[32m)[0m[32m² [0m
+[32mfor all k'[0m, [32m''[0m, [32m'STEP 6: NUMERICAL VERIFICATION'[0m, [32m'--------------------------------'[0m, [32m'Verifying formula [0m
+[32mfor specific values:'[0m, [32m'n = 1: Program result = 1, Formula = 1'[0m, [32m'  ✓ Match'[0m, [32m'n = 2: Program result = 9,[0m
+[32mFormula = 9'[0m, [32m'  ✓ Match'[0m, [32m'n = 3: Program result = 36, Formula = 36'[0m, [32m'  ✓ Match'[0m, [32m'n = 4: Program [0m
+[32mresult = 100, Formula = 100'[0m, [32m'  ✓ Match'[0m, [32m'n = 5: Program result = 225, Formula = 225'[0m, [32m'  ✓ Match'[0m, [32m'n [0m
+[32m= 6: Program result = 441, Formula = 441'[0m, [32m'  ✓ Match'[0m, [32m'n = 7: Program result = 784, Formula = 784'[0m, [32m'  [0m
+[32m✓ Match'[0m, [32m''[0m, [32m'✓ All numerical tests passed'[0m, [32m''[0m, [32m'CONCLUSION'[0m, 
+
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ [32m''[0m, [32m'✓ PROOF SUCCESSFULLY COMPLETED!'[0m, [32m''[0m, [32m'By [0m │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+[32mmathematical induction, we have proven that:'[0m, [32m'For any positive integer n, the sum 1³ + 2³ + ... + n³ = [0m
+[32mn²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4'[0m, [32m''[0m, [32m'This confirms that the given program correctly computes n²[0m[32m([0m[32mn+1[0m[32m)[0m[32m²/4'[0m, [32m''[0m, [32m'Components [0m
+[32mverified:'[0m, [32m'  Base case [0m[32m([0m[32mn[0m[32m=[0m[32m1[0m[32m)[0m[32m: ✓'[0m, [32m'  Inductive step:   ✓'[0m, [32m'  Numerical tests:  ✓'[0m, [32m'Solution found.'[0m[1m][0m,
+[32m'execution_time'[0m: [1;36m0.01873922348022461[0m, [32m'satisfiable'[0m: [3;92mTrue[0m, [32m'values'[0m: [1m{[0m[32m'proof_verified'[0m: [3;92mTrue[0m[1m}[0m[1m}[0m
+2026-04-08 20:05:43,205 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+Agent response keys: ['messages']
+Agent reply received, length: 2022
+
+
+┌───────────────────┐
+│ PROBLEM STATEMENT │
+└───────────────────┘
+Consider this simple program that computes the sum of cubes from 1 to n:
+
+```
+result = 0
+i = 1
+while i <= n:
+    result = result + (i * i * i)
+    i = i + 1
+```
+
+Using mathematical induction, prove that for any n, the result equals [n²(n+1)²/4]
+
+Show the algebraic steps in your proof.
+
+
+
+┌─────────────┐
+│ FINAL MODEL │
+└─────────────┘
+0 | # Mathematical Induction Proof: Sum of Cubes Formula
+# Proving: 1³ + 2³ + 3³ + ... + n³ = n²(n+1)²/4
+
+from z3 import *
+from mcp_solver.z3 import export_solution
+import math
+
+print("PROOF BY MATHEMATICAL INDUCTION")
+print("=" * 50)
+print("Formula to prove: 1³ + 2³ + ... + n³ = n²(n+1)²/4")
+print()
+1 | # STEP 1: BASE CASE (n = 1)
+print("STEP 1: BASE CASE (n = 1)")
+print("-" * 30)
+
+# Left side: 1³ = 1
+left_side_base = 1
+
+# Right side: 1²(1+1)²/4 = 1·4/4 = 1
+right_side_base = (1**2 * (1+1)**2) // 4
+
+print(f"Left side:  1³ = {left_side_base}")
+print(f"Right side: 1²(2)²/4 = 1·4/4 = {right_side_base}")
+print(f"Base case verified: {left_side_base} = {right_side_base}")
+print()
+
+base_case_holds = (left_side_base == right_side_base)
+2 | # STEP 2: INDUCTIVE HYPOTHESIS
+print("STEP 2: INDUCTIVE HYPOTHESIS")
+print("-" * 35)
+print("Assume the formula holds for some positive integer k:")
+print("1³ + 2³ + ... + k³ = k²(k+1)²/4")
+print()
+
+# Define symbolic variable k
+k = Int('k')
+
+# Inductive hypothesis: sum from 1 to k equals k²(k+1)²/4
+sum_to_k = k*k*(k+1)*(k+1) / 4
+
+print("We assume this is true for k, and will prove it for k+1.")
+print()
+3 | # STEP 3: INDUCTIVE STEP
+print("STEP 3: INDUCTIVE STEP")
+print("-" * 25)
+print("Prove the formula holds for k+1:")
+print("1³ + 2³ + ... + k³ + (k+1)³ = (k+1)²(k+2)²/4")
+print()
+
+# Left side: sum to k + (k+1)³
+# Using inductive hypothesis: sum_to_k + (k+1)³
+left_side = sum_to_k + (k+1)*(k+1)*(k+1)
+
+# Right side: (k+1)²(k+2)²/4
+right_side = (k+1)*(k+1)*(k+2)*(k+2) / 4
+
+print("ALGEBRAIC MANIPULATION:")
+print("Left side = [k²(k+1)²/4] + (k+1)³")
+print("          = (k+1)²[k²/4 + (k+1)]")
+print("          = (k+1)²[k² + 4(k+1)]/4")
+print("          = (k+1)²[k² + 4k + 4]/4")
+print("          = (k+1)²(k+2)²/4")
+print("          = Right side")
+print()
+4 | # STEP 4: FORMAL VERIFICATION WITH Z3
+print("STEP 4: FORMAL VERIFICATION WITH Z3")
+print("-" * 35)
+
+# Create solver to verify algebraic equality
+solver = Solver()
+
+# Add constraint that k is positive
+solver.add(k > 0)
+
+# Simplify both sides
+left_simplified = simplify(left_side)
+right_simplified = simplify(right_side)
+
+print(f"Left side simplified:  {left_simplified}")
+print(f"Right side simplified: {right_simplified}")
+
+# Try to find a counterexample where they're not equal
+solver.add(left_simplified != right_simplified)
+
+# Check if counterexample exists
+result = solver.check()
+
+if result == unsat:
+    print("✓ Z3 verification: No counterexample found")
+    print("✓ Algebraic equality proven for all positive k")
+    inductive_step_verified = True
+else:
+    print("✗ Counterexample found!")
+    print("Model:", solver.model())
+    inductive_step_verified = False
+
+print()
+5 | # STEP 5: DETAILED ALGEBRAIC VERIFICATION
+print("STEP 5: DETAILED ALGEBRAIC STEPS")
+print("-" * 35)
+
+# Let's manually verify the key algebraic step: k² + 4k + 4 = (k+2)²
+print("Key algebraic identity to verify: k² + 4k + 4 = (k+2)²")
+
+# Define expressions
+k_var = Int('k_detailed')
+expr1 = k_var*k_var + 4*k_var + 4
+expr2 = (k_var + 2)*(k_var + 2)
+
+# Expand (k+2)²
+print("Expanding (k+2)²:")
+print("(k+2)² = k² + 2k + 2k + 4 = k² + 4k + 4 ✓")
+
+# Verify with Z3
+identity_solver = Solver()
+identity_solver.add(expr1 != expr2)
+
+if identity_solver.check() == unsat:
+    print("✓ Z3 confirms: k² + 4k + 4 ≡ (k+2)² for all k")
+else:
+    print("✗ Identity verification failed")
+
+print()
+6 | # STEP 6: NUMERICAL VERIFICATION
+print("STEP 6: NUMERICAL VERIFICATION")
+print("-" * 32)
+
+print("Verifying formula for specific values:")
+verification_passed = True
+
+for n_val in range(1, 8):
+    # Calculate sum of cubes using the program logic
+    result = 0
+    i = 1
+    while i <= n_val:
+        result = result + (i * i * i)
+        i = i + 1
+    
+    # Calculate using the formula
+    formula_result = (n_val**2 * (n_val + 1)**2) // 4
+    
+    print(f"n = {n_val}: Program result = {result}, Formula = {formula_result}")
+    
+    if result != formula_result:
+        verification_passed = False
+        print(f"  ✗ MISMATCH!")
+    else:
+        print(f"  ✓ Match")
+
+print()
+if verification_passed:
+    print("✓ All numerical tests passed")
+else:
+    print("✗ Some numerical tests failed")
+
+print()
+7 | # FINAL CONCLUSION AND EXPORT
+print("CONCLUSION")
+print("=" * 50)
+
+# Determine if the proof is complete and valid
+proof_complete = base_case_holds and inductive_step_verified and verification_passed
+
+if proof_complete:
+    print("✓ PROOF SUCCESSFULLY COMPLETED!")
+    print()
+    print("By mathematical induction, we have proven that:")
+    print("For any positive integer n, the sum 1³ + 2³ + ... + n³ = n²(n+1)²/4")
+    print()
+    print("This confirms that the given program correctly computes n²(n+1)²/4")
+else:
+    print("✗ PROOF INCOMPLETE OR INVALID")
+    print("Some verification steps failed.")
+
+print()
+print("Components verified:")
+print(f"  Base case (n=1): {'✓' if base_case_holds else '✗'}")
+print(f"  Inductive step:   {'✓' if inductive_step_verified else '✗'}")
+print(f"  Numerical tests:  {'✓' if verification_passed else '✗'}")
+
+# Create Z3 variable to export the proof result
+proof_verified = Bool('proof_verified')
+final_solver = Solver()
+final_solver.add(proof_verified == proof_complete)
+
+export_solution(solver=final_solver, variables={"proof_verified": proof_verified})
+
+
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ {'success': True, 'message': 'Model solved', 'status': 'success', 'output': ['PROOF BY MATHEMATICAL INDUCTION', '', 'Formula to prove: 1³ + 2³ + ... + n³  n²(n+1)²/4', '', 'STEP 1: BASE CASE (n  1)', '------------------------------', 'Left side:  1³  1', 'Right side: 1²(2)²/4  1·4/4  1', 'Base case verified: 1  1', '', 'STEP 2: INDUCTIVE HYPOTHESIS', '-----------------------------------', 'Assume the formula holds for some positive integer k:', '1³ + 2³ + ... + k³  k²(k+1)²/4', '', 'We assume this is true for k, and will prove it for k+1.', '', 'STEP 3: INDUCTIVE STEP', '-------------------------', 'Prove the formula holds for k+1:', '1³ + 2³ + ... + k³ + (k+1)³  (k+1)²(k+2)²/4', '', 'ALGEBRAIC MANIPULATION:', 'Left side  [k²(k+1)²/4] + (k+1)³', '           (k+1)²[k²/4 + (k+1)]', '           (k+1)²[k² + 4(k+1)]/4', '           (k+1)²[k² + 4k + 4]/4', '           (k+1)²(k+2)²/4', '           Right side', '', 'STEP 4: FORMAL VERIFICATION WITH Z3', '-----------------------------------', 'Left side simplified:  (k*k*(1 + k)*(1 + k))/4 + (1 + k)*(1 + k)*(1 + k)', 'Right side simplified: ((1 + k)*(1 + k)*(2 + k)*(2 + k))/4', '✓ Z3 verification: No counterexample found', '✓ Algebraic equality proven for all positive k', '', 'STEP 5: DETAILED ALGEBRAIC STEPS', '-----------------------------------', 'Key algebraic identity to verify: k² + 4k + 4  (k+2)²', 'Expanding (k+2)²:', '(k+2)²  k² + 2k + 2k + 4  k² + 4k + 4 ✓', '✓ Z3 confirms: k² + 4k + 4 ≡ (k+2)² for all k', '', 'STEP 6: NUMERICAL VERIFICATION', '--------------------------------', 'Verifying formula for specific values:', 'n  1: Program result  1, Formula  1', '  ✓ Match', 'n  2: Program result  9, Formula  9', '  ✓ Match', 'n  3: Program result  36, Formula  36', '  ✓ Match', 'n  4: Program result  100, Formula  100', '  ✓ Match', 'n  5: Program result  225, Formula  225', '  ✓ Match', 'n  6: Program result  441, Formula  441', '  ✓ Match', 'n  7: Program result  784, Formula  784', '  ✓ Match', '', '✓ All numerical tests passed', '', 'CONCLUSION', '', '✓ PROOF SUCCESSFULLY COMPLETED!', '', 'By mathematical induction, we have proven that:', 'For any positive integer n, the sum 1³ + 2³ + ... + n³  n²(n+1)²/4', '', 'This confirms that the given program correctly computes n²(n+1)²/4', '', 'Components verified:', '  Base case (n1): ✓', '  Inductive step:   ✓', '  Numerical tests:  ✓', 'Solution found.'], 'execution_time': 0.01873922348022461, 'satisfiable': True, 'values': {'proof_verified': True}} │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+[1;34msystem[0m: Entering Review Agent
+Starting solution review process...
+Preparing review prompt (10664 characters)...
+Calling model for review...
+Found verdict tag: correct
+Review complete: verdict is 'correct'
+Review complete: ✅ correct
+
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Correctness: ✅ correct
+Explanation: Looking at this problem, I need to verify whether the Z3 encoding correctly addresses the mathematical induction proof task described in the problem statement.
+
+## Analysis of the Problem Statement
+
+The problem asks to prove using mathematical induction that a program computing the sum of cubes from 1 to n equals the formula n²(n+1)²/4, and to show the algebraic steps in the proof.
+
+## Analysis of the Z3 Code and Solution
+
+Let me examine each component of the solution:
+
+### Step 1: Base Case Verification
+The code correctly verifies the base case for n=1:
+- Left side: 1³ = 1
+- Right side: 1²(1+1)²/4 = 1·4/4 = 1
+- Result: base_case_holds = True ✓
+
+### Step 2: Inductive Hypothesis Setup
+The code properly states the inductive hypothesis that the formula holds for some k:
+- 1³ + 2³ + ... + k³ = k²(k+1)²/4
+- This is correctly represented symbolically ✓
+
+### Step 3: Inductive Step
+The code shows the algebraic manipulation steps:
+- Left side: [k²(k+1)²/4] + (k+1)³
+- Factoring: (k+1)²[k²/4 + (k+1)]
+- Simplifying: (k+1)²[k² + 4(k+1)]/4
+- Further: (k+1)²[k² + 4k + 4]/4
+- Final: (k+1)²(k+2)²/4
+- These steps are mathematically correct ✓
+
+### Step 4: Z3 Formal Verification
+The code uses Z3 to verify the algebraic equality:
+- Creates expressions for both sides of the inductive step
+- Attempts to find counterexamples by adding the negation
+- Result is UNSAT, confirming no counterexamples exist
+- This validates the algebraic equality for all positive k ✓
+
+### Step 5: Detailed Algebraic Identity Verification
+The code specifically verifies the key identity k² + 4k + 4 = (k+2)²:
+- Shows the expansion (k+2)² = k² + 4k + 4
+- Uses Z3 to confirm this identity holds for all k
+- This supports the algebraic steps in the inductive proof ✓
+
+### Step 6: Numerical Verification
+The code tests the formula for n = 1 through 7:
+- Implements the original program logic
+- Compares results with the formula n²(n+1)²/4
+- All test cases pass, showing consistency ✓
+
+### Step 7: Final Verification
+The code combines all verification results:
+- base_case_holds = True
+- inductive_step_verified = True  
+- verification_passed = True
+- proof_complete = True
+- Final Z3 variable proof_verified = True ✓
+
+## Assessment
+
+The solution successfully addresses all requirements of the problem:
+
+1. **Mathematical Induction Structure**: The code follows proper inductive proof structure with base case, inductive hypothesis, and inductive step.
+
+2. **Algebraic Steps**: The solution shows detailed algebraic manipulation steps, demonstrating how [k²(k+1)²/4] + (k+1)³ simplifies to (k+1)²(k+2)²/4.
+
+3. **Formal Verification**: Z3 is used appropriately to verify the algebraic equalities, finding no counterexamples to the claimed identities.
+
+4. **Program Equivalence**: The code verifies that the given program logic produces the same results as the mathematical formula.
+
+5. **Completeness**: All components of the induction proof are verified and confirmed to hold.
+
+The solution demonstrates that the sum of cubes formula 1³ + 2³ + ... + n³ = n²(n+1)²/4 is mathematically sound through both formal symbolic verification and numerical testing. The Z3 encoding properly represents the mathematical concepts and constraints needed for this proof verification.
+
+The solution is correct.
+
+
+
+             Tool Usage and Token Statistics              
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Category    ┃ Item                       ┃ Count/Value ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ TOOL USAGE  │                            │             │
+│ Tool        │ add_item                   │ 8           │
+│ Tool        │ clear_model                │ 1           │
+│ Tool        │ solve_model                │ 1           │
+│ Tool        │ get_model                  │ 1           │
+│ Tool        │ replace_item               │ 0           │
+│ Tool        │ delete_item                │ 0           │
+│ Tool        │ TOTAL                      │ 11          │
+│ TOKEN USAGE │                            │             │
+│ Token       │ ReAct Agent Input (exact)  │ 145k        │
+│ Token       │ ReAct Agent Output (exact) │ 3.5k        │
+│ Token       │ ReAct Agent Total (exact)  │ 149k        │
+│ Token       │ Reviewer Input (exact)     │ 3.8k        │
+│ Token       │ Reviewer Output (exact)    │ 980         │
+│ Token       │ Reviewer Total (exact)     │ 4.8k        │
+│ Token       │ COMBINED TOTAL             │ 154k        │
+└─────────────┴────────────────────────────┴─────────────┘
+Test completed successfully
+
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1

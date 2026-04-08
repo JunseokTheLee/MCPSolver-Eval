@@ -1,0 +1,315 @@
+Found 1 ASP problem(s) to test
+
+┌─────────────────────────────────────────┐
+│ Testing problem [ASP]: company_controls │
+└─────────────────────────────────────────┘
+Running command: cd /Users/jayden/MCPSolver-Eval && uv run test-client --query /Users/jayden/MCPSolver-Eval/tests/problems/asp/company_controls.md --server "uv run mcp-solver-asp" --react-input-log "/Users/jayden/MCPSolver-Eval/logs/company_controls_MCP-asp_20260408_191823_input.txt"
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Detected mode: asp
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for asp mode:
+- Instructions: 9275 characters
+- Review: 4052 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+Using model: AT:claude-sonnet-4-20250514
+Using custom server command: uv run mcp-solver-asp
+2026-04-08 19:18:26,289 - mcp_solver.core.server - INFO - Using ASP model manager
+2026-04-08 19:18:26,291 - mcp_solver.core.server - INFO - Starting MCP server
+2026-04-08 19:18:26,293 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+
+📋 Available tools:
+  1. clear_model
+  2. add_item
+  3. replace_item
+  4. delete_item
+  5. get_model
+  6. solve_model
+
+Using recursion limit: 200
+[1;34msystem[0m: Entering ReAct Agent
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-08 19:18:29,149 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"% Companies\ncompany[0m[32m([0m[32mc1[0m[32m)[0m[32m. company[0m[32m([0m[32mc2[0m[32m)[0m[32m. company[0m[32m([0m[32mc3[0m[32m)[0m[32m. company[0m[32m([0m[32mc4[0m[32m)[0m[32m."[0m
+[1m}[0m
+2026-04-08 19:18:31,592 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Companies
+[1;35mcompany[0m[1m([0mc1[1m)[0m. [1;35mcompany[0m[1m([0mc2[1m)[0m. [1;35mcompany[0m[1m([0mc3[1m)[0m. [1;35mcompany[0m[1m([0mc4[1m)[0m.
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"% Direct ownership relationships: owns[0m[32m([0m[32mOwner, Owned, Percentage[0m[32m)[0m[32m\nowns[0m[32m([0m[32mc1, c2, [0m
+[32m60[0m[32m)[0m[32m.\nowns[0m[32m([0m[32mc1, c3, 20[0m[32m)[0m[32m.\nowns[0m[32m([0m[32mc2, c3, 40[0m[32m)[0m[32m.\nowns[0m[32m([0m[32mc3, c4, 51[0m[32m)[0m[32m."[0m
+[1m}[0m
+2026-04-08 19:18:34,230 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Companies
+[1;35mcompany[0m[1m([0mc1[1m)[0m. [1;35mcompany[0m[1m([0mc2[1m)[0m. [1;35mcompany[0m[1m([0mc3[1m)[0m. [1;35mcompany[0m[1m([0mc4[1m)[0m.
+[1;36m1[0m | % Direct ownership relationships: [1;35mowns[0m[1m([0mOwner, Owned, Percentage[1m)[0m
+[1;35mowns[0m[1m([0mc1, c2, [1;36m60[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc1, c3, [1;36m20[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc2, c3, [1;36m40[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc3, c4, [1;36m51[0m[1m)[0m.
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"% Direct control: company X controls Y if X owns Y directly\ncontrols[0m[32m([0m[32mX, X[0m[32m)[0m[32m :- company[0m[32m([0m[32mX[0m[32m)[0m[32m."[0m
+[1m}[0m
+2026-04-08 19:18:37,428 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Companies
+[1;35mcompany[0m[1m([0mc1[1m)[0m. [1;35mcompany[0m[1m([0mc2[1m)[0m. [1;35mcompany[0m[1m([0mc3[1m)[0m. [1;35mcompany[0m[1m([0mc4[1m)[0m.
+[1;36m1[0m | % Direct ownership relationships: [1;35mowns[0m[1m([0mOwner, Owned, Percentage[1m)[0m
+[1;35mowns[0m[1m([0mc1, c2, [1;36m60[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc1, c3, [1;36m20[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc2, c3, [1;36m40[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc3, c4, [1;36m51[0m[1m)[0m.
+[1;36m2[0m | % Direct control: company X controls Y if X owns Y directly
+[1;35mcontrols[0m[1m([0mX, X[1m)[0m :- [1;35mcompany[0m[1m([0mX[1m)[0m.
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"% Helper predicate: contribution of A to B through C with percentage P\ncontrib[0m[32m([0m[32mA, B, A, P[0m[32m)[0m
+[32m:- owns[0m[32m([0m[32mA, B, P[0m[32m)[0m[32m.\ncontrib[0m[32m([0m[32mA, B, C, P[0m[32m)[0m[32m :- controls[0m[32m([0m[32mA, C[0m[32m)[0m[32m, owns[0m[32m([0m[32mC, B, P[0m[32m)[0m[32m, A != C."[0m
+[1m}[0m
+2026-04-08 19:18:39,886 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Companies
+[1;35mcompany[0m[1m([0mc1[1m)[0m. [1;35mcompany[0m[1m([0mc2[1m)[0m. [1;35mcompany[0m[1m([0mc3[1m)[0m. [1;35mcompany[0m[1m([0mc4[1m)[0m.
+[1;36m1[0m | % Direct ownership relationships: [1;35mowns[0m[1m([0mOwner, Owned, Percentage[1m)[0m
+[1;35mowns[0m[1m([0mc1, c2, [1;36m60[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc1, c3, [1;36m20[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc2, c3, [1;36m40[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc3, c4, [1;36m51[0m[1m)[0m.
+[1;36m2[0m | % Direct control: company X controls Y if X owns Y directly
+[1;35mcontrols[0m[1m([0mX, X[1m)[0m :- [1;35mcompany[0m[1m([0mX[1m)[0m.
+[1;36m3[0m | % Helper predicate: contribution of A to B through C with percentage P
+[1;35mcontrib[0m[1m([0mA, B, A, P[1m)[0m :- [1;35mowns[0m[1m([0mA, B, P[1m)[0m.
+[1;35mcontrib[0m[1m([0mA, B, C, P[1m)[0m :- [1;35mcontrols[0m[1m([0mA, C[1m)[0m, [1;35mowns[0m[1m([0mC, B, P[1m)[0m, A != C.
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"% Calculate total ownership percentage using aggregation\ntotal_ownership[0m[32m([0m[32mA, B, S[0m[32m)[0m[32m :- S = [0m
+[32m#sum [0m[32m{[0m[32m P,C : contrib[0m[32m([0m[32mA, B, C, P[0m[32m)[0m[32m [0m[32m}[0m[32m, company[0m[32m([0m[32mA[0m[32m)[0m[32m, company[0m[32m([0m[32mB[0m[32m)[0m[32m, A != B."[0m
+[1m}[0m
+2026-04-08 19:18:43,604 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Companies
+[1;35mcompany[0m[1m([0mc1[1m)[0m. [1;35mcompany[0m[1m([0mc2[1m)[0m. [1;35mcompany[0m[1m([0mc3[1m)[0m. [1;35mcompany[0m[1m([0mc4[1m)[0m.
+[1;36m1[0m | % Direct ownership relationships: [1;35mowns[0m[1m([0mOwner, Owned, Percentage[1m)[0m
+[1;35mowns[0m[1m([0mc1, c2, [1;36m60[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc1, c3, [1;36m20[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc2, c3, [1;36m40[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc3, c4, [1;36m51[0m[1m)[0m.
+[1;36m2[0m | % Direct control: company X controls Y if X owns Y directly
+[1;35mcontrols[0m[1m([0mX, X[1m)[0m :- [1;35mcompany[0m[1m([0mX[1m)[0m.
+[1;36m3[0m | % Helper predicate: contribution of A to B through C with percentage P
+[1;35mcontrib[0m[1m([0mA, B, A, P[1m)[0m :- [1;35mowns[0m[1m([0mA, B, P[1m)[0m.
+[1;35mcontrib[0m[1m([0mA, B, C, P[1m)[0m :- [1;35mcontrols[0m[1m([0mA, C[1m)[0m, [1;35mowns[0m[1m([0mC, B, P[1m)[0m, A != C.
+[1;36m4[0m | % Calculate total ownership percentage using aggregation
+[1;35mtotal_ownership[0m[1m([0mA, B, S[1m)[0m :- S = #sum [1m{[0m P,C : [1;35mcontrib[0m[1m([0mA, B, C, P[1m)[0m [1m}[0m, [1;35mcompany[0m[1m([0mA[1m)[0m, [1;35mcompany[0m[1m([0mB[1m)[0m, A != B.
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m5[0m,
+  [32m"content"[0m: [32m"% Control relationship: A controls B if A's total ownership in B > 50%\ncontrols[0m[32m([0m[32mA, B[0m[32m)[0m[32m :- [0m
+[32mtotal_ownership[0m[32m([0m[32mA, B, S[0m[32m)[0m[32m, S > 50, A != B."[0m
+[1m}[0m
+2026-04-08 19:18:46,000 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Companies
+[1;35mcompany[0m[1m([0mc1[1m)[0m. [1;35mcompany[0m[1m([0mc2[1m)[0m. [1;35mcompany[0m[1m([0mc3[1m)[0m. [1;35mcompany[0m[1m([0mc4[1m)[0m.
+[1;36m1[0m | % Direct ownership relationships: [1;35mowns[0m[1m([0mOwner, Owned, Percentage[1m)[0m
+[1;35mowns[0m[1m([0mc1, c2, [1;36m60[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc1, c3, [1;36m20[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc2, c3, [1;36m40[0m[1m)[0m.
+[1;35mowns[0m[1m([0mc3, c4, [1;36m51[0m[1m)[0m.
+[1;36m2[0m | % Direct control: company X controls Y if X owns Y directly
+[1;35mcontrols[0m[1m([0mX, X[1m)[0m :- [1;35mcompany[0m[1m([0mX[1m)[0m.
+[1;36m3[0m | % Helper predicate: contribution of A to B through C with percentage P
+[1;35mcontrib[0m[1m([0mA, B, A, P[1m)[0m :- [1;35mowns[0m[1m([0mA, B, P[1m)[0m.
+[1;35mcontrib[0m[1m([0mA, B, C, P[1m)[0m :- [1;35mcontrols[0m[1m([0mA, C[1m)[0m, [1;35mowns[0m[1m([0mC, B, P[1m)[0m, A != C.
+[1;36m4[0m | % Calculate total ownership percentage using aggregation
+[1;35mtotal_ownership[0m[1m([0mA, B, S[1m)[0m :- S = #sum [1m{[0m P,C : [1;35mcontrib[0m[1m([0mA, B, C, P[1m)[0m [1m}[0m, [1;35mcompany[0m[1m([0mA[1m)[0m, [1;35mcompany[0m[1m([0mB[1m)[0m, A != B.
+[1;36m5[0m | % Control relationship: A controls B if A's total ownership in B > [1;36m50[0m%
+[1;35mcontrols[0m[1m([0mA, B[1m)[0m :- [1;35mtotal_ownership[0m[1m([0mA, B, S[1m)[0m, S > [1;36m50[0m, A != B.
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m10[0m
+[1m}[0m
+2026-04-08 19:18:48,078 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:18:48,079 - mcp_solver.core.server - INFO - Solving model with timeout 10.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'answer_sets'[0m: [1m[[0m[1m[[0m[32m'company[0m[32m([0m[32mc1[0m[32m)[0m[32m'[0m, [32m'company[0m[32m([0m[32mc2[0m[32m)[0m[32m'[0m, [32m'company[0m[32m([0m[32mc3[0m[32m)[0m[32m'[0m, 
+[32m'company[0m[32m([0m[32mc4[0m[32m)[0m[32m'[0m, [32m'controls[0m[32m([0m[32mc1,c1[0m[32m)[0m[32m'[0m, [32m'controls[0m[32m([0m[32mc2,c2[0m[32m)[0m[32m'[0m, [32m'controls[0m[32m([0m[32mc3,c3[0m[32m)[0m[32m'[0m, [32m'controls[0m[32m([0m[32mc4,c4[0m[32m)[0m[32m'[0m, 
+[32m'controls[0m[32m([0m[32mc1,c2[0m[32m)[0m[32m'[0m, [32m'controls[0m[32m([0m[32mc3,c4[0m[32m)[0m[32m'[0m, [32m'controls[0m[32m([0m[32mc1,c3[0m[32m)[0m[32m'[0m, [32m'controls[0m[32m([0m[32mc1,c4[0m[32m)[0m[32m'[0m, [32m'owns[0m[32m([0m[32mc1,c2,60[0m[32m)[0m[32m'[0m, 
+[32m'owns[0m[32m([0m[32mc1,c3,20[0m[32m)[0m[32m'[0m, [32m'owns[0m[32m([0m[32mc2,c3,40[0m[32m)[0m[32m'[0m, [32m'owns[0m[32m([0m[32mc3,c4,51[0m[32m)[0m[32m'[0m, [32m'contrib[0m[32m([0m[32mc1,c2,c1,60[0m[32m)[0m[32m'[0m, [32m'contrib[0m[32m([0m[32mc1,c3,c1,20[0m[32m)[0m[32m'[0m, 
+[32m'contrib[0m[32m([0m[32mc2,c3,c2,40[0m[32m)[0m[32m'[0m, [32m'contrib[0m[32m([0m[32mc3,c4,c3,51[0m[32m)[0m[32m'[0m, [32m'contrib[0m[32m([0m[32mc1,c3,c2,40[0m[32m)[0m[32m'[0m, [32m'contrib[0m[32m([0m[32mc1,c4,c3,51[0m[32m)[0m[32m'[0m, 
+[32m'total_ownership[0m[32m([0m[32mc3,c4,51[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc2,c4,0[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc4,c3,0[0m[32m)[0m[32m'[0m, 
+[32m'total_ownership[0m[32m([0m[32mc2,c3,40[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc4,c2,0[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc3,c2,0[0m[32m)[0m[32m'[0m, 
+[32m'total_ownership[0m[32m([0m[32mc1,c2,60[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc4,c1,0[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc3,c1,0[0m[32m)[0m[32m'[0m, 
+[32m'total_ownership[0m[32m([0m[32mc2,c1,0[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc1,c3,60[0m[32m)[0m[32m'[0m, [32m'total_ownership[0m[32m([0m[32mc1,c4,51[0m[32m)[0m[32m'[0m[1m][0m[1m][0m, [32m'satisfiable'[0m: 
+[3;92mTrue[0m, [32m'status'[0m: [32m'sat'[0m, [32m'values'[0m: [1m{[0m[32m'company[0m[32m([0m[32mc1[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'company[0m[32m([0m[32mc2[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'company[0m[32m([0m[32mc3[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'company[0m[32m([0m[32mc4[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'controls[0m[32m([0m[32mc1,c1[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'controls[0m[32m([0m[32mc2,c2[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'controls[0m[32m([0m[32mc3,c3[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'controls[0m[32m([0m[32mc4,c4[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'controls[0m[32m([0m[32mc1,c2[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'controls[0m[32m([0m[32mc3,c4[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'controls[0m[32m([0m[32mc1,c3[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'controls[0m[32m([0m[32mc1,c4[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'owns[0m[32m([0m[32mc1,c2,60[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'owns[0m[32m([0m[32mc1,c3,20[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'owns[0m[32m([0m[32mc2,c3,40[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'owns[0m[32m([0m[32mc3,c4,51[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'contrib[0m[32m([0m[32mc1,c2,c1,60[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'contrib[0m[32m([0m[32mc1,c3,c1,20[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'contrib[0m[32m([0m[32mc2,c3,c2,40[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'contrib[0m[32m([0m[32mc3,c4,c3,51[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'contrib[0m[32m([0m[32mc1,c3,c2,40[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'contrib[0m[32m([0m[32mc1,c4,c3,51[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc3,c4,51[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc2,c4,0[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'total_ownership[0m[32m([0m[32mc4,c3,0[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc2,c3,40[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc4,c2,0[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'total_ownership[0m[32m([0m[32mc3,c2,0[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc1,c2,60[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc4,c1,0[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'total_ownership[0m[32m([0m[32mc3,c1,0[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc2,c1,0[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, [32m'total_ownership[0m[32m([0m[32mc1,c3,60[0m[32m)[0m[32m'[0m: [3;92mTrue[0m, 
+[32m'total_ownership[0m[32m([0m[32mc1,c4,51[0m[32m)[0m[32m'[0m: [3;92mTrue[0m[1m}[0m, [32m'success'[0m: [3;92mTrue[0m[1m}[0m
+2026-04-08 19:18:48,092 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+Agent response keys: ['messages']
+Agent reply received, length: 1072
+
+
+┌───────────────────┐
+│ PROBLEM STATEMENT │
+└───────────────────┘
+### There are four companies: c1, c2, c3, and c4
+
+- Company c1 owns 60% of company c2, giving it direct control over c2.
+- Company c1 also owns 20% of company c3.
+- Company c2 owns 40% of company c3.
+- Company c3 owns 51% of company c4, giving it direct control over c4.
+
+I want to know all the pair of companies X, Y where X is different than Y such that X controls Y, given the previous information on stock possessions of companies.
+
+
+
+┌─────────────┐
+│ FINAL MODEL │
+└─────────────┘
+0 | % Companies
+company(c1). company(c2). company(c3). company(c4).
+1 | % Direct ownership relationships: owns(Owner, Owned, Percentage)
+owns(c1, c2, 60).
+owns(c1, c3, 20).
+owns(c2, c3, 40).
+owns(c3, c4, 51).
+2 | % Direct control: company X controls Y if X owns Y directly
+controls(X, X) :- company(X).
+3 | % Helper predicate: contribution of A to B through C with percentage P
+contrib(A, B, A, P) :- owns(A, B, P).
+contrib(A, B, C, P) :- controls(A, C), owns(C, B, P), A != C.
+4 | % Calculate total ownership percentage using aggregation
+total_ownership(A, B, S) :- S = #sum { P,C : contrib(A, B, C, P) }, company(A), company(B), A != B.
+5 | % Control relationship: A controls B if A's total ownership in B > 50%
+controls(A, B) :- total_ownership(A, B, S), S > 50, A != B.
+
+
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+{'answer_sets': [['company(c1)', 'company(c2)', 'company(c3)', 'company(c4)', 'controls(c1,c1)', 'controls(c2,c2)', 'controls(c3,c3)', 'controls(c4,c4)', 'controls(c1,c2)', 'controls(c3,c4)', 'controls(c1,c3)', 'controls(c1,c4)', 'owns(c1,c2,60)', 'owns(c1,c3,20)', 'owns(c2,c3,40)', 'owns(c3,c4,51)', 'contrib(c1,c2,c1,60)', 'contrib(c1,c3,c1,20)', 'contrib(c2,c3,c2,40)', 'contrib(c3,c4,c3,51)', 'contrib(c1,c3,c2,40)', 'contrib(c1,c4,c3,51)', 'total_ownership(c3,c4,51)', 'total_ownership(c2,c4,0)', 'total_ownership(c4,c3,0)', 'total_ownership(c2,c3,40)', 'total_ownership(c4,c2,0)', 'total_ownership(c3,c2,0)', 'total_ownership(c1,c2,60)', 'total_ownership(c4,c1,0)', 'total_ownership(c3,c1,0)', 'total_ownership(c2,c1,0)', 'total_ownership(c1,c3,60)', 'total_ownership(c1,c4,51)']], 'satisfiable': True, 'status': 'sat', 'values': {'company(c1)': True, 'company(c2)': True, 'company(c3)': True, 'company(c4)': True, 'controls(c1,c1)': True, 'controls(c2,c2)': True, 'controls(c3,c3)': True, 'controls(c4,c4)': True, 'controls(c1,c2)': True, 'controls(c3,c4)': True, 'controls(c1,c3)': True, 'controls(c1,c4)': True, 'owns(c1,c2,60)': True, 'owns(c1,c3,20)': True, 'owns(c2,c3,40)': True, 'owns(c3,c4,51)': True, 'contrib(c1,c2,c1,60)': True, 'contrib(c1,c3,c1,20)': True, 'contrib(c2,c3,c2,40)': True, 'contrib(c3,c4,c3,51)': True, 'contrib(c1,c3,c2,40)': True, 'contrib(c1,c4,c3,51)': True, 'total_ownership(c3,c4,51)': True, 'total_ownership(c2,c4,0)': True, 'total_ownership(c4,c3,0)': True, 'total_ownership(c2,c3,40)': True, 'total_ownership(c4,c2,0)': True, 'total_ownership(c3,c2,0)': True, 'total_ownership(c1,c2,60)': True, 'total_ownership(c4,c1,0)': True, 'total_ownership(c3,c1,0)': True, 'total_ownership(c2,c1,0)': True, 'total_ownership(c1,c3,60)': True, 'total_ownership(c1,c4,51)': True}, 'success': True}
+
+[1;34msystem[0m: Entering Review Agent
+Starting solution review process...
+Preparing review prompt (10072 characters)...
+Calling model for review...
+Found verdict tag: correct
+Review complete: verdict is 'correct'
+Review complete: ✅ correct
+
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Correctness: ✅ correct
+Explanation: I'll analyze this ASP solution for structural correctness, constraint satisfaction, and completeness.
+
+## Structural Correctness Analysis
+
+The ASP model is well-structured:
+- All facts and rules are properly terminated with periods
+- Variables appear to be properly grounded
+- The model is clearly divided into logical sections (companies, ownership facts, control rules)
+- No integrity constraints or optimization statements are present (none required by the problem)
+
+## Problem Requirements Analysis
+
+The problem asks for all pairs of companies X, Y where X ≠ Y such that X controls Y. The model needs to handle both direct and indirect control through ownership chains.
+
+## Constraint and Logic Verification
+
+Let me verify the key control relationships from the solution:
+
+**Direct Control (>50% ownership):**
+- `controls(c1,c2)`: c1 owns 60% of c2 directly ✓
+- `controls(c3,c4)`: c3 owns 51% of c4 directly ✓
+
+**Indirect Control Analysis:**
+- `controls(c1,c3)`: The solution shows `total_ownership(c1,c3,60)`
+  - c1 owns 20% of c3 directly
+  - c1 controls c2, and c2 owns 40% of c3
+  - Total: 20% + 40% = 60% > 50% ✓
+
+- `controls(c1,c4)`: The solution shows `total_ownership(c1,c4,51)`
+  - c1 controls c3 (as established above)
+  - c3 owns 51% of c4
+  - So c1 indirectly controls c4 through c3 ✓
+
+**Verification of contrib facts:**
+- `contrib(c1,c3,c2,40)`: c1 controls c2, c2 owns 40% of c3 ✓
+- `contrib(c1,c4,c3,51)`: c1 controls c3, c3 owns 51% of c4 ✓
+
+**Self-control relationships:**
+The model includes `controls(X,X)` for all companies, which is reasonable for modeling purposes but doesn't affect the answer since the problem asks for X ≠ Y.
+
+## Solution Completeness Check
+
+The problem asks for pairs where X controls Y (X ≠ Y). From the solution:
+- controls(c1,c2) ✓
+- controls(c3,c4) ✓  
+- controls(c1,c3) ✓
+- controls(c1,c4) ✓
+
+These represent all valid control relationships based on the ownership structure.
+
+## Missing Control Relationships Verification
+
+Let me verify that no control relationships are missing:
+- c2 doesn't control anyone else (only owns 40% of c3, which is <50%)
+- c4 doesn't own anything
+- c3 only controls c4 (already captured)
+- c1's control relationships are all captured
+
+## Answer Format
+
+The solution correctly identifies all control relationships and provides the required pairs where one company controls another. All ownership percentages and control calculations appear consistent with the problem statement.
+
+The solution is correct.
+
+
+
+             Tool Usage and Token Statistics              
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Category    ┃ Item                       ┃ Count/Value ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ TOOL USAGE  │                            │             │
+│ Tool        │ add_item                   │ 6           │
+│ Tool        │ clear_model                │ 1           │
+│ Tool        │ solve_model                │ 1           │
+│ Tool        │ get_model                  │ 1           │
+│ Tool        │ replace_item               │ 0           │
+│ Tool        │ delete_item                │ 0           │
+│ Tool        │ TOTAL                      │ 9           │
+│ TOKEN USAGE │                            │             │
+│ Token       │ ReAct Agent Input (exact)  │ 41k         │
+│ Token       │ ReAct Agent Output (exact) │ 1.3k        │
+│ Token       │ ReAct Agent Total (exact)  │ 43k         │
+│ Token       │ Reviewer Input (exact)     │ 3.7k        │
+│ Token       │ Reviewer Output (exact)    │ 750         │
+│ Token       │ Reviewer Total (exact)     │ 4.5k        │
+│ Token       │ COMBINED TOTAL             │ 47k         │
+└─────────────┴────────────────────────────┴─────────────┘
+Test completed successfully
+
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1

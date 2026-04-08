@@ -1,0 +1,13 @@
+
+Traceback (most recent call last):
+  File "/Users/jayden/MCPSolver-Eval/.venv/bin/run-test", line 4, in <module>
+    from tests.run_test import main
+  File "/Users/jayden/MCPSolver-Eval/tests/run_test.py", line 27, in <module>
+    from src.mcp_solver.client.tool_stats import ToolStats
+  File "/Users/jayden/MCPSolver-Eval/src/mcp_solver/client/__init__.py", line 9, in <module>
+    from mcp_solver.client.client import main_cli
+  File "/Users/jayden/MCPSolver-Eval/src/mcp_solver/client/__init__.py", line 9, in <module>
+    from mcp_solver.client.client import main_cli
+  File "/Users/jayden/MCPSolver-Eval/src/mcp_solver/client/client.py", line 12, in <module>
+    from langchain_core.messages import AIMessage, HumanMessage
+ModuleNotFoundError: No module named 'langchain_core'

@@ -1,0 +1,1522 @@
+Found 1 MZN problem(s) to test
+
+┌──────────────────────────────┐
+│ Testing problem [MZN]: zebra │
+└──────────────────────────────┘
+Running command: cd /Users/jayden/MCPSolver-Eval && uv run test-client --query /Users/jayden/MCPSolver-Eval/tests/problems/mzn/zebra.md --server "uv run mcp-solver-mzn" --react-input-log "/Users/jayden/MCPSolver-Eval/logs/zebra_MCP-mzn_20260408_194108_input.txt"
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Detected mode: mzn
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for mzn mode:
+- Instructions: 5861 characters
+- Review: 3708 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+Using model: AT:claude-sonnet-4-20250514
+Using custom server command: uv run mcp-solver-mzn
+2026-04-08 19:41:11,589 - mcp_solver.core.server - INFO - Using MiniZinc model manager
+2026-04-08 19:41:11,592 - mcp_solver.core.server - INFO - Starting MCP server
+2026-04-08 19:41:11,595 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+
+📋 Available tools:
+  1. clear_model
+  2. add_item
+  3. replace_item
+  4. delete_item
+  5. get_model
+  6. solve_model
+
+Using recursion limit: 200
+[1;34msystem[0m: Entering ReAct Agent
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-08 19:41:13,910 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"% Students: [0m[32mAnna[0m[32m=[0m[32m1[0m[32m, [0m[32mBen[0m[32m=[0m[32m2[0m[32m, [0m[32mEmily[0m[32m=[0m[32m3[0m[32m, [0m[32mLiam[0m[32m=[0m[32m4[0m[32m\n% Subjects: [0m[32mBiology[0m[32m=[0m[32m1[0m[32m, [0m[32mChemistry[0m[32m=[0m[32m2[0m[32m, [0m[32mPhysics[0m[32m=[0m[32m3[0m[32m, [0m
+[32mLiterature[0m[32m=[0m[32m4[0m[32m  \n% Foods: [0m[32mApples[0m[32m=[0m[32m1[0m[32m, [0m[32mPizza[0m[32m=[0m[32m2[0m[32m, [0m[32mPasta[0m[32m=[0m[32m3[0m[32m, [0m[32mIce_cream[0m[32m=[0m[32m4[0m[32m\n% Desks: 1, 2, 3, 4"[0m
+[1m}[0m
+2026-04-08 19:41:16,830 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"% Decision variables: which student sits at which desk\nvar 1..4: anna_desk;\nvar 1..4: [0m
+[32mben_desk;  \nvar 1..4: emily_desk;\nvar 1..4: liam_desk;"[0m
+[1m}[0m
+2026-04-08 19:41:19,867 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"% Which student studies which subject\nvar 1..4: anna_subject;\nvar 1..4: ben_subject;\nvar[0m
+[32m1..4: emily_subject; \nvar 1..4: liam_subject;"[0m
+[1m}[0m
+2026-04-08 19:41:22,566 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"% Which student likes which food\nvar 1..4: anna_food;\nvar 1..4: ben_food;\nvar 1..4: [0m
+[32memily_food;\nvar 1..4: liam_food;"[0m
+[1m}[0m
+2026-04-08 19:41:25,772 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"% Each student sits at a different desk\nconstraint alldifferent[0m[32m([0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:28,591 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m5[0m,
+  [32m"content"[0m: [32m"% Each student studies a different subject\nconstraint alldifferent[0m[32m([0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:31,146 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m6[0m,
+  [32m"content"[0m: [32m"% Each student likes a different food\nconstraint alldifferent[0m[32m([0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:33,647 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m7[0m,
+  [32m"content"[0m: [32m"% The student studying Biology is sitting at Desk 3\nconstraint [0m[32m([0m[32manna_desk = 3[0m[32m)[0m[32m [0m[32m<[0m[32m-[0m[32m> [0m
+[32m([0m[32manna_subject = 1[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32mben_desk = 3[0m[32m)[0m[32m <-> [0m[32m([0m[32mben_subject = 1[0m[32m)[0m[32m /\\  \n           [0m[32m([0m[32memily_desk = [0m
+[32m3[0m[32m)[0m[32m <-> [0m[32m([0m[32memily_subject = 1[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32mliam_desk = 3[0m[32m)[0m[32m <-[0m[32m>[0m[32m [0m[32m([0m[32mliam_subject = 1[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:37,617 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-[0m[1m>[0m [1m([0mliam_subject = [1;36m1[0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m8[0m,
+  [32m"content"[0m: [32m"% Emily is sitting at Desk 1\nconstraint emily_desk = 1;"[0m
+[1m}[0m
+2026-04-08 19:41:40,102 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-[0m[1m>[0m [1m([0mliam_subject = [1;36m1[0m[1m)[0m;
+[1;36m8[0m | % Emily is sitting at Desk [1;36m1[0m
+constraint emily_desk = [1;36m1[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m9[0m,
+  [32m"content"[0m: [32m"% Anna likes apples\nconstraint anna_food = 1;"[0m
+[1m}[0m
+2026-04-08 19:41:42,352 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-[0m[1m>[0m [1m([0mliam_subject = [1;36m1[0m[1m)[0m;
+[1;36m8[0m | % Emily is sitting at Desk [1;36m1[0m
+constraint emily_desk = [1;36m1[0m;
+[1;36m9[0m | % Anna likes apples
+constraint anna_food = [1;36m1[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m10[0m,
+  [32m"content"[0m: [32m"% Ben is not studying Biology\nconstraint ben_subject != 1;"[0m
+[1m}[0m
+2026-04-08 19:41:44,899 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-[0m[1m>[0m [1m([0mliam_subject = [1;36m1[0m[1m)[0m;
+[1;36m8[0m | % Emily is sitting at Desk [1;36m1[0m
+constraint emily_desk = [1;36m1[0m;
+[1;36m9[0m | % Anna likes apples
+constraint anna_food = [1;36m1[0m;
+[1;36m10[0m | % Ben is not studying Biology
+constraint ben_subject != [1;36m1[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m11[0m,
+  [32m"content"[0m: [32m"% The student sitting at Desk 2 likes Pasta\nconstraint [0m[32m([0m[32manna_desk = 2[0m[32m)[0m[32m [0m[32m<[0m[32m-[0m[32m> [0m[32m([0m[32manna_food = 3[0m[32m)[0m
+[32m/\\\n           [0m[32m([0m[32mben_desk = 2[0m[32m)[0m[32m <-> [0m[32m([0m[32mben_food = 3[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32memily_desk = 2[0m[32m)[0m[32m <-> [0m[32m([0m[32memily_food = 3[0m[32m)[0m[32m [0m
+[32m/\\\n           [0m[32m([0m[32mliam_desk = 2[0m[32m)[0m[32m <-[0m[32m>[0m[32m [0m[32m([0m[32mliam_food = 3[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:48,295 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-[0m[1m>[0m [1m([0mliam_food = [1;36m3[0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m12[0m,
+  [32m"content"[0m: [32m"% The student sitting at Desk 4 likes ice cream\nconstraint [0m[32m([0m[32manna_desk = 4[0m[32m)[0m[32m [0m[32m<[0m[32m-[0m[32m> [0m[32m([0m[32manna_food [0m
+[32m= 4[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32mben_desk = 4[0m[32m)[0m[32m <-> [0m[32m([0m[32mben_food = 4[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32memily_desk = 4[0m[32m)[0m[32m <-> [0m[32m([0m[32memily_food =[0m
+[32m4[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32mliam_desk = 4[0m[32m)[0m[32m <-[0m[32m>[0m[32m [0m[32m([0m[32mliam_food = 4[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:51,288 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-[0m[1m>[0m [1m([0mliam_food = [1;36m4[0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m13[0m,
+  [32m"content"[0m: [32m"% The student studying Physics is not sitting at Desk 2  \nconstraint [0m[32m([0m[32manna_subject = 3[0m[32m)[0m[32m ->[0m
+[32m([0m[32manna_desk != 2[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32mben_subject = 3[0m[32m)[0m[32m -> [0m[32m([0m[32mben_desk != 2[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32memily_subject = 3[0m[32m)[0m
+[32m-> [0m[32m([0m[32memily_desk != 2[0m[32m)[0m[32m /\\\n           [0m[32m([0m[32mliam_subject = 3[0m[32m)[0m[32m -> [0m[32m([0m[32mliam_desk != 2[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:54,766 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0mliam_desk != [1;36m2[0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m14[0m,
+  [32m"content"[0m: [32m"% The name of student who is studying Physics has an even number of letters [0m[32m([0m[32mAnna or [0m
+[32mLiam[0m[32m)[0m[32m\nconstraint [0m[32m([0m[32manna_subject = 3[0m[32m)[0m[32m \\/ [0m[32m([0m[32mliam_subject = 3[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:41:57,790 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0mliam_desk != [1;36m2[0m[1m)[0m;
+[1;36m14[0m | % The name of student who is studying Physics has an even number of letters [1m([0mAnna or Liam[1m)[0m
+constraint [1m([0manna_subject = [1;36m3[0m[1m)[0m \[35m/[0m [1m([0mliam_subject = [1;36m3[0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m15[0m,
+  [32m"content"[0m: [32m"% The student who likes Pizza is sitting next to the student who is studying Chemistry\n% [0m
+[32mNext to means adjacent desk numbers [0m[32m([0m[32mdiffer by 1[0m[32m)[0m[32m\nconstraint \n  [0m[32m([0m[32manna_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32mexists[0m[32m([0m[32ms in [0m
+[32m{[0m[32mben_subject, emily_subject, liam_subject[0m[32m}[0m[32m)[0m[32m \n                     [0m[32m([0m[32ms = 2 /\\ abs[0m[32m([0m[32m([0m[32mif s = ben_subject [0m
+[32mthen ben_desk \n                                   elif s = emily_subject then emily_desk \n             [0m
+[32melse liam_desk endif[0m[32m)[0m[32m - anna_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  [0m[32m([0m[32mben_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32mexists[0m[32m([0m[32ms in [0m[32m{[0m[32manna_subject, [0m
+[32memily_subject, liam_subject[0m[32m}[0m[32m)[0m[32m\n                    [0m[32m([0m[32ms = 2 /\\ abs[0m[32m([0m[32m([0m[32mif s = anna_subject then anna_desk\n  [0m
+[32melif s = emily_subject then emily_desk\n                                  else liam_desk endif[0m[32m)[0m[32m - [0m
+[32mben_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  [0m[32m([0m[32memily_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32mexists[0m[32m([0m[32ms in [0m[32m{[0m[32manna_subject, ben_subject, liam_subject[0m[32m}[0m[32m)[0m[32m\n     [0m
+[32m([0m[32ms = 2 /\\ abs[0m[32m([0m[32m([0m[32mif s = anna_subject then anna_desk\n                                    elif s = [0m
+[32mben_subject then ben_desk\n                                    else liam_desk endif[0m[32m)[0m[32m - emily_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m [0m
+[32m/\\\n  [0m[32m([0m[32mliam_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32mexists[0m[32m([0m[32ms in [0m[32m{[0m[32manna_subject, ben_subject, emily_subject[0m[32m}[0m[32m)[0m[32m\n                     [0m
+[32m([0m[32ms = 2 /\\ abs[0m[32m([0m[32m([0m[32mif s = anna_subject then anna_desk\n                                   elif s = [0m
+[32mben_subject then ben_desk\n                                   else emily_desk endif[0m[32m)[0m[32m - liam_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:42:05,917 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0mliam_desk != [1;36m2[0m[1m)[0m;
+[1;36m14[0m | % The name of student who is studying Physics has an even number of letters [1m([0mAnna or Liam[1m)[0m
+constraint [1m([0manna_subject = [1;36m3[0m[1m)[0m \[35m/[0m [1m([0mliam_subject = [1;36m3[0m[1m)[0m;
+[1;34msystem[0m: ▶ replace_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m15[0m,
+  [32m"content"[0m: [32m"% The student who likes Pizza is sitting next to the student who is studying [0m
+[32mChemistry\nconstraint \n  % If Anna likes pizza, then someone studying chemistry sits at desk adjacent to[0m
+[32mAnna\n  [0m[32m([0m[32manna_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32mben_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mben_desk - anna_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                  [0m
+[32m([0m[32m([0m[32memily_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32memily_desk - anna_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                      [0m[32m([0m[32m([0m[32mliam_subject = 2[0m[32m)[0m[32m [0m
+[32m/\\ abs[0m[32m([0m[32mliam_desk - anna_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  % If Ben likes pizza, then someone studying chemistry sits at[0m
+[32mdesk adjacent to Ben\n  [0m[32m([0m[32mben_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32manna_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32manna_desk - ben_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n  [0m
+[32m([0m[32m([0m[32memily_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32memily_desk - ben_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                     [0m[32m([0m[32m([0m[32mliam_subject = 2[0m[32m)[0m[32m [0m
+[32m/\\ abs[0m[32m([0m[32mliam_desk - ben_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  % If Emily likes pizza, then someone studying chemistry sits [0m
+[32mat desk adjacent to Emily\n  [0m[32m([0m[32memily_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32manna_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32manna_desk - emily_desk[0m[32m)[0m[32m = [0m
+[32m1[0m[32m)[0m[32m \\/\n                       [0m[32m([0m[32m([0m[32mben_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mben_desk - emily_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n              [0m
+[32m([0m[32m([0m[32mliam_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mliam_desk - emily_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  % If Liam likes pizza, then someone [0m
+[32mstudying chemistry sits at desk adjacent to Liam\n  [0m[32m([0m[32mliam_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32manna_subject = 2[0m[32m)[0m[32m /\\ [0m
+[32mabs[0m[32m([0m[32manna_desk - liam_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                      [0m[32m([0m[32m([0m[32mben_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mben_desk - [0m
+[32mliam_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                      [0m[32m([0m[32m([0m[32memily_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32memily_desk - liam_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:42:12,741 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ replace_item output: Item replaced
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0mliam_desk != [1;36m2[0m[1m)[0m;
+[1;36m14[0m | % The name of student who is studying Physics has an even number of letters [1m([0mAnna or Liam[1m)[0m
+constraint [1m([0manna_subject = [1;36m3[0m[1m)[0m \[35m/[0m [1m([0mliam_subject = [1;36m3[0m[1m)[0m;
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m10[0m
+[1m}[0m
+2026-04-08 19:42:14,975 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:42:14,976 - mcp_solver.core.server - INFO - Solving model with timeout 10.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'status'[0m: [32m'error'[0m, [32m'satisfiable'[0m: [3;92mTrue[0m, [32m'solution'[0m: [1m{[0m[32m'anna_desk'[0m: [1;36m3[0m, 
+[32m'ben_desk'[0m: [1;36m4[0m, [32m'emily_desk'[0m: [1;36m1[0m, [32m'liam_desk'[0m: [1;36m2[0m, [32m'anna_subject'[0m: [1;36m3[0m, [32m'ben_subject'[0m: [1;36m2[0m, [32m'emily_subject'[0m: [1;36m1[0m, 
+[32m'liam_subject'[0m: [1;36m4[0m, [32m'anna_food'[0m: [1;36m1[0m, [32m'ben_food'[0m: [1;36m2[0m, [32m'emily_food'[0m: [1;36m3[0m, [32m'liam_food'[0m: [1;36m4[0m[1m}[0m, [32m'optimal'[0m: [3;91mFalse[0m, 
+[32m'success'[0m: [3;92mTrue[0m[1m}[0m
+2026-04-08 19:42:15,247 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ▶ get_model called with args: [1m{[0m[1m}[0m
+2026-04-08 19:42:21,826 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ get_model output: [1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0mliam_desk != [1;36m2[0m[1m)[0m;
+[1;36m14[0m | % The name of student who is studying Physics has an even number of letters [1m([0mAnna or Liam[1m)[0m
+constraint [1m([0manna_subject = [1;36m3[0m[1m)[0m \[35m/[0m [1m([0mliam_subject = [1;36m3[0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m16[0m,
+  [32m"content"[0m: [32m"solve satisfy;"[0m
+[1m}[0m
+2026-04-08 19:42:27,792 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0mliam_desk != [1;36m2[0m[1m)[0m;
+[1;36m14[0m | % The name of student who is studying Physics has an even number of letters [1m([0mAnna or Liam[1m)[0m
+constraint [1m([0manna_subject = [1;36m3[0m[1m)[0m \[35m/[0m [1m([0mliam_subject = [1;36m3[0m[1m)[0m;
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m10[0m
+[1m}[0m
+2026-04-08 19:42:30,452 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:42:30,454 - mcp_solver.core.server - INFO - Solving model with timeout 10.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'status'[0m: [32m'error'[0m, [32m'satisfiable'[0m: [3;92mTrue[0m, [32m'solution'[0m: [1m{[0m[32m'anna_desk'[0m: [1;36m3[0m, 
+[32m'ben_desk'[0m: [1;36m4[0m, [32m'emily_desk'[0m: [1;36m1[0m, [32m'liam_desk'[0m: [1;36m2[0m, [32m'anna_subject'[0m: [1;36m3[0m, [32m'ben_subject'[0m: [1;36m2[0m, [32m'emily_subject'[0m: [1;36m1[0m, 
+[32m'liam_subject'[0m: [1;36m4[0m, [32m'anna_food'[0m: [1;36m1[0m, [32m'ben_food'[0m: [1;36m2[0m, [32m'emily_food'[0m: [1;36m3[0m, [32m'liam_food'[0m: [1;36m4[0m[1m}[0m, [32m'optimal'[0m: [3;91mFalse[0m, 
+[32m'success'[0m: [3;92mTrue[0m[1m}[0m
+2026-04-08 19:42:30,716 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ▶ get_model called with args: [1m{[0m[1m}[0m
+2026-04-08 19:42:36,605 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ get_model output: [1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0mliam_desk != [1;36m2[0m[1m)[0m;
+[1;36m14[0m | % The name of student who is studying Physics has an even number of letters [1m([0mAnna or Liam[1m)[0m
+constraint [1m([0manna_subject = [1;36m3[0m[1m)[0m \[35m/[0m [1m([0mliam_subject = [1;36m3[0m[1m)[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m15[0m,
+  [32m"content"[0m: [32m"% The student who likes Pizza is sitting next to the student who is studying [0m
+[32mChemistry\nconstraint \n  % If Anna likes pizza, then someone studying chemistry sits at desk adjacent to[0m
+[32mAnna\n  [0m[32m([0m[32manna_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32mben_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mben_desk - anna_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                  [0m
+[32m([0m[32m([0m[32memily_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32memily_desk - anna_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                      [0m[32m([0m[32m([0m[32mliam_subject = 2[0m[32m)[0m[32m [0m
+[32m/\\ abs[0m[32m([0m[32mliam_desk - anna_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  % If Ben likes pizza, then someone studying chemistry sits at[0m
+[32mdesk adjacent to Ben\n  [0m[32m([0m[32mben_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32manna_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32manna_desk - ben_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n  [0m
+[32m([0m[32m([0m[32memily_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32memily_desk - ben_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                     [0m[32m([0m[32m([0m[32mliam_subject = 2[0m[32m)[0m[32m [0m
+[32m/\\ abs[0m[32m([0m[32mliam_desk - ben_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  % If Emily likes pizza, then someone studying chemistry sits [0m
+[32mat desk adjacent to Emily\n  [0m[32m([0m[32memily_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32manna_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32manna_desk - emily_desk[0m[32m)[0m[32m = [0m
+[32m1[0m[32m)[0m[32m \\/\n                       [0m[32m([0m[32m([0m[32mben_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mben_desk - emily_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n              [0m
+[32m([0m[32m([0m[32mliam_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mliam_desk - emily_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m /\\\n  % If Liam likes pizza, then someone [0m
+[32mstudying chemistry sits at desk adjacent to Liam\n  [0m[32m([0m[32mliam_food = 2[0m[32m)[0m[32m -> [0m[32m([0m[32m([0m[32m([0m[32manna_subject = 2[0m[32m)[0m[32m /\\ [0m
+[32mabs[0m[32m([0m[32manna_desk - liam_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                      [0m[32m([0m[32m([0m[32mben_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32mben_desk - [0m
+[32mliam_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m \\/\n                      [0m[32m([0m[32m([0m[32memily_subject = 2[0m[32m)[0m[32m /\\ abs[0m[32m([0m[32memily_desk - liam_desk[0m[32m)[0m[32m = 1[0m[32m)[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:42:44,977 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | % Students: [33mAnna[0m=[1;36m1[0m, [33mBen[0m=[1;36m2[0m, [33mEmily[0m=[1;36m3[0m, [33mLiam[0m=[1;36m4[0m
+% Subjects: [33mBiology[0m=[1;36m1[0m, [33mChemistry[0m=[1;36m2[0m, [33mPhysics[0m=[1;36m3[0m, [33mLiterature[0m=[1;36m4[0m  
+% Foods: [33mApples[0m=[1;36m1[0m, [33mPizza[0m=[1;36m2[0m, [33mPasta[0m=[1;36m3[0m, [33mIce_cream[0m=[1;36m4[0m
+% Desks: [1;36m1[0m, [1;36m2[0m, [1;36m3[0m, [1;36m4[0m
+[1;36m1[0m | % Decision variables: which student sits at which desk
+var [1;36m1[0m..[1;36m4[0m: anna_desk;
+var [1;36m1[0m..[1;36m4[0m: ben_desk;  
+var [1;36m1[0m..[1;36m4[0m: emily_desk;
+var [1;36m1[0m..[1;36m4[0m: liam_desk;
+[1;36m2[0m | % Which student studies which subject
+var [1;36m1[0m..[1;36m4[0m: anna_subject;
+var [1;36m1[0m..[1;36m4[0m: ben_subject;
+var [1;36m1[0m..[1;36m4[0m: emily_subject; 
+var [1;36m1[0m..[1;36m4[0m: liam_subject;
+[1;36m3[0m | % Which student likes which food
+var [1;36m1[0m..[1;36m4[0m: anna_food;
+var [1;36m1[0m..[1;36m4[0m: ben_food;
+var [1;36m1[0m..[1;36m4[0m: emily_food;
+var [1;36m1[0m..[1;36m4[0m: liam_food;
+[1;36m4[0m | % Each student sits at a different desk
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m5[0m | % Each student studies a different subject
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m6[0m | % Each student likes a different food
+constraint [1;35malldifferent[0m[1m([0m[1m)[0m;
+[1;36m7[0m | % The student studying Biology is sitting at Desk [1;36m3[0m
+constraint [1m([0manna_desk = [1;36m3[0m[1m)[0m [1m<[0m[1;95m-[0m[39m> [0m[1;39m([0m[39manna_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\  [0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_subject = [0m[1;36m1[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m3[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_subject = [0m[1;36m1[0m[1;39m)[0m[39m;[0m
+[1;36m8[0m[39m | % Emily is sitting at Desk [0m[1;36m1[0m
+[39mconstraint emily_desk = [0m[1;36m1[0m[39m;[0m
+[1;36m9[0m[39m | % Anna likes apples[0m
+[39mconstraint anna_food = [0m[1;36m1[0m[39m;[0m
+[1;36m10[0m[39m | % Ben is not studying Biology[0m
+[39mconstraint ben_subject != [0m[1;36m1[0m[39m;[0m
+[1;36m11[0m[39m | % The student sitting at Desk [0m[1;36m2[0m[39m likes Pasta[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m3[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m2[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m12[0m[39m | % The student sitting at Desk [0m[1;36m4[0m[39m likes ice cream[0m
+[39mconstraint [0m[1;39m([0m[39manna_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39manna_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mben_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39memily_food = [0m[1;36m4[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_desk = [0m[1;36m4[0m[1;39m)[0m[39m <-> [0m[1;39m([0m[39mliam_food = [0m[1;36m4[0m[1;39m)[0m[39m;[0m
+[1;36m13[0m[39m | % The student studying Physics is not sitting at Desk [0m[1;36m2[0m[39m  [0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39manna_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mben_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mben_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39memily_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39memily_desk != [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m           [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m -> [0m[1;39m([0m[39mliam_desk != [0m[1;36m2[0m[1;39m)[0m[39m;[0m
+[1;36m14[0m[39m | % The name of student who is studying Physics has an even number of letters [0m[1;39m([0m[39mAnna or Liam[0m[1;39m)[0m
+[39mconstraint [0m[1;39m([0m[39manna_subject = [0m[1;36m3[0m[1;39m)[0m[39m \[0m[35m/[0m[39m [0m[1;39m([0m[39mliam_subject = [0m[1;36m3[0m[1;39m)[0m[39m;[0m
+[1;36m15[0m[39m | % The student who likes Pizza is sitting next to the student who is studying Chemistry[0m
+[39mconstraint [0m
+[39m  % If Anna likes pizza, then someone studying chemistry sits at desk adjacent to Anna[0m
+[39m  [0m[1;39m([0m[39manna_food = [0m[1;36m2[0m[1;39m)[0m[39m -> [0m[1;39m([0m[1;39m([0m[1;39m([0m[39mben_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39mben_desk - anna_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[39m \[0m[35m/[0m
+[39m                      [0m[1;39m([0m[1;39m([0m[39memily_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39memily_desk - anna_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[39m \[0m[35m/[0m
+[39m                      [0m[1;39m([0m[1;39m([0m[39mliam_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39mliam_desk - anna_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m  % If Ben likes pizza, then someone studying chemistry sits at desk adjacent to Ben[0m
+[39m  [0m[1;39m([0m[39mben_food = [0m[1;36m2[0m[1;39m)[0m[39m -> [0m[1;39m([0m[1;39m([0m[1;39m([0m[39manna_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39manna_desk - ben_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[39m \[0m[35m/[0m
+[39m                     [0m[1;39m([0m[1;39m([0m[39memily_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39memily_desk - ben_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[39m \[0m[35m/[0m
+[39m                     [0m[1;39m([0m[1;39m([0m[39mliam_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39mliam_desk - ben_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m  % If Emily likes pizza, then someone studying chemistry sits at desk adjacent to Emily[0m
+[39m  [0m[1;39m([0m[39memily_food = [0m[1;36m2[0m[1;39m)[0m[39m -> [0m[1;39m([0m[1;39m([0m[1;39m([0m[39manna_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39manna_desk - emily_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[39m \[0m[35m/[0m
+[39m                       [0m[1;39m([0m[1;39m([0m[39mben_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39mben_desk - emily_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[39m \[0m[35m/[0m
+[39m                       [0m[1;39m([0m[1;39m([0m[39mliam_subject = [0m[1;36m2[0m[1;39m)[0m[39m [0m[35m/[0m[39m\ [0m[1;35mabs[0m[1;39m([0m[39mliam_desk - emily_desk[0m[1;39m)[0m[39m = [0m[1;36m1[0m[1;39m)[0m[1;39m)[0m[39m [0m[35m/[0m[39m\[0m
+[39m  % If Liam likes pizza, then someone studying chemistry sits at desk adjacent to Liam[0m
+[39m  [0m[1;39m([0m[39mliam_food = [0m[1;36m2[0m[1;39m)[0m[39m -[0m[1m>[0m [1m([0m[1m([0m[1m([0manna_subject = [1;36m2[0m[1m)[0m [35m/[0m\ [1;35mabs[0m[1m([0manna_desk - liam_desk[1m)[0m = [1;36m1[0m[1m)[0m \[35m/[0m
+                      [1m([0m[1m([0mben_subject = [1;36m2[0m[1m)[0m [35m/[0m\ [1;35mabs[0m[1m([0mben_desk - liam_desk[1m)[0m = [1;36m1[0m[1m)[0m \[35m/[0m
+                      [1m([0m[1m([0memily_subject = [1;36m2[0m[1m)[0m [35m/[0m\ [1;35mabs[0m[1m([0memily_desk - liam_desk[1m)[0m = [1;36m1[0m[1m)[0m[1m)[0m;
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m15[0m
+[1m}[0m
+2026-04-08 19:42:47,247 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:42:47,249 - mcp_solver.core.server - INFO - Solving model with timeout 15.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'status'[0m: [32m'error'[0m, [32m'satisfiable'[0m: [3;92mTrue[0m, [32m'solution'[0m: [1m{[0m[32m'anna_desk'[0m: [1;36m3[0m, 
+[32m'ben_desk'[0m: [1;36m2[0m, [32m'emily_desk'[0m: [1;36m1[0m, [32m'liam_desk'[0m: [1;36m4[0m, [32m'anna_subject'[0m: [1;36m2[0m, [32m'ben_subject'[0m: [1;36m4[0m, [32m'emily_subject'[0m: [1;36m1[0m, 
+[32m'liam_subject'[0m: [1;36m3[0m, [32m'anna_food'[0m: [1;36m1[0m, [32m'ben_food'[0m: [1;36m2[0m, [32m'emily_food'[0m: [1;36m4[0m, [32m'liam_food'[0m: [1;36m3[0m[1m}[0m, [32m'optimal'[0m: [3;91mFalse[0m, 
+[32m'success'[0m: [3;92mTrue[0m[1m}[0m
+2026-04-08 19:42:47,517 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-08 19:42:55,293 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"include \"globals.mzn\";"[0m
+[1m}[0m
+2026-04-08 19:42:57,898 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"% Variables: who sits where, who studies what, who likes what food\narray[0m[32m[[0m[32m1..4[0m[32m][0m[32m of var [0m
+[32m1..4: desk;     % desk[0m[3;32m = which desk student i sits at  \narray[0m[3;32m[[0m[3;32m1..4[0m[3;32m][0m[3;32m of var 1..4: subject;  % subject[0m[3;32m = [0m
+[3;32mwhich subject student i studies\narray[0m[3;32m[[0m[3;32m1..4[0m[3;32m][0m[3;32m of var 1..4: food;     % food[0m[3;32m = which food student i [0m
+[3;32mlikes\n\n% Students: [0m[3;32m1[0m[3;32m=[0m[3;32mAnna[0m[3;32m, [0m[3;32m2[0m[3;32m=[0m[3;32mBen[0m[3;32m, [0m[3;32m3[0m[3;32m=[0m[3;32mEmily[0m[3;32m, [0m[3;32m4[0m[3;32m=[0m[3;32mLiam[0m[3;32m\n% Subjects: [0m[3;32m1[0m[3;32m=[0m[3;32mBiology[0m[3;32m, [0m[3;32m2[0m[3;32m=[0m[3;32mChemistry[0m[3;32m, [0m[3;32m3[0m[3;32m=[0m[3;32mPhysics[0m[3;32m, [0m
+[3;32m4[0m[3;32m=[0m[3;32mLiterature[0m[3;32m  \n% Foods: [0m[3;32m1[0m[3;32m=[0m[3;32mApples[0m[3;32m, [0m[3;32m2[0m[3;32m=[0m[3;32mPizza[0m[3;32m, [0m[3;32m3[0m[3;32m=[0m[3;32mPasta[0m[3;32m, [0m[3;32m4[0m[3;32m=[0m[3;32mIce_cream"[0m
+[1;3m}[0m
+2026-04-08 19:43:02,647 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"% Basic constraints: everyone has unique desk, subject, and food\nconstraint [0m
+[32malldifferent[0m[32m([0m[32mdesk[0m[32m)[0m[32m;\nconstraint alldifferent[0m[32m([0m[32msubject[0m[32m)[0m[32m;  \nconstraint alldifferent[0m[32m([0m[32mfood[0m[32m)[0m[32m;"[0m
+[1m}[0m
+2026-04-08 19:43:05,705 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"% Direct facts from problem\nconstraint desk[0m[32m[[0m[32m3[0m[32m][0m[32m = 1;         % Emily is sitting at Desk [0m
+[32m1\nconstraint food[0m[32m[[0m[32m1[0m[32m][0m[32m = 1;         % Anna likes apples\nconstraint subject[0m[32m[[0m[32m2[0m[32m][0m[32m != 1;     % Ben is not [0m
+[32mstudying Biology"[0m
+[1m}[0m
+2026-04-08 19:43:09,451 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"% Student studying Biology is at Desk 3\nconstraint exists[0m[32m([0m[32mi in 1..4[0m[32m)[0m[32m([0m[32msubject[0m[3;32m = 1 /\\ desk[0m[3;32m [0m
+[3;32m= 3[0m[3;32m)[0m[3;32m;"[0m
+[1;3m}[0m
+2026-04-08 19:43:12,848 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;3;36m4[0m[3m | % Student studying Biology is at Desk [0m[1;3;36m3[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m1[0m[3m [0m[3;35m/[0m[3m\ desk[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m5[0m,
+  [32m"content"[0m: [32m"% Student at Desk 2 likes Pasta\nconstraint exists[0m[32m([0m[32mi in 1..4[0m[32m)[0m[32m([0m[32mdesk[0m[3;32m = 2 /\\ food[0m[3;32m = 3[0m[3;32m)[0m[3;32m;"[0m
+[1;3m}[0m
+2026-04-08 19:43:15,615 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;3;36m4[0m[3m | % Student studying Biology is at Desk [0m[1;3;36m3[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m1[0m[3m [0m[3;35m/[0m[3m\ desk[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m5[0m[3m | % Student at Desk [0m[1;3;36m2[0m[3m likes Pasta[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m6[0m,
+  [32m"content"[0m: [32m"% Student at Desk 4 likes Ice cream\nconstraint exists[0m[32m([0m[32mi in 1..4[0m[32m)[0m[32m([0m[32mdesk[0m[3;32m = 4 /\\ food[0m[3;32m = 4[0m[3;32m)[0m[3;32m;"[0m
+[1;3m}[0m
+2026-04-08 19:43:18,274 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;3;36m4[0m[3m | % Student studying Biology is at Desk [0m[1;3;36m3[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m1[0m[3m [0m[3;35m/[0m[3m\ desk[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m5[0m[3m | % Student at Desk [0m[1;3;36m2[0m[3m likes Pasta[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m6[0m[3m | % Student at Desk [0m[1;3;36m4[0m[3m likes Ice cream[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m4[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m4[0m[1;3m)[0m[3m;[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m7[0m,
+  [32m"content"[0m: [32m"% Student studying Physics is not at Desk 2\nconstraint forall[0m[32m([0m[32mi in 1..4[0m[32m)[0m[32m([0m[32msubject[0m[3;32m = 3 -> [0m
+[3;32mdesk[0m[3;32m != 2[0m[3;32m)[0m[3;32m;"[0m
+[1;3m}[0m
+2026-04-08 19:43:21,244 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;3;36m4[0m[3m | % Student studying Biology is at Desk [0m[1;3;36m3[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m1[0m[3m [0m[3;35m/[0m[3m\ desk[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m5[0m[3m | % Student at Desk [0m[1;3;36m2[0m[3m likes Pasta[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m6[0m[3m | % Student at Desk [0m[1;3;36m4[0m[3m likes Ice cream[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m4[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m4[0m[1;3m)[0m[3m;[0m
+[1;3;36m7[0m[3m | % Student studying Physics is not at Desk [0m[1;3;36m2[0m
+[3mconstraint [0m[1;3;35mforall[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m3[0m[3m -> desk[0m[3m != [0m[1;3;36m2[0m[1;3m)[0m[3m;[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m8[0m,
+  [32m"content"[0m: [32m"% Physics student has even-length name [0m[32m([0m[32mAnna[0m[32m=[0m[32m1[0m[32m or [0m[32mLiam[0m[32m=[0m[32m4[0m[32m)[0m[32m\nconstraint subject[0m[32m[[0m[32m1[0m[32m][0m[32m = 3 \\/ [0m
+[32msubject[0m[32m[[0m[32m4[0m[32m][0m[32m = 3;"[0m
+[1m}[0m
+2026-04-08 19:43:24,726 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;3;36m4[0m[3m | % Student studying Biology is at Desk [0m[1;3;36m3[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m1[0m[3m [0m[3;35m/[0m[3m\ desk[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m5[0m[3m | % Student at Desk [0m[1;3;36m2[0m[3m likes Pasta[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m6[0m[3m | % Student at Desk [0m[1;3;36m4[0m[3m likes Ice cream[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m4[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m4[0m[1;3m)[0m[3m;[0m
+[1;3;36m7[0m[3m | % Student studying Physics is not at Desk [0m[1;3;36m2[0m
+[3mconstraint [0m[1;3;35mforall[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m3[0m[3m -> desk[0m[3m != [0m[1;3;36m2[0m[1;3m)[0m[3m;[0m
+[1;3;36m8[0m[3m | % Physics student has even-length name [0m[1;3m([0m[3;33mAnna[0m[3m=[0m[1;3;36m1[0m[3m or [0m[3;33mLiam[0m[3m=[0m[1;3;36m4[0m[1;3m)[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m3[0m[3m \[0m[3;35m/[0m[3m subject[0m[1;3m[[0m[1;3;36m4[0m[1;3m][0m[3m = [0m[1;3;36m3[0m[3m;[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m9[0m,
+  [32m"content"[0m: [32m"% Student who likes Pizza sits next to student studying Chemistry\nconstraint exists[0m[32m([0m[32mi,j in[0m
+[32m1..4[0m[32m)[0m[32m([0m[32m\n  i != j /\\ food[0m[3;32m = 2 /\\ subject[0m[3;32m = 2 /\\ abs[0m[3;32m([0m[3;32mdesk[0m[3;32m - desk[0m[3;32m)[0m[3;32m = 1\n[0m[3;32m)[0m[3;32m;"[0m
+[1;3m}[0m
+2026-04-08 19:43:28,514 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;3;36m4[0m[3m | % Student studying Biology is at Desk [0m[1;3;36m3[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m1[0m[3m [0m[3;35m/[0m[3m\ desk[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m5[0m[3m | % Student at Desk [0m[1;3;36m2[0m[3m likes Pasta[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m6[0m[3m | % Student at Desk [0m[1;3;36m4[0m[3m likes Ice cream[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m4[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m4[0m[1;3m)[0m[3m;[0m
+[1;3;36m7[0m[3m | % Student studying Physics is not at Desk [0m[1;3;36m2[0m
+[3mconstraint [0m[1;3;35mforall[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m3[0m[3m -> desk[0m[3m != [0m[1;3;36m2[0m[1;3m)[0m[3m;[0m
+[1;3;36m8[0m[3m | % Physics student has even-length name [0m[1;3m([0m[3;33mAnna[0m[3m=[0m[1;3;36m1[0m[3m or [0m[3;33mLiam[0m[3m=[0m[1;3;36m4[0m[1;3m)[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m3[0m[3m \[0m[3;35m/[0m[3m subject[0m[1;3m[[0m[1;3;36m4[0m[1;3m][0m[3m = [0m[1;3;36m3[0m[3m;[0m
+[1;3;36m9[0m[3m | % Student who likes Pizza sits next to student studying Chemistry[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi,j in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m
+[3m  i != j [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ subject[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ [0m[1;3;35mabs[0m[1;3m([0m[3mdesk[0m[3m - desk[0m[1;3m)[0m[3m = [0m[1;3;36m1[0m
+[1;3m)[0m[3m;[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m10[0m,
+  [32m"content"[0m: [32m"solve satisfy;"[0m
+[1m}[0m
+2026-04-08 19:43:30,716 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | include [32m"globals.mzn"[0m;
+[1;36m1[0m | % Variables: who sits where, who studies what, who likes what food
+array[1m[[0m[1;36m1[0m..[1;36m4[0m[1m][0m of var [1;36m1[0m..[1;36m4[0m: desk;     % desk[3m = which desk student i sits at  [0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: subject;  % subject[0m[3m = which subject student i studies[0m
+[3marray[0m[1;3m[[0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m][0m[3m of var [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[3m: food;     % food[0m[3m = which food student i likes[0m
+
+[3m% Students: [0m[1;3;36m1[0m[3m=[0m[3;35mAnna[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mBen[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mEmily[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiam[0m
+[3m% Subjects: [0m[1;3;36m1[0m[3m=[0m[3;35mBiology[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mChemistry[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPhysics[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mLiterature[0m[3m  [0m
+[3m% Foods: [0m[1;3;36m1[0m[3m=[0m[3;35mApples[0m[3m, [0m[1;3;36m2[0m[3m=[0m[3;35mPizza[0m[3m, [0m[1;3;36m3[0m[3m=[0m[3;35mPasta[0m[3m, [0m[1;3;36m4[0m[3m=[0m[3;35mIce_cream[0m
+[1;3;36m2[0m[3m | % Basic constraints: everyone has unique desk, subject, and food[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mdesk[0m[1;3m)[0m[3m;[0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3msubject[0m[1;3m)[0m[3m;  [0m
+[3mconstraint [0m[1;3;35malldifferent[0m[1;3m([0m[3mfood[0m[1;3m)[0m[3m;[0m
+[1;3;36m3[0m[3m | % Direct facts from problem[0m
+[3mconstraint desk[0m[1;3m[[0m[1;3;36m3[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Emily is sitting at Desk [0m[1;3;36m1[0m
+[3mconstraint food[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m1[0m[3m;         % Anna likes apples[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m2[0m[1;3m][0m[3m != [0m[1;3;36m1[0m[3m;     % Ben is not studying Biology[0m
+[1;3;36m4[0m[3m | % Student studying Biology is at Desk [0m[1;3;36m3[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m1[0m[3m [0m[3;35m/[0m[3m\ desk[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m5[0m[3m | % Student at Desk [0m[1;3;36m2[0m[3m likes Pasta[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m3[0m[1;3m)[0m[3m;[0m
+[1;3;36m6[0m[3m | % Student at Desk [0m[1;3;36m4[0m[3m likes Ice cream[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3mdesk[0m[3m = [0m[1;3;36m4[0m[3m [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m4[0m[1;3m)[0m[3m;[0m
+[1;3;36m7[0m[3m | % Student studying Physics is not at Desk [0m[1;3;36m2[0m
+[3mconstraint [0m[1;3;35mforall[0m[1;3m([0m[3mi in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m[3msubject[0m[3m = [0m[1;3;36m3[0m[3m -> desk[0m[3m != [0m[1;3;36m2[0m[1;3m)[0m[3m;[0m
+[1;3;36m8[0m[3m | % Physics student has even-length name [0m[1;3m([0m[3;33mAnna[0m[3m=[0m[1;3;36m1[0m[3m or [0m[3;33mLiam[0m[3m=[0m[1;3;36m4[0m[1;3m)[0m
+[3mconstraint subject[0m[1;3m[[0m[1;3;36m1[0m[1;3m][0m[3m = [0m[1;3;36m3[0m[3m \[0m[3;35m/[0m[3m subject[0m[1;3m[[0m[1;3;36m4[0m[1;3m][0m[3m = [0m[1;3;36m3[0m[3m;[0m
+[1;3;36m9[0m[3m | % Student who likes Pizza sits next to student studying Chemistry[0m
+[3mconstraint [0m[1;3;35mexists[0m[1;3m([0m[3mi,j in [0m[1;3;36m1[0m[3m..[0m[1;3;36m4[0m[1;3m)[0m[1;3m([0m
+[3m  i != j [0m[3;35m/[0m[3m\ food[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ subject[0m[3m = [0m[1;3;36m2[0m[3m [0m[3;35m/[0m[3m\ [0m[1;3;35mabs[0m[1;3m([0m[3mdesk[0m[3m - desk[0m[1;3m)[0m[3m = [0m[1;3;36m1[0m
+[1;3m)[0m[3m;[0m
+[1;3;36m10[0m[3m | solve satisfy;[0m
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m15[0m
+[1m}[0m
+2026-04-08 19:43:33,429 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-08 19:43:33,430 - mcp_solver.core.server - INFO - Solving model with timeout 15.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'status'[0m: [32m'error'[0m, [32m'satisfiable'[0m: [3;92mTrue[0m, [32m'solution'[0m: [1m{[0m[32m'desk'[0m: [1m[[0m[1;36m3[0m, [1;36m2[0m, [1;36m1[0m, [1;36m4[0m[1m][0m,
+[32m'subject'[0m: [1m[[0m[1;36m1[0m, [1;36m2[0m, [1;36m4[0m, [1;36m3[0m[1m][0m, [32m'food'[0m: [1m[[0m[1;36m1[0m, [1;36m3[0m, [1;36m2[0m, [1;36m4[0m[1m][0m[1m}[0m, [32m'optimal'[0m: [3;91mFalse[0m, [32m'success'[0m: [3;92mTrue[0m[1m}[0m
+2026-04-08 19:43:33,710 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+Agent response keys: ['messages']
+Agent reply received, length: 1272
+
+
+┌───────────────────┐
+│ PROBLEM STATEMENT │
+└───────────────────┘
+There are four desks. The student studying Biology is sitting at Desk 3. The student who likes Pizza is sitting next to the student who is studying Chemistry. The student studying Physics is not sitting at Desk 2. The student sitting at Desk 2 likes Pasta. Anna likes apples. Ben is not studying Biology. Emily is sitting at Desk 1. The student sitting at Desk 4 likes ice cream. The name of student who is studying Physics has an even number of letters (i.e., Anna or Liam). What food does Liam like and who is studying Literature?
+
+
+
+┌─────────────┐
+│ FINAL MODEL │
+└─────────────┘
+0 | include "globals.mzn";
+1 | % Variables: who sits where, who studies what, who likes what food
+array[1..4] of var 1..4: desk;     % desk[i] = which desk student i sits at  
+array[1..4] of var 1..4: subject;  % subject[i] = which subject student i studies
+array[1..4] of var 1..4: food;     % food[i] = which food student i likes
+
+% Students: 1=Anna, 2=Ben, 3=Emily, 4=Liam
+% Subjects: 1=Biology, 2=Chemistry, 3=Physics, 4=Literature  
+% Foods: 1=Apples, 2=Pizza, 3=Pasta, 4=Ice_cream
+2 | % Basic constraints: everyone has unique desk, subject, and food
+constraint alldifferent(desk);
+constraint alldifferent(subject);  
+constraint alldifferent(food);
+3 | % Direct facts from problem
+constraint desk[3] = 1;         % Emily is sitting at Desk 1
+constraint food[1] = 1;         % Anna likes apples
+constraint subject[2] != 1;     % Ben is not studying Biology
+4 | % Student studying Biology is at Desk 3
+constraint exists(i in 1..4)(subject[i] = 1 /\ desk[i] = 3);
+5 | % Student at Desk 2 likes Pasta
+constraint exists(i in 1..4)(desk[i] = 2 /\ food[i] = 3);
+6 | % Student at Desk 4 likes Ice cream
+constraint exists(i in 1..4)(desk[i] = 4 /\ food[i] = 4);
+7 | % Student studying Physics is not at Desk 2
+constraint forall(i in 1..4)(subject[i] = 3 -> desk[i] != 2);
+8 | % Physics student has even-length name (Anna=1 or Liam=4)
+constraint subject[1] = 3 \/ subject[4] = 3;
+9 | % Student who likes Pizza sits next to student studying Chemistry
+constraint exists(i,j in 1..4)(
+  i != j /\ food[i] = 2 /\ subject[j] = 2 /\ abs(desk[i] - desk[j]) = 1
+);
+10 | solve satisfy;
+
+
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+{'status': 'error', 'satisfiable': True, 'solution': {'desk': [3, 2, 1, 4], 'subject': [1, 2, 4, 3], 'food': [1, 3, 2, 4]}, 'optimal': False, 'success': True}
+
+[1;34msystem[0m: Entering Review Agent
+Starting solution review process...
+Preparing review prompt (5900 characters)...
+Calling model for review...
+Found verdict tag: correct
+Review complete: verdict is 'correct'
+Review complete: ✅ correct
+
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Correctness: ✅ correct
+Explanation: I'll verify this solution step by step.
+
+## Solution Values Table
+
+| Variable | Index | Student | Value | Meaning |
+|----------|-------|---------|-------|---------|
+| desk | 1 | Anna | 3 | Anna sits at Desk 3 |
+| desk | 2 | Ben | 2 | Ben sits at Desk 2 |
+| desk | 3 | Emily | 1 | Emily sits at Desk 1 |
+| desk | 4 | Liam | 4 | Liam sits at Desk 4 |
+| subject | 1 | Anna | 1 | Anna studies Biology |
+| subject | 2 | Ben | 2 | Ben studies Chemistry |
+| subject | 3 | Emily | 4 | Emily studies Literature |
+| subject | 4 | Liam | 3 | Liam studies Physics |
+| food | 1 | Anna | 1 | Anna likes Apples |
+| food | 2 | Ben | 3 | Ben likes Pasta |
+| food | 3 | Emily | 2 | Emily likes Pizza |
+| food | 4 | Liam | 4 | Liam likes Ice cream |
+
+## Constraint Verification
+
+**Constraint 1: alldifferent(desk)**
+- Values: desk = [3, 2, 1, 4]
+- Evaluation: All values are unique
+- Result: Satisfied
+
+**Constraint 2: alldifferent(subject)**
+- Values: subject = [1, 2, 4, 3]  
+- Evaluation: All values are unique
+- Result: Satisfied
+
+**Constraint 3: alldifferent(food)**
+- Values: food = [1, 3, 2, 4]
+- Evaluation: All values are unique
+- Result: Satisfied
+
+**Constraint 4: desk[3] = 1 (Emily is sitting at Desk 1)**
+- Values: desk[3] = 1
+- Evaluation: 1 = 1
+- Result: Satisfied
+
+**Constraint 5: food[1] = 1 (Anna likes apples)**
+- Values: food[1] = 1
+- Evaluation: 1 = 1
+- Result: Satisfied
+
+**Constraint 6: subject[2] != 1 (Ben is not studying Biology)**
+- Values: subject[2] = 2
+- Evaluation: 2 ≠ 1
+- Result: Satisfied
+
+**Constraint 7: Student studying Biology is at Desk 3**
+- Values: subject[1] = 1 (Anna studies Biology), desk[1] = 3 (Anna sits at Desk 3)
+- Evaluation: There exists i=1 where subject[1] = 1 AND desk[1] = 3
+- Result: Satisfied
+
+**Constraint 8: Student at Desk 2 likes Pasta**
+- Values: desk[2] = 2 (Ben sits at Desk 2), food[2] = 3 (Ben likes Pasta)
+- Evaluation: There exists i=2 where desk[2] = 2 AND food[2] = 3
+- Result: Satisfied
+
+**Constraint 9: Student at Desk 4 likes Ice cream**
+- Values: desk[4] = 4 (Liam sits at Desk 4), food[4] = 4 (Liam likes Ice cream)
+- Evaluation: There exists i=4 where desk[4] = 4 AND food[4] = 4
+- Result: Satisfied
+
+**Constraint 10: Student studying Physics is not at Desk 2**
+- Values: subject[4] = 3 (Liam studies Physics), desk[4] = 4 (Liam sits at Desk 4)
+- Evaluation: For i=4, subject[4] = 3 implies desk[4] ≠ 2, and 4 ≠ 2
+- Result: Satisfied
+
+**Constraint 11: Physics student has even-length name (Anna or Liam)**
+- Values: subject[4] = 3 (Liam studies Physics)
+- Evaluation: subject[1] = 3 OR subject[4] = 3, and subject[4] = 3 is true
+- Result: Satisfied
+
+**Constraint 12: Student who likes Pizza sits next to student studying Chemistry**
+- Values: food[3] = 2 (Emily likes Pizza), subject[2] = 2 (Ben studies Chemistry), desk[3] = 1 (Emily at Desk 1), desk[2] = 2 (Ben at Desk 2)
+- Evaluation: i=3, j=2, food[3] = 2, subject[2] = 2, |desk[3] - desk[2]| = |1 - 2| = 1
+- Result: Satisfied
+
+All constraints are satisfied by the provided solution values.
+
+The solution is correct.
+
+
+
+             Tool Usage and Token Statistics              
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Category    ┃ Item                       ┃ Count/Value ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ TOOL USAGE  │                            │             │
+│ Tool        │ add_item                   │ 29          │
+│ Tool        │ get_model                  │ 6           │
+│ Tool        │ solve_model                │ 4           │
+│ Tool        │ clear_model                │ 2           │
+│ Tool        │ replace_item               │ 1           │
+│ Tool        │ delete_item                │ 0           │
+│ Tool        │ TOTAL                      │ 42          │
+│ TOKEN USAGE │                            │             │
+│ Token       │ ReAct Agent Input (exact)  │ 554k        │
+│ Token       │ ReAct Agent Output (exact) │ 6.9k        │
+│ Token       │ ReAct Agent Total (exact)  │ 561k        │
+│ Token       │ Reviewer Input (exact)     │ 1.6k        │
+│ Token       │ Reviewer Output (exact)    │ 1.2k        │
+│ Token       │ Reviewer Total (exact)     │ 2.8k        │
+│ Token       │ COMBINED TOTAL             │ 564k        │
+└─────────────┴────────────────────────────┴─────────────┘
+Test completed successfully
+
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1

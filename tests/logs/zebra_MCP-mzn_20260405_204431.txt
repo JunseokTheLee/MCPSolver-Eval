@@ -1,5 +1,0 @@
-
-usage: run-test [-h] [--problem PROBLEM] [--verbose] [--timeout TIMEOUT]
-                [--save] [--result RESULT] [--mc MC]
-                {mzn,pysat,z3,maxsat,asp}
-run-test: error: unrecognized arguments: --react-input-log /Users/jayden/Projects/mcp-solver/tests/logs/zebra_MCP-mzn_20260405_204431_input.txt

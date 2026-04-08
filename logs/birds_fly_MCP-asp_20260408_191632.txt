@@ -1,0 +1,22 @@
+Found 1 ASP problem(s) to test
+
+┌──────────────────────────────────┐
+│ Testing problem [ASP]: birds_fly │
+└──────────────────────────────────┘
+Running command: cd /Users/jayden/MCPSolver-Eval && uv run test-client --query /Users/jayden/MCPSolver-Eval/tests/problems/asp/birds_fly.md --server "uv run mcp-solver-asp" --react-input-log "/Users/jayden/MCPSolver-Eval/logs/birds_fly_MCP-asp_20260408_191632_input.txt"
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Detected mode: asp
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for asp mode:
+- Instructions: 9275 characters
+- Review: 4052 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+[1;31mError: ANTHROPIC_API_KEY not found in environment variables. Please set ANTHROPIC_API_KEY in your .env [0m
+[1;31mfile.[0m
+No tool usage or token statistics available for this run.
+Test completed successfully
+
+/Users/jayden/MCPSolver-Eval/.venv/lib/python3.14/site-packages/langchain_core/_api/deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1

@@ -5,25 +5,29 @@ run_tests.py — mcp-solver test automation script
 Discovers all .md problem files in a folder and runs them through
 the mcp-solver test runner(s).
 
+The solver is inferred automatically from the subfolder name:
+  tests/problems/           ← root folder (all solvers discovered)
+  tests/problems/mzn/       ← inferred solver: mzn
+  tests/problems/pysat/     ← inferred solver: pysat
+  … etc.
+
 Usage:
-    python run_tests.py --solver mzn --folder tests/problems/mzn
-    python run_tests.py --solver pysat --folder tests/problems/pysat
-    python run_tests.py --solver z3 --folder tests/problems/z3 --runner llm
-    python run_tests.py --solver maxsat --folder tests/problems/maxsat --runner both
-    python run_tests.py --solver asp --folder tests/problems/asp --timeout 600
-    python run_tests.py --solver mzn --folder tests/problems/mzn --csv results.csv
+    python run_tests.py --folder tests/problems
+    python run_tests.py --folder tests/problems/mzn
+    python run_tests.py --folder tests/problems --runner mcp
+    python run_tests.py --folder tests/problems --runner llm
+    python run_tests.py --folder tests/problems --runner both
+    python run_tests.py --folder tests/problems --timeout 600 --csv results.csv
 
 Arguments:
-    --solver    Solver mode to use. Required.
-                Choices: mzn, pysat, maxsat, z3, asp
-
-    --folder    Path to folder containing .md problem files. Required.
-                Can be absolute or relative to the project root.
+    --folder    Path to the problems root directory (or a single solver
+                subfolder). Required. Can be absolute or relative to the
+                project root. Solver is inferred from the subfolder name.
 
     --runner    Which test runner to use (default: both).
                 Choices:
                   mcp  — uv run run-test <solver> --problem <file>
-                  llm  — uv run python tests/run_test_llm.py <solver> --problem <file>
+                  llm  — uv run python tests/run_test_llm.py --problem <file>
                   both — runs mcp first, then llm for every problem
 
     --timeout   Seconds to wait before killing a single test (default: 600).
@@ -52,7 +56,7 @@ from typing import Optional
 
 
 VALID_RUNNERS = {"mcp", "llm", "both"}
-MCP_SOLVERS = ["mzn"]
+KNOWN_SOLVERS = {"asp", "maxsat", "mzn", "pysat", "z3"}
 
 # Colour codes (disabled automatically if not a TTY)
 if sys.stdout.isatty():
@@ -218,23 +222,54 @@ def parse_token_stats(output: str) -> TokenStats:
 # ---------------------------------------------------------------------------
 # Core helpers 
 # ---------------------------------------------------------------------------
-def find_problems(folder: Path) -> list[Path]:
-    """Return all .md files in *folder* (non-recursive), sorted by name."""
+def find_problems(folder: Path) -> list[tuple[str, Path]]:
+    """
+    Discover problems under *folder*.
+
+    If *folder* contains known solver subdirectories (asp, mzn, …), each
+    subfolder is walked and its name is used as the solver.  Otherwise the
+    folder itself is treated as a single solver directory whose name must be a
+    known solver.
+
+    Returns a sorted list of (solver, problem_path) pairs.
+    """
     if not folder.exists():
         sys.exit(f"Folder not found: {folder}")
     if not folder.is_dir():
         sys.exit(f"Not a directory: {folder}")
-    problems = sorted(folder.glob("*.md"))
-    if not problems:
-        warn(f"No .md files found in {folder}")
-    return problems
+
+    results: list[tuple[str, Path]] = []
+
+    # Check whether any direct child is a known solver directory
+    solver_subdirs = [d for d in sorted(folder.iterdir())
+                      if d.is_dir() and d.name in KNOWN_SOLVERS]
+
+    if solver_subdirs:
+        # Root problems folder — iterate each solver subfolder
+        for solver_dir in solver_subdirs:
+            solver = solver_dir.name
+            for p in sorted(solver_dir.glob("*.md")):
+                results.append((solver, p))
+    else:
+        # Single solver folder — infer solver from folder name
+        solver = folder.name
+        if solver not in KNOWN_SOLVERS:
+            sys.exit(
+                f"Cannot infer solver from folder name '{solver}'. "
+                f"Expected one of: {sorted(KNOWN_SOLVERS)}"
+            )
+        for p in sorted(folder.glob("*.md")):
+            results.append((solver, p))
+
+    if not results:
+        warn(f"No .md problem files found under {folder}")
+    return results
 
 
-def build_commands(problem: Path, runner: str) -> list[list[str]]:
+def build_commands(problem: Path, solver: str, runner: str) -> list[list[str]]:
     cmds = []
     if runner in ("mcp", "both"):
-        for s in MCP_SOLVERS:
-            cmds.append(["uv", "run", "run-test", s, "--problem", str(problem)])
+        cmds.append(["uv", "run", "run-test", solver, "--problem", str(problem)])
     if runner in ("llm", "both"):
         cmds.append(["uv", "run", "python", "tests/run_test_llm.py",
                      "--problem", str(problem)])
@@ -478,7 +513,7 @@ def main() -> None:
     project_root = Path(__file__).parent.parent.resolve()
     folder = args.folder if args.folder.is_absolute() else project_root / args.folder
 
-    problems = find_problems(folder)
+    solver_problems = find_problems(folder)
 
     # -----------------------------------------------------------------------
     # Print run config
@@ -488,7 +523,7 @@ def main() -> None:
     header("=" * 60)
     info(f"Folder:   {folder}")
     info(f"Runner:   {args.runner}")
-    info(f"Problems: {len(problems)}")
+    info(f"Problems: {len(solver_problems)}")
     info(f"Timeout:  {args.timeout}s per test")
     info(f"Started:  {time.strftime('%Y-%m-%d %H:%M:%S')}")
     if args.csv:
@@ -507,8 +542,8 @@ def main() -> None:
     all_results: list[TestResult] = []
     suite_start = time.time()
 
-    for problem in problems:
-        for cmd in build_commands(problem, args.runner):
+    for solver, problem in solver_problems:
+        for cmd in build_commands(problem, solver, args.runner):
             if "run-test" in cmd:
                 cmd_solver = cmd[cmd.index("run-test") + 1]
                 runner_tag = f"MCP-{cmd_solver}"
