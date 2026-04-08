@@ -1,0 +1,410 @@
+Found 1 Z3 problem(s) to test
+
+┌───────────────────────────────────────┐
+│ Testing problem [Z3]: cryptarithmetic │
+└───────────────────────────────────────┘
+Running command: cd /Users/jayden/Projects/mcp-solver && uv run test-client --query /Users/jayden/Projects/mcp-solver/tests/problems/mzn2/cryptarithmetic.md --server "uv run mcp-solver-z3"
+Detected mode: z3
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for z3 mode:
+- Instructions: 27641 characters
+- Review: 2499 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+Using model: AT:claude-sonnet-4-20250514
+Using custom server command: uv run mcp-solver-z3
+2026-04-04 11:11:15,961 - mcp_solver.z3.model_manager - INFO - Z3 model manager initialized
+2026-04-04 11:11:15,961 - mcp_solver.core.server - INFO - Using Z3 model manager
+2026-04-04 11:11:15,963 - mcp_solver.core.server - INFO - Starting MCP server
+2026-04-04 11:11:15,965 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+
+📋 Available tools:
+  1. clear_model
+  2. add_item
+  3. replace_item
+  4. delete_item
+  5. get_model
+  6. solve_model
+
+Using recursion limit: 200
+[1;34msystem[0m: Entering ReAct Agent
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-04 11:11:20,427 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:20,429 - mcp_solver.z3.model_manager - INFO - Model cleared
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"# Setup and imports\nfrom z3 import *\nfrom mcp_solver.z3 import export_solution"[0m
+[1m}[0m
+2026-04-04 11:11:22,446 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:22,449 - mcp_solver.z3.model_manager - INFO - Added item at index 0
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Setup and imports
+from z3 import *
+from mcp_solver.z3 import export_solution
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"# Create variables for each letter [0m[32m([0m[32meach represents a digit 0-9[0m[32m)[0m[32m\nS = Int[0m[32m([0m[32m'S'[0m[32m)[0m[32m\nE = Int[0m[32m([0m[32m'E'[0m[32m)[0m[32m\nN = Int[0m[32m([0m[32m'N'[0m[32m)[0m[32m\nD = Int[0m[32m([0m[32m'D'[0m[32m)[0m[32m\nM = Int[0m[32m([0m[32m'M'[0m[32m)[0m[32m\nO = [0m
+[32mInt[0m[32m([0m[32m'O'[0m[32m)[0m[32m\nR = Int[0m[32m([0m[32m'R'[0m[32m)[0m[32m\nY = Int[0m[32m([0m[32m'Y'[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:11:26,146 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:26,149 - mcp_solver.z3.model_manager - INFO - Added item at index 1
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Setup and imports
+from z3 import *
+from mcp_solver.z3 import export_solution
+[1;36m1[0m | # Create variables for each letter [1m([0meach represents a digit [1;36m0[0m-[1;36m9[0m[1m)[0m
+S = [1;35mInt[0m[1m([0m[32m'S'[0m[1m)[0m
+E = [1;35mInt[0m[1m([0m[32m'E'[0m[1m)[0m
+N = [1;35mInt[0m[1m([0m[32m'N'[0m[1m)[0m
+D = [1;35mInt[0m[1m([0m[32m'D'[0m[1m)[0m
+M = [1;35mInt[0m[1m([0m[32m'M'[0m[1m)[0m
+O = [1;35mInt[0m[1m([0m[32m'O'[0m[1m)[0m
+R = [1;35mInt[0m[1m([0m[32m'R'[0m[1m)[0m
+Y = [1;35mInt[0m[1m([0m[32m'Y'[0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"# Create solver and add domain constraints\nsolver = Solver[0m[32m([0m[32m)[0m[32m\n\n# Each digit is between 0 and 9\ndigits = [0m[32m[[0m[32mS, E, N, D, M, O, R, Y[0m[32m][0m[32m\nfor digit [0m
+[32min digits:\n    solver.add[0m[32m([0m[32mdigit >= 0, digit <= 9[0m[32m)[0m[32m\n\n# All digits are distinct\nsolver.add[0m[32m([0m[32mDistinct[0m[32m([0m[32mdigits[0m[32m)[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:11:29,495 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:29,497 - mcp_solver.z3.model_manager - INFO - Added item at index 2
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Setup and imports
+from z3 import *
+from mcp_solver.z3 import export_solution
+[1;36m1[0m | # Create variables for each letter [1m([0meach represents a digit [1;36m0[0m-[1;36m9[0m[1m)[0m
+S = [1;35mInt[0m[1m([0m[32m'S'[0m[1m)[0m
+E = [1;35mInt[0m[1m([0m[32m'E'[0m[1m)[0m
+N = [1;35mInt[0m[1m([0m[32m'N'[0m[1m)[0m
+D = [1;35mInt[0m[1m([0m[32m'D'[0m[1m)[0m
+M = [1;35mInt[0m[1m([0m[32m'M'[0m[1m)[0m
+O = [1;35mInt[0m[1m([0m[32m'O'[0m[1m)[0m
+R = [1;35mInt[0m[1m([0m[32m'R'[0m[1m)[0m
+Y = [1;35mInt[0m[1m([0m[32m'Y'[0m[1m)[0m
+[1;36m2[0m | # Create solver and add domain constraints
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Each digit is between [1;36m0[0m and [1;36m9[0m
+digits = [1m[[0mS, E, N, D, M, O, R, Y[1m][0m
+for digit in digits:
+    [1;35msolver.add[0m[1m([0mdigit >= [1;36m0[0m, digit <= [1;36m9[0m[1m)[0m
+
+# All digits are distinct
+[1;35msolver.add[0m[1m([0m[1;35mDistinct[0m[1m([0mdigits[1m)[0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"# Leading digits cannot be 0\nsolver.add[0m[32m([0m[32mS != 0[0m[32m)[0m[32m  # S is the leading digit of SEND\nsolver.add[0m[32m([0m[32mM != 0[0m[32m)[0m[32m  # M is the leading digit of MORE and [0m
+[32mMONEY"[0m
+[1m}[0m
+2026-04-04 11:11:32,383 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:32,385 - mcp_solver.z3.model_manager - INFO - Added item at index 3
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Setup and imports
+from z3 import *
+from mcp_solver.z3 import export_solution
+[1;36m1[0m | # Create variables for each letter [1m([0meach represents a digit [1;36m0[0m-[1;36m9[0m[1m)[0m
+S = [1;35mInt[0m[1m([0m[32m'S'[0m[1m)[0m
+E = [1;35mInt[0m[1m([0m[32m'E'[0m[1m)[0m
+N = [1;35mInt[0m[1m([0m[32m'N'[0m[1m)[0m
+D = [1;35mInt[0m[1m([0m[32m'D'[0m[1m)[0m
+M = [1;35mInt[0m[1m([0m[32m'M'[0m[1m)[0m
+O = [1;35mInt[0m[1m([0m[32m'O'[0m[1m)[0m
+R = [1;35mInt[0m[1m([0m[32m'R'[0m[1m)[0m
+Y = [1;35mInt[0m[1m([0m[32m'Y'[0m[1m)[0m
+[1;36m2[0m | # Create solver and add domain constraints
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Each digit is between [1;36m0[0m and [1;36m9[0m
+digits = [1m[[0mS, E, N, D, M, O, R, Y[1m][0m
+for digit in digits:
+    [1;35msolver.add[0m[1m([0mdigit >= [1;36m0[0m, digit <= [1;36m9[0m[1m)[0m
+
+# All digits are distinct
+[1;35msolver.add[0m[1m([0m[1;35mDistinct[0m[1m([0mdigits[1m)[0m[1m)[0m
+[1;36m3[0m | # Leading digits cannot be [1;36m0[0m
+[1;35msolver.add[0m[1m([0mS != [1;36m0[0m[1m)[0m  # S is the leading digit of SEND
+[1;35msolver.add[0m[1m([0mM != [1;36m0[0m[1m)[0m  # M is the leading digit of MORE and MONEY
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"# Convert letters to their numeric values\nSEND = 1000*S + 100*E + 10*N + D\nMORE = 1000*M + 100*O + 10*R + E\nMONEY = 10000*M + 1000*O + 100*N[0m
+[32m+ 10*E + Y\n\n# The main constraint: SEND + MORE = MONEY\nsolver.add[0m[32m([0m[32mSEND + MORE == MONEY[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:11:36,782 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:36,784 - mcp_solver.z3.model_manager - INFO - Added item at index 4
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Setup and imports
+from z3 import *
+from mcp_solver.z3 import export_solution
+[1;36m1[0m | # Create variables for each letter [1m([0meach represents a digit [1;36m0[0m-[1;36m9[0m[1m)[0m
+S = [1;35mInt[0m[1m([0m[32m'S'[0m[1m)[0m
+E = [1;35mInt[0m[1m([0m[32m'E'[0m[1m)[0m
+N = [1;35mInt[0m[1m([0m[32m'N'[0m[1m)[0m
+D = [1;35mInt[0m[1m([0m[32m'D'[0m[1m)[0m
+M = [1;35mInt[0m[1m([0m[32m'M'[0m[1m)[0m
+O = [1;35mInt[0m[1m([0m[32m'O'[0m[1m)[0m
+R = [1;35mInt[0m[1m([0m[32m'R'[0m[1m)[0m
+Y = [1;35mInt[0m[1m([0m[32m'Y'[0m[1m)[0m
+[1;36m2[0m | # Create solver and add domain constraints
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Each digit is between [1;36m0[0m and [1;36m9[0m
+digits = [1m[[0mS, E, N, D, M, O, R, Y[1m][0m
+for digit in digits:
+    [1;35msolver.add[0m[1m([0mdigit >= [1;36m0[0m, digit <= [1;36m9[0m[1m)[0m
+
+# All digits are distinct
+[1;35msolver.add[0m[1m([0m[1;35mDistinct[0m[1m([0mdigits[1m)[0m[1m)[0m
+[1;36m3[0m | # Leading digits cannot be [1;36m0[0m
+[1;35msolver.add[0m[1m([0mS != [1;36m0[0m[1m)[0m  # S is the leading digit of SEND
+[1;35msolver.add[0m[1m([0mM != [1;36m0[0m[1m)[0m  # M is the leading digit of MORE and MONEY
+[1;36m4[0m | # Convert letters to their numeric values
+SEND = [1;36m1000[0m*S + [1;36m100[0m*E + [1;36m10[0m*N + D
+MORE = [1;36m1000[0m*M + [1;36m100[0m*O + [1;36m10[0m*R + E
+MONEY = [1;36m10000[0m*M + [1;36m1000[0m*O + [1;36m100[0m*N + [1;36m10[0m*E + Y
+
+# The main constraint: SEND + MORE = MONEY
+[1;35msolver.add[0m[1m([0mSEND + MORE == MONEY[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m5[0m,
+  [32m"content"[0m: [32m"# Solve and export the solution\nif solver.check[0m[32m([0m[32m)[0m[32m == sat:\n    print[0m[32m([0m[32m\"Solution found!\"[0m[32m)[0m[32m\n    \n    # Create variables dictionary for [0m
+[32mexport\n    variables = [0m[32m{[0m[32m\n        'S': S, 'E': E, 'N': N, 'D': D,\n        'M': M, 'O': O, 'R': R, 'Y': Y,\n        'SEND': SEND, 'MORE': MORE, 'MONEY': [0m
+[32mMONEY\n    [0m[32m}[0m[32m\n    \n    export_solution[0m[32m([0m[32msolver[0m[32m=[0m[32msolver[0m[32m, [0m[32mvariables[0m[32m=[0m[32mvariables[0m[32m)[0m[32m\nelse:\n    print[0m[32m([0m[32m\"No solution exists\"[0m[32m)[0m[32m\n    variables = [0m[32m{[0m[32m'S': S, 'E': E, 'N': [0m
+[32mN, 'D': D, 'M': M, 'O': O, 'R': R, 'Y': Y[0m[32m}[0m[32m\n    export_solution[0m[32m([0m[32msatisfiable[0m[32m=[0m[32mFalse[0m[32m, [0m[32mvariables[0m[32m=[0m[32mvariables[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:11:40,960 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:40,963 - mcp_solver.z3.model_manager - INFO - Added item at index 5
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | # Setup and imports
+from z3 import *
+from mcp_solver.z3 import export_solution
+[1;36m1[0m | # Create variables for each letter [1m([0meach represents a digit [1;36m0[0m-[1;36m9[0m[1m)[0m
+S = [1;35mInt[0m[1m([0m[32m'S'[0m[1m)[0m
+E = [1;35mInt[0m[1m([0m[32m'E'[0m[1m)[0m
+N = [1;35mInt[0m[1m([0m[32m'N'[0m[1m)[0m
+D = [1;35mInt[0m[1m([0m[32m'D'[0m[1m)[0m
+M = [1;35mInt[0m[1m([0m[32m'M'[0m[1m)[0m
+O = [1;35mInt[0m[1m([0m[32m'O'[0m[1m)[0m
+R = [1;35mInt[0m[1m([0m[32m'R'[0m[1m)[0m
+Y = [1;35mInt[0m[1m([0m[32m'Y'[0m[1m)[0m
+[1;36m2[0m | # Create solver and add domain constraints
+solver = [1;35mSolver[0m[1m([0m[1m)[0m
+
+# Each digit is between [1;36m0[0m and [1;36m9[0m
+digits = [1m[[0mS, E, N, D, M, O, R, Y[1m][0m
+for digit in digits:
+    [1;35msolver.add[0m[1m([0mdigit >= [1;36m0[0m, digit <= [1;36m9[0m[1m)[0m
+
+# All digits are distinct
+[1;35msolver.add[0m[1m([0m[1;35mDistinct[0m[1m([0mdigits[1m)[0m[1m)[0m
+[1;36m3[0m | # Leading digits cannot be [1;36m0[0m
+[1;35msolver.add[0m[1m([0mS != [1;36m0[0m[1m)[0m  # S is the leading digit of SEND
+[1;35msolver.add[0m[1m([0mM != [1;36m0[0m[1m)[0m  # M is the leading digit of MORE and MONEY
+[1;36m4[0m | # Convert letters to their numeric values
+SEND = [1;36m1000[0m*S + [1;36m100[0m*E + [1;36m10[0m*N + D
+MORE = [1;36m1000[0m*M + [1;36m100[0m*O + [1;36m10[0m*R + E
+MONEY = [1;36m10000[0m*M + [1;36m1000[0m*O + [1;36m100[0m*N + [1;36m10[0m*E + Y
+
+# The main constraint: SEND + MORE = MONEY
+[1;35msolver.add[0m[1m([0mSEND + MORE == MONEY[1m)[0m
+[1;36m5[0m | # Solve and export the solution
+if [1;35msolver.check[0m[1m([0m[1m)[0m == sat:
+    [1;35mprint[0m[1m([0m[32m"Solution found!"[0m[1m)[0m
+    
+    # Create variables dictionary for export
+    variables = [1m{[0m
+        [32m'S'[0m: S, [32m'E'[0m: E, [32m'N'[0m: N, [32m'D'[0m: D,
+        [32m'M'[0m: M, [32m'O'[0m: O, [32m'R'[0m: R, [32m'Y'[0m: Y,
+        [32m'SEND'[0m: SEND, [32m'MORE'[0m: MORE, [32m'MONEY'[0m: MONEY
+    [1m}[0m
+    
+    [1;35mexport_solution[0m[1m([0m[33msolver[0m=[35msolver[0m, [33mvariables[0m=[35mvariables[0m[1m)[0m
+else:
+    [1;35mprint[0m[1m([0m[32m"No solution exists"[0m[1m)[0m
+    variables = [1m{[0m[32m'S'[0m: S, [32m'E'[0m: E, [32m'N'[0m: N, [32m'D'[0m: D, [32m'M'[0m: M, [32m'O'[0m: O, [32m'R'[0m: R, [32m'Y'[0m: Y[1m}[0m
+    [1;35mexport_solution[0m[1m([0m[33msatisfiable[0m=[3;91mFalse[0m, [33mvariables[0m=[35mvariables[0m[1m)[0m
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m10[0m
+[1m}[0m
+2026-04-04 11:11:43,119 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:11:43,121 - mcp_solver.core.server - INFO - Solving model with timeout 10.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'success'[0m: [3;92mTrue[0m, [32m'message'[0m: [32m'Model solved'[0m, [32m'status'[0m: [32m'success'[0m, [32m'output'[0m: [1m[[0m[32m'Solution found!'[0m, [32m'Solution found.'[0m[1m][0m, 
+[32m'execution_time'[0m: [1;36m0.04769587516784668[0m, [32m'satisfiable'[0m: [3;92mTrue[0m, [32m'values'[0m: [1m{[0m[32m'S'[0m: [1;36m9[0m, [32m'E'[0m: [1;36m5[0m, [32m'N'[0m: [1;36m6[0m, [32m'D'[0m: [1;36m7[0m, [32m'M'[0m: [1;36m1[0m, [32m'O'[0m: [1;36m0[0m, [32m'R'[0m: [1;36m8[0m, [32m'Y'[0m: [1;36m2[0m, [32m'SEND'[0m: [1;36m9567[0m, [32m'MORE'[0m: 
+[1;36m1085[0m, [32m'MONEY'[0m: [1;36m10652[0m[1m}[0m[1m}[0m
+2026-04-04 11:11:43,177 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+Agent response keys: ['messages']
+Agent reply received, length: 562
+
+
+┌───────────────────┐
+│ PROBLEM STATEMENT │
+└───────────────────┘
+# Cryptarithmetic Puzzle
+
+Can you solve this cryptarithmetic puzzle using Z3?
+
+```
+  SEND
++ MORE
+------
+ MONEY
+```
+
+Each letter represents a unique digit (0-9). Find the digit assignment that makes this sum equation valid.
+
+The leading digit of any number cannot be 0 (so S and M cannot be 0).
+
+
+
+┌─────────────┐
+│ FINAL MODEL │
+└─────────────┘
+0 | # Setup and imports
+from z3 import *
+from mcp_solver.z3 import export_solution
+1 | # Create variables for each letter (each represents a digit 0-9)
+S = Int('S')
+E = Int('E')
+N = Int('N')
+D = Int('D')
+M = Int('M')
+O = Int('O')
+R = Int('R')
+Y = Int('Y')
+2 | # Create solver and add domain constraints
+solver = Solver()
+
+# Each digit is between 0 and 9
+digits = [S, E, N, D, M, O, R, Y]
+for digit in digits:
+    solver.add(digit >= 0, digit <= 9)
+
+# All digits are distinct
+solver.add(Distinct(digits))
+3 | # Leading digits cannot be 0
+solver.add(S != 0)  # S is the leading digit of SEND
+solver.add(M != 0)  # M is the leading digit of MORE and MONEY
+4 | # Convert letters to their numeric values
+SEND = 1000*S + 100*E + 10*N + D
+MORE = 1000*M + 100*O + 10*R + E
+MONEY = 10000*M + 1000*O + 100*N + 10*E + Y
+
+# The main constraint: SEND + MORE = MONEY
+solver.add(SEND + MORE == MONEY)
+5 | # Solve and export the solution
+if solver.check() == sat:
+    print("Solution found!")
+    
+    # Create variables dictionary for export
+    variables = {
+        'S': S, 'E': E, 'N': N, 'D': D,
+        'M': M, 'O': O, 'R': R, 'Y': Y,
+        'SEND': SEND, 'MORE': MORE, 'MONEY': MONEY
+    }
+    
+    export_solution(solver=solver, variables=variables)
+else:
+    print("No solution exists")
+    variables = {'S': S, 'E': E, 'N': N, 'D': D, 'M': M, 'O': O, 'R': R, 'Y': Y}
+    export_solution(satisfiable=False, variables=variables)
+
+
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+{'success': True, 'message': 'Model solved', 'status': 'success', 'output': ['Solution found!', 'Solution found.'], 'execution_time': 0.04769587516784668, 'satisfiable': True, 'values': {'S': 9, 'E': 5, 'N': 6, 'D': 7, 'M': 1, 'O': 0, 'R': 8, 'Y': 2, 'SEND': 9567, 'MORE': 1085, 'MONEY': 10652}}
+
+[1;34msystem[0m: Entering Review Agent
+Starting solution review process...
+Preparing review prompt (4485 characters)...
+Calling model for review...
+Found verdict tag: correct
+Review complete: verdict is 'correct'
+Review complete: ✅ correct
+
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Correctness: ✅ correct
+Explanation: I need to verify that the provided solution satisfies all constraints in the cryptarithmetic puzzle SEND + MORE = MONEY.
+
+Let me analyze the solution values:
+- S = 9, E = 5, N = 6, D = 7
+- M = 1, O = 0, R = 8, Y = 2
+- SEND = 9567, MORE = 1085, MONEY = 10652
+
+**Constraint Analysis:**
+
+1. **Domain constraints**: Each digit must be between 0-9
+   - S = 9 ✓, E = 5 ✓, N = 6 ✓, D = 7 ✓
+   - M = 1 ✓, O = 0 ✓, R = 8 ✓, Y = 2 ✓
+   All values are within [0,9].
+
+2. **Distinctness constraint**: All digits must be unique
+   - Values: {9, 5, 6, 7, 1, 0, 8, 2}
+   - All 8 values are distinct ✓
+
+3. **Leading digit constraints**: S ≠ 0 and M ≠ 0
+   - S = 9 ≠ 0 ✓
+   - M = 1 ≠ 0 ✓
+
+4. **Number formation verification**:
+   - SEND = 1000×9 + 100×5 + 10×6 + 7 = 9000 + 500 + 60 + 7 = 9567 ✓
+   - MORE = 1000×1 + 100×0 + 10×8 + 5 = 1000 + 0 + 80 + 5 = 1085 ✓
+   - MONEY = 10000×1 + 1000×0 + 100×6 + 10×5 + 2 = 10000 + 0 + 600 + 50 + 2 = 10652 ✓
+
+5. **Main arithmetic constraint**: SEND + MORE = MONEY
+   - 9567 + 1085 = 10652 ✓
+
+Let me verify the arithmetic step by step:
+```
+  9567
++ 1085
+------
+ 10652
+```
+- Units: 7 + 5 = 12 → 2 carry 1 ✓
+- Tens: 6 + 8 + 1 = 15 → 5 carry 1 ✓
+- Hundreds: 5 + 0 + 1 = 6 ✓
+- Thousands: 9 + 1 = 10 → 0 carry 1 ✓
+- Ten-thousands: 0 + 0 + 1 = 1 ✓
+
+The arithmetic is correct: 9567 + 1085 = 10652.
+
+All constraints from the problem description are satisfied by the provided solution values. The Z3 encoding correctly represents the cryptarithmetic puzzle requirements, and the solution satisfies every constraint.
+
+The solution is correct.
+
+
+
+             Tool Usage and Token Statistics              
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Category    ┃ Item                       ┃ Count/Value ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ TOOL USAGE  │                            │             │
+│ Tool        │ add_item                   │ 6           │
+│ Tool        │ clear_model                │ 1           │
+│ Tool        │ solve_model                │ 1           │
+│ Tool        │ get_model                  │ 1           │
+│ Tool        │ replace_item               │ 0           │
+│ Tool        │ delete_item                │ 0           │
+│ Tool        │ TOTAL                      │ 9           │
+│ TOKEN USAGE │                            │             │
+│ Token       │ ReAct Agent Input (exact)  │ 88k         │
+│ Token       │ ReAct Agent Output (exact) │ 1.3k        │
+│ Token       │ ReAct Agent Total (exact)  │ 90k         │
+│ Token       │ Reviewer Input (exact)     │ 1.4k        │
+│ Token       │ Reviewer Output (exact)    │ 771         │
+│ Token       │ Reviewer Total (exact)     │ 2.1k        │
+│ Token       │ COMBINED TOTAL             │ 92k         │
+└─────────────┴────────────────────────────┴─────────────┘
+Test completed successfully
+

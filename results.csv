@@ -1,0 +1,2 @@
+problem,runner,solver,verdict,passed,timed_out,elapsed_s,react_input_tokens,react_output_tokens,react_total_tokens,reviewer_input_tokens,reviewer_output_tokens,reviewer_total_tokens,combined_total_tokens
+zebra,MCP-mzn,mzn,correct,true,false,72.24,86000,2200,88000,1700,1200,2900,91000

@@ -1,0 +1,1093 @@
+Found 1 MAXSAT problem(s) to test
+
+┌───────────────────────────────────────────────────────┐
+│ Testing problem [MAXSAT]: university_scheduling_unsat │
+└───────────────────────────────────────────────────────┘
+Running command: cd /Users/jayden/Projects/mcp-solver && uv run test-client --query /Users/jayden/Projects/mcp-solver/tests/problems/mzn2/university_scheduling_unsat.md --server "uv run mcp-solver-maxsat"
+Detected mode: maxsat
+Model code: AT:claude-sonnet-4-20250514
+Loaded prompts for maxsat mode:
+- Instructions: 26502 characters
+- Review: 3802 characters
+Using model code: AT:claude-sonnet-4-20250514
+[1;32mUsing model code: AT:claude-sonnet-[0m[1;32m4[0m[1;32m-[0m[1;32m20250514[0m
+Using model: AT:claude-sonnet-4-20250514
+Using custom server command: uv run mcp-solver-maxsat
+2026-04-04 11:36:17,507 - mcp_solver.maxsat.model_manager - INFO - MaxSAT model manager initialized
+2026-04-04 11:36:17,507 - mcp_solver.core.server - INFO - Using MaxSAT model manager
+2026-04-04 11:36:17,508 - mcp_solver.core.server - INFO - Starting MCP server
+2026-04-04 11:36:17,511 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+
+📋 Available tools:
+  1. clear_model
+  2. add_item
+  3. replace_item
+  4. delete_item
+  5. get_model
+  6. solve_model
+
+Using recursion limit: 200
+[1;34msystem[0m: Entering ReAct Agent
+[1;34msystem[0m: ▶ clear_model called with args: [1m{[0m[1m}[0m
+2026-04-04 11:36:19,799 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:36:19,800 - mcp_solver.maxsat.model_manager - INFO - Model cleared
+[1;34msystem[0m: ◀ clear_model output: Model cleared
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m0[0m,
+  [32m"content"[0m: [32m"from pysat.formula import WCNF\nfrom pysat.examples.rc2 import RC2\n# Note: Helper functions are already available\n\nwcnf = WCNF[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:36:22,139 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m1[0m,
+  [32m"content"[0m: [32m"# PARAMETER VERIFICATION\n# Problem parameters [0m[32m([0m[32mDO NOT CHANGE[0m[32m)[0m[32m:\n# - Number of courses: 10\n# - Number of time slots: 5\n# - Number of rooms: [0m
+[32m4\n# - Room types: Room 1 [0m[32m([0m[32mcomputer lab[0m[32m)[0m[32m, Room 2 [0m[32m([0m[32mregular[0m[32m)[0m[32m, Room 3 [0m[32m([0m[32mregular[0m[32m)[0m[32m, Room 4 [0m[32m([0m[32mspecial lab[0m[32m)[0m[32m\n\nnum_courses = 10\nnum_time_slots = 5\nnum_rooms = [0m
+[32m4\n\n# Course IDs [0m[32m([0m[32m0-indexed for iteration, 1-based variables[0m[32m)[0m[32m\ncourses = [0m[32m{[0m[32m\n    'CS101': 0, 'CS201': 1, 'MA101': 2, 'PH101': 3, 'EN101': 4,\n    'BI101': 5,[0m
+[32m'HI101': 6, 'EC101': 7, 'PS101': 8, 'AR101': 9\n[0m[32m}[0m[32m\n\n# Room types\nCOMPUTER_LAB = 0  # Room 1\nREGULAR_1 = 1     # Room 2  \nREGULAR_2 = 2     # Room [0m
+[32m3\nSPECIAL_LAB = 3   # Room 4\n\n# Variables: course_time_room[0m[7;8;32m = course c is scheduled in time slot t and room r\nvar_count = 0\ncourse_time_room = [0m[7;8;32m{[0m[7;8;32m}[0m[7;8;32m\nfor c[0m
+[7;8;32min range[0m[7;8;32m([0m[7;8;32mnum_courses[0m[7;8;32m)[0m[7;8;32m:\n    for t in range[0m[7;8;32m([0m[7;8;32mnum_time_slots[0m[7;8;32m)[0m[7;8;32m:\n        for r in range[0m[7;8;32m([0m[7;8;32mnum_rooms[0m[7;8;32m)[0m[7;8;32m:\n            var_count += 1\n            course_time_room[0m[7;8;32m[[0m[7;8;32m([0m[7;8;32mc,[0m
+[7;8;32mt, r[0m[7;8;32m)[0m[7;8;32m][0m[7;8;32m = var_count\n\n# Verify parameters\nassert len[0m[7;8;32m([0m[7;8;32mcourse_time_room[0m[7;8;32m)[0m[7;8;32m == num_courses * num_time_slots * num_rooms, \"Wrong number of [0m
+[7;8;32mvariables\"\nprint[0m[7;8;32m([0m[7;8;32mf\"Total variables: [0m[7;8;32m{[0m[7;8;32mvar_count[0m[7;8;32m}[0m[7;8;32m\"[0m[7;8;32m)[0m[7;8;32m"[0m
+[1;7;8m}[0m
+2026-04-04 11:36:29,461 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of courses: [1;36m10[0m
+# - Number of time slots: [1;36m5[0m
+# - Number of rooms: [1;36m4[0m
+# - Room types: Room [1;36m1[0m [1m([0mcomputer lab[1m)[0m, Room [1;36m2[0m [1m([0mregular[1m)[0m, Room [1;36m3[0m [1m([0mregular[1m)[0m, Room [1;36m4[0m [1m([0mspecial lab[1m)[0m
+
+num_courses = [1;36m10[0m
+num_time_slots = [1;36m5[0m
+num_rooms = [1;36m4[0m
+
+# Course IDs [1m([0m[1;36m0[0m-indexed for iteration, [1;36m1[0m-based variables[1m)[0m
+courses = [1m{[0m
+    [32m'CS101'[0m: [1;36m0[0m, [32m'CS201'[0m: [1;36m1[0m, [32m'MA101'[0m: [1;36m2[0m, [32m'PH101'[0m: [1;36m3[0m, [32m'EN101'[0m: [1;36m4[0m,
+    [32m'BI101'[0m: [1;36m5[0m, [32m'HI101'[0m: [1;36m6[0m, [32m'EC101'[0m: [1;36m7[0m, [32m'PS101'[0m: [1;36m8[0m, [32m'AR101'[0m: [1;36m9[0m
+[1m}[0m
+
+# Room types
+COMPUTER_LAB = [1;36m0[0m  # Room [1;36m1[0m
+REGULAR_1 = [1;36m1[0m     # Room [1;36m2[0m  
+REGULAR_2 = [1;36m2[0m     # Room [1;36m3[0m
+SPECIAL_LAB = [1;36m3[0m   # Room [1;36m4[0m
+
+# Variables: course_time_room[7;8m = course c is scheduled in time slot t and room r[0m
+[7;8mvar_count = [0m[1;7;8;36m0[0m
+[7;8mcourse_time_room = [0m[1;7;8m{[0m[1;7;8m}[0m
+[7;8mfor c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            var_count += [0m[1;7;8;36m1[0m
+[7;8m            course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m = var_count[0m
+
+[7;8m# Verify parameters[0m
+[7;8massert [0m[1;7;8;35mlen[0m[1;7;8m([0m[7;8mcourse_time_room[0m[1;7;8m)[0m[7;8m == num_courses * num_time_slots * num_rooms, [0m[7;8;32m"Wrong number of variables"[0m
+[1;7;8;35mprint[0m[1;7;8m([0m[7;8mf"Total variables: [0m[1;7;8m{[0m[7;8mvar_count[0m[1;7;8m}[0m[7;8m"[0m[1;7;8m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m2[0m,
+  [32m"content"[0m: [32m"# Hard constraints\n\n# 1. Each course must be scheduled exactly once [0m[32m([0m[32mone time slot and one room[0m[32m)[0m[32m\nfor c in range[0m[32m([0m[32mnum_courses[0m[32m)[0m[32m:\n    [0m
+[32mcourse_vars = [0m[32m[[0m[32mcourse_time_room[0m[32m[[0m[32m([0m[32mc, t, r[0m[32m)[0m[32m][0m[32m for t in range[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m][0m[32m\n    for clause in exactly_one[0m[32m([0m[32mcourse_vars[0m[32m)[0m[32m:\n        [0m
+[32mwcnf.append[0m[32m([0m[32mclause[0m[32m)[0m[32m\n\n# 2. No two courses can be scheduled in the same room at the same time\nfor t in range[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n    for r in [0m
+[32mrange[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n        room_time_vars = [0m[32m[[0m[32mcourse_time_room[0m[32m[[0m[32m([0m[32mc, t, r[0m[32m)[0m[32m][0m[32m for c in range[0m[32m([0m[32mnum_courses[0m[32m)[0m[32m][0m[32m\n        for clause in at_most_one[0m[32m([0m[32mroom_time_vars[0m[32m)[0m[32m:\n  [0m
+[32mwcnf.append[0m[32m([0m[32mclause[0m[32m)[0m[32m\n\n# 3. Room type requirements\n# CS101 and CS201 require computer lab [0m[32m([0m[32mRoom 1[0m[32m)[0m[32m\nfor c in [0m[32m[[0m[32mcourses[0m[32m[[0m[32m'CS101'[0m[32m][0m[32m, courses[0m[32m[[0m[32m'CS201'[0m[32m][0m[32m][0m[32m:\n    for [0m
+[32mt in range[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n        for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n            if r != COMPUTER_LAB:\n                wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mc, t, [0m
+[32mr[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m  # Cannot be in non-computer lab\n\n# PH101 and BI101 require special lab [0m[32m([0m[32mRoom 4[0m[32m)[0m[32m\nfor c in [0m[32m[[0m[32mcourses[0m[32m[[0m[32m'PH101'[0m[32m][0m[32m, courses[0m[32m[[0m[32m'BI101'[0m[32m][0m[32m][0m[32m:\n    for t in [0m
+[32mrange[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n        for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n            if r != SPECIAL_LAB:\n                wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mc, t, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m  # [0m
+[32mCannot be in non-special lab\n\n# 4. MA101 must be in first time slot [0m[32m([0m[32mt[0m[32m=[0m[32m0[0m[32m)[0m[32m\nfor t in range[0m[32m([0m[32m1, num_time_slots[0m[32m)[0m[32m:\n    for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n        [0m
+[32mwcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'MA101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# 5. EC101 must be in Room 2 [0m[32m([0m[32mREGULAR_1[0m[32m)[0m[32m\nfor t in range[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n    for r in [0m
+[32mrange[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n        if r != REGULAR_1:\n            wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'EC101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# 6. PS101 cannot be in first time [0m
+[32mslot [0m[32m([0m[32mt[0m[32m=[0m[32m0[0m[32m)[0m[32m\nfor r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n    wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PS101'[0m[32m][0m[32m, 0, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# 7. PS101 cannot be in Room 1 or Room 2\nfor t in [0m
+[32mrange[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n    for r in [0m[32m[[0m[32mCOMPUTER_LAB, REGULAR_1[0m[32m][0m[32m:\n        wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PS101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# 8. CS101 and CS201 [0m
+[32mcannot be at the same time\nfor t in range[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n    cs101_vars = [0m[32m[[0m[32mcourse_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'CS101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m][0m[32m\n    [0m
+[32mcs201_vars = [0m[32m[[0m[32mcourse_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'CS201'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m][0m[32m\n    \n    # If CS101 is scheduled at time t, CS201 cannot be at time t\n[0m
+[32mfor cs101_var in cs101_vars:\n        for cs201_var in cs201_vars:\n            wcnf.append[0m[32m([0m[32m[[0m[32m-cs101_var, -cs201_var[0m[32m][0m[32m)[0m[32m\n\n# 9. PH101 and BI101 must be in same[0m
+[32mtime slot\nfor t in range[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n    ph101_at_t = [0m[32m[[0m[32mcourse_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PH101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m][0m[32m\n    bi101_at_t = [0m
+[32m[[0m[32mcourse_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'BI101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m][0m[32m\n    \n    # Create auxiliary variables for \"course scheduled at time t\"\n    [0m
+[32mph101_aux = var_count + 1\n    var_count += 1\n    bi101_aux = var_count + 1\n    var_count += 1\n    \n    # Link auxiliary to actual scheduling\n    [0m
+[32mwcnf.append[0m[32m([0m[32mph101_at_t + [0m[32m[[0m[32m-ph101_aux[0m[32m][0m[32m)[0m[32m  # If any room at time t, aux is true\n    wcnf.append[0m[32m([0m[32mbi101_at_t + [0m[32m[[0m[32m-bi101_aux[0m[32m][0m[32m)[0m[32m\n    \n    for var in ph101_at_t:\n [0m
+[32mwcnf.append[0m[32m([0m[32m[[0m[32m-var, ph101_aux[0m[32m][0m[32m)[0m[32m  # If scheduled at time t, aux must be true\n    for var in bi101_at_t:\n        wcnf.append[0m[32m([0m[32m[[0m[32m-var, bi101_aux[0m[32m][0m[32m)[0m[32m\n    \n    # [0m
+[32mThey must have same truth value\n    wcnf.append[0m[32m([0m[32m[[0m[32m-ph101_aux, bi101_aux[0m[32m][0m[32m)[0m[32m\n    wcnf.append[0m[32m([0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:36:44,470 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of courses: [1;36m10[0m
+# - Number of time slots: [1;36m5[0m
+# - Number of rooms: [1;36m4[0m
+# - Room types: Room [1;36m1[0m [1m([0mcomputer lab[1m)[0m, Room [1;36m2[0m [1m([0mregular[1m)[0m, Room [1;36m3[0m [1m([0mregular[1m)[0m, Room [1;36m4[0m [1m([0mspecial lab[1m)[0m
+
+num_courses = [1;36m10[0m
+num_time_slots = [1;36m5[0m
+num_rooms = [1;36m4[0m
+
+# Course IDs [1m([0m[1;36m0[0m-indexed for iteration, [1;36m1[0m-based variables[1m)[0m
+courses = [1m{[0m
+    [32m'CS101'[0m: [1;36m0[0m, [32m'CS201'[0m: [1;36m1[0m, [32m'MA101'[0m: [1;36m2[0m, [32m'PH101'[0m: [1;36m3[0m, [32m'EN101'[0m: [1;36m4[0m,
+    [32m'BI101'[0m: [1;36m5[0m, [32m'HI101'[0m: [1;36m6[0m, [32m'EC101'[0m: [1;36m7[0m, [32m'PS101'[0m: [1;36m8[0m, [32m'AR101'[0m: [1;36m9[0m
+[1m}[0m
+
+# Room types
+COMPUTER_LAB = [1;36m0[0m  # Room [1;36m1[0m
+REGULAR_1 = [1;36m1[0m     # Room [1;36m2[0m  
+REGULAR_2 = [1;36m2[0m     # Room [1;36m3[0m
+SPECIAL_LAB = [1;36m3[0m   # Room [1;36m4[0m
+
+# Variables: course_time_room[7;8m = course c is scheduled in time slot t and room r[0m
+[7;8mvar_count = [0m[1;7;8;36m0[0m
+[7;8mcourse_time_room = [0m[1;7;8m{[0m[1;7;8m}[0m
+[7;8mfor c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            var_count += [0m[1;7;8;36m1[0m
+[7;8m            course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m = var_count[0m
+
+[7;8m# Verify parameters[0m
+[7;8massert [0m[1;7;8;35mlen[0m[1;7;8m([0m[7;8mcourse_time_room[0m[1;7;8m)[0m[7;8m == num_courses * num_time_slots * num_rooms, [0m[7;8;32m"Wrong number of variables"[0m
+[1;7;8;35mprint[0m[1;7;8m([0m[7;8mf"Total variables: [0m[1;7;8m{[0m[7;8mvar_count[0m[1;7;8m}[0m[7;8m"[0m[1;7;8m)[0m
+[1;7;8;36m2[0m[7;8m | # Hard constraints[0m
+
+[7;8m# [0m[1;7;8;36m1[0m[7;8m. Each course must be scheduled exactly once [0m[1;7;8m([0m[7;8mone time slot and one room[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    course_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    for clause in [0m[1;7;8;35mexactly_one[0m[1;7;8m([0m[7;8mcourse_vars[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mclause[0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m2[0m[7;8m. No two courses can be scheduled in the same room at the same time[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        room_time_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m        for clause in [0m[1;7;8;35mat_most_one[0m[1;7;8m([0m[7;8mroom_time_vars[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mclause[0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m3[0m[7;8m. Room type requirements[0m
+[7;8m# CS101 and CS201 require computer lab [0m[1;7;8m([0m[7;8mRoom [0m[1;7;8;36m1[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8m[[0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS101'[0m[1;7;8m][0m[7;8m, courses[0m[1;7;8m[[0m[7;8;32m'CS201'[0m[1;7;8m][0m[1;7;8m][0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            if r != COMPUTER_LAB:[0m
+[7;8m                [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # Cannot be in non-computer lab[0m
+
+[7;8m# PH101 and BI101 require special lab [0m[1;7;8m([0m[7;8mRoom [0m[1;7;8;36m4[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8m[[0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PH101'[0m[1;7;8m][0m[7;8m, courses[0m[1;7;8m[[0m[7;8;32m'BI101'[0m[1;7;8m][0m[1;7;8m][0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            if r != SPECIAL_LAB:[0m
+[7;8m                [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # Cannot be in non-special lab[0m
+
+[7;8m# [0m[1;7;8;36m4[0m[7;8m. MA101 must be in first time slot [0m[1;7;8m([0m[7;8;33mt[0m[7;8m=[0m[1;7;8;36m0[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[1;7;8;36m1[0m[7;8m, num_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'MA101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m5[0m[7;8m. EC101 must be in Room [0m[1;7;8;36m2[0m[7;8m [0m[1;7;8m([0m[7;8mREGULAR_1[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        if r != REGULAR_1:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'EC101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m6[0m[7;8m. PS101 cannot be in first time slot [0m[1;7;8m([0m[7;8;33mt[0m[7;8m=[0m[1;7;8;36m0[0m[1;7;8m)[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, [0m[1;7;8;36m0[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m7[0m[7;8m. PS101 cannot be in Room [0m[1;7;8;36m1[0m[7;8m or Room [0m[1;7;8;36m2[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8m[[0m[7;8mCOMPUTER_LAB, REGULAR_1[0m[1;7;8m][0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m8[0m[7;8m. CS101 and CS201 cannot be at the same time[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    cs101_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    cs201_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS201'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    [0m
+[7;8m    # If CS101 is scheduled at time t, CS201 cannot be at time t[0m
+[7;8m    for cs101_var in cs101_vars:[0m
+[7;8m        for cs201_var in cs201_vars:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-cs101_var, -cs201_var[0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m9[0m[7;8m. PH101 and BI101 must be in same time slot[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    ph101_at_t = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PH101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    bi101_at_t = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'BI101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    [0m
+[7;8m    # Create auxiliary variables for [0m[7;8;32m"course scheduled at time t"[0m
+[7;8m    ph101_aux = var_count + [0m[1;7;8;36m1[0m
+[7;8m    var_count += [0m[1;7;8;36m1[0m
+[7;8m    bi101_aux = var_count + [0m[1;7;8;36m1[0m
+[7;8m    var_count += [0m[1;7;8;36m1[0m
+[7;8m    [0m
+[7;8m    # Link auxiliary to actual scheduling[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mph101_at_t + [0m[1;7;8m[[0m[7;8m-ph101_aux[0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # If any room at time t, aux is true[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mbi101_at_t + [0m[1;7;8m[[0m[7;8m-bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m
+[7;8m    for var in ph101_at_t:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-var, ph101_aux[0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # If scheduled at time t, aux must be true[0m
+[7;8m    for var in bi101_at_t:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-var, bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m
+[7;8m    # They must have same truth value[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-ph101_aux, bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m3[0m,
+  [32m"content"[0m: [32m"# More hard constraints - Sequential course constraints\n\n# 10. PS101 and AR101 must be in same room, AR101 immediately after PS101\nfor r in [0m
+[32mrange[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n    for t in range[0m[32m([0m[32mnum_time_slots - 1[0m[32m)[0m[32m:  # PS101 can be at most in slot 3 [0m[32m([0m[32m0-indexed[0m[32m)[0m[32m\n        # If PS101 is at [0m[32m([0m[32mt, r[0m[32m)[0m[32m, then AR101 must be[0m
+[32mat [0m[32m([0m[32mt+1, r[0m[32m)[0m[32m\n        wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PS101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m, \n                     course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'AR101'[0m[32m][0m[32m, t+1, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n       [0m
+[32m\n        # If AR101 is at [0m[32m([0m[32mt+1, r[0m[32m)[0m[32m, then PS101 must be at [0m[32m([0m[32mt, r[0m[32m)[0m[32m\n        wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'AR101'[0m[32m][0m[32m, t+1, r[0m[32m)[0m[32m][0m[32m, \n                    [0m
+[32mcourse_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PS101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# PS101 cannot be in last time slot [0m[32m([0m[32mno room for AR101 after[0m[32m)[0m[32m\nfor r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n    [0m
+[32mwcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PS101'[0m[32m][0m[32m, num_time_slots-1, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# AR101 cannot be in first time slot [0m[32m([0m[32mno room for PS101 before[0m[32m)[0m[32m\nfor r in [0m
+[32mrange[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n    wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'AR101'[0m[32m][0m[32m, 0, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# 11. HI101 must be in same room as PS101/AR101, immediately after [0m
+[32mAR101\nfor r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n    for t in range[0m[32m([0m[32mnum_time_slots - 2[0m[32m)[0m[32m:  # PS101 can be at most in slot 2 for this to work\n        # If PS101 is at [0m[32m([0m[32mt, [0m
+[32mr[0m[32m)[0m[32m and AR101 at [0m[32m([0m[32mt+1, r[0m[32m)[0m[32m, then HI101 must be at [0m[32m([0m[32mt+2, r[0m[32m)[0m[32m\n        wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PS101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m, \n                     [0m
+[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'AR101'[0m[32m][0m[32m, t+1, r[0m[32m)[0m[32m][0m[32m,\n                     course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'HI101'[0m[32m][0m[32m, t+2, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# HI101 can only be in time slots 2-4 [0m
+[32m([0m[32m0-indexed[0m[32m)[0m[32m and only after AR101\nfor t in range[0m[32m([0m[32m2[0m[32m)[0m[32m:\n    for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n        wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'HI101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n#[0m
+[32m12. EN101 must be in same room as others, immediately after HI101\nfor r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n    for t in range[0m[32m([0m[32mnum_time_slots - 3[0m[32m)[0m[32m:  # PS101 can be at [0m
+[32mmost in slot 1 for this to work\n        # If the sequence PS101[0m[32m([0m[32mt[0m[32m)[0m[32m, AR101[0m[32m([0m[32mt+1[0m[32m)[0m[32m, HI101[0m[32m([0m[32mt+2[0m[32m)[0m[32m, then EN101[0m[32m([0m[32mt+3[0m[32m)[0m[32m\n        [0m
+[32mwcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'PS101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m, \n                     -course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'AR101'[0m[32m][0m[32m, t+1, r[0m[32m)[0m[32m][0m[32m,\n                     [0m
+[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'HI101'[0m[32m][0m[32m, t+2, r[0m[32m)[0m[32m][0m[32m,\n                     course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'EN101'[0m[32m][0m[32m, t+3, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# EN101 can only be in time slots 3-4 [0m
+[32m([0m[32m0-indexed[0m[32m)[0m[32m\nfor t in range[0m[32m([0m[32m3[0m[32m)[0m[32m:\n    for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n        wcnf.append[0m[32m([0m[32m[[0m[32m-course_time_room[0m[32m[[0m[32m([0m[32mcourses[0m[32m[[0m[32m'EN101'[0m[32m][0m[32m, t, r[0m[32m)[0m[32m][0m[32m][0m[32m)[0m[32m\n\n# Additional [0m
+[32mconstraint: The sequential courses must all be in same room\n# This is implicitly enforced above, but let's make it explicit\n\n# Since PS101 is restricted [0m
+[32mto rooms 3 or 4 [0m[32m([0m[32mREGULAR_2 or SPECIAL_LAB[0m[32m)[0m[32m\n# But BI101 and PH101 must be in SPECIAL_LAB [0m[32m([0m[32mroom 4[0m[32m)[0m[32m at the same time\n# And there are only 4 rooms with 5 time [0m
+[32mslots, let's see what happens\n\nprint[0m[32m([0m[32m\"All hard constraints added\"[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:36:59,215 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:36:59,219 - mcp_solver.core.validation - WARNING - Potential syntax error at line 5: Missing colon at the end of a control statement.
+2026-04-04 11:36:59,219 - mcp_solver.core.validation - WARNING - Potential syntax error at line 24: Missing colon at the end of a control statement.
+2026-04-04 11:36:59,219 - mcp_solver.core.validation - WARNING - Potential syntax error at line 37: Missing colon at the end of a control statement.
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of courses: [1;36m10[0m
+# - Number of time slots: [1;36m5[0m
+# - Number of rooms: [1;36m4[0m
+# - Room types: Room [1;36m1[0m [1m([0mcomputer lab[1m)[0m, Room [1;36m2[0m [1m([0mregular[1m)[0m, Room [1;36m3[0m [1m([0mregular[1m)[0m, Room [1;36m4[0m [1m([0mspecial lab[1m)[0m
+
+num_courses = [1;36m10[0m
+num_time_slots = [1;36m5[0m
+num_rooms = [1;36m4[0m
+
+# Course IDs [1m([0m[1;36m0[0m-indexed for iteration, [1;36m1[0m-based variables[1m)[0m
+courses = [1m{[0m
+    [32m'CS101'[0m: [1;36m0[0m, [32m'CS201'[0m: [1;36m1[0m, [32m'MA101'[0m: [1;36m2[0m, [32m'PH101'[0m: [1;36m3[0m, [32m'EN101'[0m: [1;36m4[0m,
+    [32m'BI101'[0m: [1;36m5[0m, [32m'HI101'[0m: [1;36m6[0m, [32m'EC101'[0m: [1;36m7[0m, [32m'PS101'[0m: [1;36m8[0m, [32m'AR101'[0m: [1;36m9[0m
+[1m}[0m
+
+# Room types
+COMPUTER_LAB = [1;36m0[0m  # Room [1;36m1[0m
+REGULAR_1 = [1;36m1[0m     # Room [1;36m2[0m  
+REGULAR_2 = [1;36m2[0m     # Room [1;36m3[0m
+SPECIAL_LAB = [1;36m3[0m   # Room [1;36m4[0m
+
+# Variables: course_time_room[7;8m = course c is scheduled in time slot t and room r[0m
+[7;8mvar_count = [0m[1;7;8;36m0[0m
+[7;8mcourse_time_room = [0m[1;7;8m{[0m[1;7;8m}[0m
+[7;8mfor c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            var_count += [0m[1;7;8;36m1[0m
+[7;8m            course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m = var_count[0m
+
+[7;8m# Verify parameters[0m
+[7;8massert [0m[1;7;8;35mlen[0m[1;7;8m([0m[7;8mcourse_time_room[0m[1;7;8m)[0m[7;8m == num_courses * num_time_slots * num_rooms, [0m[7;8;32m"Wrong number of variables"[0m
+[1;7;8;35mprint[0m[1;7;8m([0m[7;8mf"Total variables: [0m[1;7;8m{[0m[7;8mvar_count[0m[1;7;8m}[0m[7;8m"[0m[1;7;8m)[0m
+[1;7;8;36m2[0m[7;8m | # Hard constraints[0m
+
+[7;8m# [0m[1;7;8;36m1[0m[7;8m. Each course must be scheduled exactly once [0m[1;7;8m([0m[7;8mone time slot and one room[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    course_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    for clause in [0m[1;7;8;35mexactly_one[0m[1;7;8m([0m[7;8mcourse_vars[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mclause[0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m2[0m[7;8m. No two courses can be scheduled in the same room at the same time[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        room_time_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m        for clause in [0m[1;7;8;35mat_most_one[0m[1;7;8m([0m[7;8mroom_time_vars[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mclause[0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m3[0m[7;8m. Room type requirements[0m
+[7;8m# CS101 and CS201 require computer lab [0m[1;7;8m([0m[7;8mRoom [0m[1;7;8;36m1[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8m[[0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS101'[0m[1;7;8m][0m[7;8m, courses[0m[1;7;8m[[0m[7;8;32m'CS201'[0m[1;7;8m][0m[1;7;8m][0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            if r != COMPUTER_LAB:[0m
+[7;8m                [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # Cannot be in non-computer lab[0m
+
+[7;8m# PH101 and BI101 require special lab [0m[1;7;8m([0m[7;8mRoom [0m[1;7;8;36m4[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8m[[0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PH101'[0m[1;7;8m][0m[7;8m, courses[0m[1;7;8m[[0m[7;8;32m'BI101'[0m[1;7;8m][0m[1;7;8m][0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            if r != SPECIAL_LAB:[0m
+[7;8m                [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # Cannot be in non-special lab[0m
+
+[7;8m# [0m[1;7;8;36m4[0m[7;8m. MA101 must be in first time slot [0m[1;7;8m([0m[7;8;33mt[0m[7;8m=[0m[1;7;8;36m0[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[1;7;8;36m1[0m[7;8m, num_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'MA101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m5[0m[7;8m. EC101 must be in Room [0m[1;7;8;36m2[0m[7;8m [0m[1;7;8m([0m[7;8mREGULAR_1[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        if r != REGULAR_1:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'EC101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m6[0m[7;8m. PS101 cannot be in first time slot [0m[1;7;8m([0m[7;8;33mt[0m[7;8m=[0m[1;7;8;36m0[0m[1;7;8m)[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, [0m[1;7;8;36m0[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m7[0m[7;8m. PS101 cannot be in Room [0m[1;7;8;36m1[0m[7;8m or Room [0m[1;7;8;36m2[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8m[[0m[7;8mCOMPUTER_LAB, REGULAR_1[0m[1;7;8m][0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m8[0m[7;8m. CS101 and CS201 cannot be at the same time[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    cs101_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    cs201_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS201'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    [0m
+[7;8m    # If CS101 is scheduled at time t, CS201 cannot be at time t[0m
+[7;8m    for cs101_var in cs101_vars:[0m
+[7;8m        for cs201_var in cs201_vars:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-cs101_var, -cs201_var[0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m9[0m[7;8m. PH101 and BI101 must be in same time slot[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    ph101_at_t = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PH101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    bi101_at_t = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'BI101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    [0m
+[7;8m    # Create auxiliary variables for [0m[7;8;32m"course scheduled at time t"[0m
+[7;8m    ph101_aux = var_count + [0m[1;7;8;36m1[0m
+[7;8m    var_count += [0m[1;7;8;36m1[0m
+[7;8m    bi101_aux = var_count + [0m[1;7;8;36m1[0m
+[7;8m    var_count += [0m[1;7;8;36m1[0m
+[7;8m    [0m
+[7;8m    # Link auxiliary to actual scheduling[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mph101_at_t + [0m[1;7;8m[[0m[7;8m-ph101_aux[0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # If any room at time t, aux is true[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mbi101_at_t + [0m[1;7;8m[[0m[7;8m-bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m
+[7;8m    for var in ph101_at_t:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-var, ph101_aux[0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # If scheduled at time t, aux must be true[0m
+[7;8m    for var in bi101_at_t:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-var, bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m
+[7;8m    # They must have same truth value[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-ph101_aux, bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m)[0m
+[1;7;8;36m3[0m[7;8m | # More hard constraints - Sequential course constraints[0m
+
+[7;8m# [0m[1;7;8;36m10[0m[7;8m. PS101 and AR101 must be in same room, AR101 immediately after PS101[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots - [0m[1;7;8;36m1[0m[1;7;8m)[0m[7;8m:  # PS101 can be at most in slot [0m[1;7;8;36m3[0m[7;8m [0m[1;7;8m([0m[1;7;8;36m0[0m[7;8m-indexed[0m[1;7;8m)[0m
+[7;8m        # If PS101 is at [0m[1;7;8m([0m[7;8mt, r[0m[1;7;8m)[0m[7;8m, then AR101 must be at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m        [0m
+[7;8m        # If AR101 is at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[7;8m, then PS101 must be at [0m[1;7;8m([0m[7;8mt, r[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# PS101 cannot be in last time slot [0m[1;7;8m([0m[7;8mno room for AR101 after[0m[1;7;8m)[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, num_time_slots-[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# AR101 cannot be in first time slot [0m[1;7;8m([0m[7;8mno room for PS101 before[0m[1;7;8m)[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, [0m[1;7;8;36m0[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m11[0m[7;8m. HI101 must be in same room as PS101/AR101, immediately after AR101[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots - [0m[1;7;8;36m2[0m[1;7;8m)[0m[7;8m:  # PS101 can be at most in slot [0m[1;7;8;36m2[0m[7;8m for this to work[0m
+[7;8m        # If PS101 is at [0m[1;7;8m([0m[7;8mt, r[0m[1;7;8m)[0m[7;8m and AR101 at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[7;8m, then HI101 must be at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m2[0m[7;8m, r[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     -course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m,[0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'HI101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m2[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# HI101 can only be in time slots [0m[1;7;8;36m2[0m[7;8m-[0m[1;7;8;36m4[0m[7;8m [0m[1;7;8m([0m[1;7;8;36m0[0m[7;8m-indexed[0m[1;7;8m)[0m[7;8m and only after AR101[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[1;7;8;36m2[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'HI101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m12[0m[7;8m. EN101 must be in same room as others, immediately after HI101[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots - [0m[1;7;8;36m3[0m[1;7;8m)[0m[7;8m:  # PS101 can be at most in slot [0m[1;7;8;36m1[0m[7;8m for this to work[0m
+[7;8m        # If the sequence [0m[1;7;8;35mPS101[0m[1;7;8m([0m[7;8mt[0m[1;7;8m)[0m[7;8m, [0m[1;7;8;35mAR101[0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[1;7;8m)[0m[7;8m, [0m[1;7;8;35mHI101[0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m2[0m[1;7;8m)[0m[7;8m, then [0m[1;7;8;35mEN101[0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m3[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     -course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m,[0m
+[7;8m                     -course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'HI101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m2[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m,[0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'EN101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m3[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# EN101 can only be in time slots [0m[1;7;8;36m3[0m[7;8m-[0m[1;7;8;36m4[0m[7;8m [0m[1;7;8m([0m[1;7;8;36m0[0m[7;8m-indexed[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[1;7;8;36m3[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'EN101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# Additional constraint: The sequential courses must all be in same room[0m
+[7;8m# This is implicitly enforced above, but let's make it explicit[0m
+
+[7;8m# Since PS101 is restricted to rooms [0m[1;7;8;36m3[0m[7;8m or [0m[1;7;8;36m4[0m[7;8m [0m[1;7;8m([0m[7;8mREGULAR_2 or SPECIAL_LAB[0m[1;7;8m)[0m
+[7;8m# But BI101 and PH101 must be in SPECIAL_LAB [0m[1;7;8m([0m[7;8mroom [0m[1;7;8;36m4[0m[1;7;8m)[0m[7;8m at the same time[0m
+[7;8m# And there are only [0m[1;7;8;36m4[0m[7;8m rooms with [0m[1;7;8;36m5[0m[7;8m time slots, let's see what happens[0m
+
+[1;7;8;35mprint[0m[1;7;8m([0m[7;8;32m"All hard constraints added"[0m[1;7;8m)[0m
+[1;34msystem[0m: ▶ add_item called with args: [1m{[0m
+  [32m"index"[0m: [1;36m4[0m,
+  [32m"content"[0m: [32m"# No soft constraints - this is a pure feasibility problem\n# All constraints are hard requirements\n\n# Solve and export solution [0m
+[32m([0m[32mMANDATORY[0m[32m)[0m[32m\nwith RC2[0m[32m([0m[32mwcnf[0m[32m)[0m[32m as solver:\n    model = solver.compute[0m[32m([0m[32m)[0m[32m\n    \n    if model:\n        # Extract schedule\n        schedule = [0m[32m{[0m[32m}[0m[32m\n        for [0m
+[32mcourse_name, course_id in courses.items[0m[32m([0m[32m)[0m[32m:\n            for t in range[0m[32m([0m[32mnum_time_slots[0m[32m)[0m[32m:\n                for r in range[0m[32m([0m[32mnum_rooms[0m[32m)[0m[32m:\n                    if [0m
+[32mcourse_time_room[0m[32m[[0m[32m([0m[32mcourse_id, t, r[0m[32m)[0m[32m][0m[32m in model:\n                        schedule[0m[32m = [0m[32m{[0m[32m\n                            'time_slot': t + 1,  # Convert to 1-based [0m
+[32mfor readability\n                            'room': r + 1       # Convert to 1-based for readability\n                        [0m[32m}[0m[32m\n        \n        # Verify [0m
+[32mall courses are scheduled\n        assert len[0m[32m([0m[32mschedule[0m[32m)[0m[32m == num_courses, f\"Not all courses scheduled: [0m[32m{[0m[32mlen[0m[32m([0m[32mschedule[0m[32m)[0m[32m}[0m[32m\"\n        \n        [0m
+[32mexport_solution[0m[32m([0m[32m{[0m[32m\n            \"satisfiable\": True,\n            \"cost\": solver.cost,\n            \"schedule\": schedule,\n            \"message\": [0m
+[32m\"Valid schedule found\"\n        [0m[32m}[0m[32m)[0m[32m\n    else:\n        # Problem is UNSATISFIABLE - analyze why\n        export_solution[0m[32m([0m[32m{[0m[32m\n            \"satisfiable\": [0m
+[32mFalse,\n            \"message\": \"No valid schedule exists - the constraints are contradictory\",\n            \"analysis\": [0m[32m{[0m[32m\n                [0m
+[32m\"key_conflicts\": [0m[32m[[0m[32m\n                    \"Sequential constraint requires 4 consecutive time slots [0m[32m([0m[32mPS101->AR101->HI101->EN101[0m[32m)[0m[32m\",\n                    [0m
+[32m\"PS101 cannot be in time slot 1, so sequence must be in slots 2-5\",\n                    \"PS101 can only be in Room 3 or 4 [0m[32m([0m[32mcannot use Rooms 1-2[0m[32m)[0m[32m\",\n    [0m
+[32m\"PH101 and BI101 must be in same time slot in Room 4 [0m[32m([0m[32mspecial lab[0m[32m)[0m[32m\",\n                    \"But sequential courses need exclusive use of one room for 4 [0m
+[32mslots\",\n                    \"This creates room/time conflicts that cannot be resolved\"\n                [0m[32m][0m[32m,\n                \"constraint_summary\": [0m[32m{[0m[32m\n  [0m
+[32m\"time_slot_constraints\": \"MA101 in slot 1, PS101 not in slot 1, 4-course sequence needs consecutive slots\",\n                    \"room_constraints\": [0m
+[32m\"CS101/CS201 need Room 1, EC101 needs Room 2, PH101/BI101 need Room 4, PS101 cannot use Rooms 1-2\",\n                    \"sequential_constraints\": [0m
+[32m\"PS101->AR101->HI101->EN101 must be consecutive in same room\"\n                [0m[32m}[0m[32m\n            [0m[32m}[0m[32m\n        [0m[32m}[0m[32m)[0m[32m"[0m
+[1m}[0m
+2026-04-04 11:37:11,983 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+[1;34msystem[0m: ◀ add_item output: Item added
+Current model:
+[1;36m0[0m | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = [1;35mWCNF[0m[1m([0m[1m)[0m
+[1;36m1[0m | # PARAMETER VERIFICATION
+# Problem parameters [1m([0mDO NOT CHANGE[1m)[0m:
+# - Number of courses: [1;36m10[0m
+# - Number of time slots: [1;36m5[0m
+# - Number of rooms: [1;36m4[0m
+# - Room types: Room [1;36m1[0m [1m([0mcomputer lab[1m)[0m, Room [1;36m2[0m [1m([0mregular[1m)[0m, Room [1;36m3[0m [1m([0mregular[1m)[0m, Room [1;36m4[0m [1m([0mspecial lab[1m)[0m
+
+num_courses = [1;36m10[0m
+num_time_slots = [1;36m5[0m
+num_rooms = [1;36m4[0m
+
+# Course IDs [1m([0m[1;36m0[0m-indexed for iteration, [1;36m1[0m-based variables[1m)[0m
+courses = [1m{[0m
+    [32m'CS101'[0m: [1;36m0[0m, [32m'CS201'[0m: [1;36m1[0m, [32m'MA101'[0m: [1;36m2[0m, [32m'PH101'[0m: [1;36m3[0m, [32m'EN101'[0m: [1;36m4[0m,
+    [32m'BI101'[0m: [1;36m5[0m, [32m'HI101'[0m: [1;36m6[0m, [32m'EC101'[0m: [1;36m7[0m, [32m'PS101'[0m: [1;36m8[0m, [32m'AR101'[0m: [1;36m9[0m
+[1m}[0m
+
+# Room types
+COMPUTER_LAB = [1;36m0[0m  # Room [1;36m1[0m
+REGULAR_1 = [1;36m1[0m     # Room [1;36m2[0m  
+REGULAR_2 = [1;36m2[0m     # Room [1;36m3[0m
+SPECIAL_LAB = [1;36m3[0m   # Room [1;36m4[0m
+
+# Variables: course_time_room[7;8m = course c is scheduled in time slot t and room r[0m
+[7;8mvar_count = [0m[1;7;8;36m0[0m
+[7;8mcourse_time_room = [0m[1;7;8m{[0m[1;7;8m}[0m
+[7;8mfor c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            var_count += [0m[1;7;8;36m1[0m
+[7;8m            course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m = var_count[0m
+
+[7;8m# Verify parameters[0m
+[7;8massert [0m[1;7;8;35mlen[0m[1;7;8m([0m[7;8mcourse_time_room[0m[1;7;8m)[0m[7;8m == num_courses * num_time_slots * num_rooms, [0m[7;8;32m"Wrong number of variables"[0m
+[1;7;8;35mprint[0m[1;7;8m([0m[7;8mf"Total variables: [0m[1;7;8m{[0m[7;8mvar_count[0m[1;7;8m}[0m[7;8m"[0m[1;7;8m)[0m
+[1;7;8;36m2[0m[7;8m | # Hard constraints[0m
+
+[7;8m# [0m[1;7;8;36m1[0m[7;8m. Each course must be scheduled exactly once [0m[1;7;8m([0m[7;8mone time slot and one room[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    course_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    for clause in [0m[1;7;8;35mexactly_one[0m[1;7;8m([0m[7;8mcourse_vars[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mclause[0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m2[0m[7;8m. No two courses can be scheduled in the same room at the same time[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        room_time_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for c in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_courses[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m        for clause in [0m[1;7;8;35mat_most_one[0m[1;7;8m([0m[7;8mroom_time_vars[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mclause[0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m3[0m[7;8m. Room type requirements[0m
+[7;8m# CS101 and CS201 require computer lab [0m[1;7;8m([0m[7;8mRoom [0m[1;7;8;36m1[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8m[[0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS101'[0m[1;7;8m][0m[7;8m, courses[0m[1;7;8m[[0m[7;8;32m'CS201'[0m[1;7;8m][0m[1;7;8m][0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            if r != COMPUTER_LAB:[0m
+[7;8m                [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # Cannot be in non-computer lab[0m
+
+[7;8m# PH101 and BI101 require special lab [0m[1;7;8m([0m[7;8mRoom [0m[1;7;8;36m4[0m[1;7;8m)[0m
+[7;8mfor c in [0m[1;7;8m[[0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PH101'[0m[1;7;8m][0m[7;8m, courses[0m[1;7;8m[[0m[7;8;32m'BI101'[0m[1;7;8m][0m[1;7;8m][0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            if r != SPECIAL_LAB:[0m
+[7;8m                [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mc, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # Cannot be in non-special lab[0m
+
+[7;8m# [0m[1;7;8;36m4[0m[7;8m. MA101 must be in first time slot [0m[1;7;8m([0m[7;8;33mt[0m[7;8m=[0m[1;7;8;36m0[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[1;7;8;36m1[0m[7;8m, num_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'MA101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m5[0m[7;8m. EC101 must be in Room [0m[1;7;8;36m2[0m[7;8m [0m[1;7;8m([0m[7;8mREGULAR_1[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        if r != REGULAR_1:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'EC101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m6[0m[7;8m. PS101 cannot be in first time slot [0m[1;7;8m([0m[7;8;33mt[0m[7;8m=[0m[1;7;8;36m0[0m[1;7;8m)[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, [0m[1;7;8;36m0[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m7[0m[7;8m. PS101 cannot be in Room [0m[1;7;8;36m1[0m[7;8m or Room [0m[1;7;8;36m2[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8m[[0m[7;8mCOMPUTER_LAB, REGULAR_1[0m[1;7;8m][0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m8[0m[7;8m. CS101 and CS201 cannot be at the same time[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    cs101_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    cs201_vars = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'CS201'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    [0m
+[7;8m    # If CS101 is scheduled at time t, CS201 cannot be at time t[0m
+[7;8m    for cs101_var in cs101_vars:[0m
+[7;8m        for cs201_var in cs201_vars:[0m
+[7;8m            [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-cs101_var, -cs201_var[0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m9[0m[7;8m. PH101 and BI101 must be in same time slot[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    ph101_at_t = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PH101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    bi101_at_t = [0m[1;7;8m[[0m[7;8mcourse_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'BI101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[1;7;8m][0m
+[7;8m    [0m
+[7;8m    # Create auxiliary variables for [0m[7;8;32m"course scheduled at time t"[0m
+[7;8m    ph101_aux = var_count + [0m[1;7;8;36m1[0m
+[7;8m    var_count += [0m[1;7;8;36m1[0m
+[7;8m    bi101_aux = var_count + [0m[1;7;8;36m1[0m
+[7;8m    var_count += [0m[1;7;8;36m1[0m
+[7;8m    [0m
+[7;8m    # Link auxiliary to actual scheduling[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mph101_at_t + [0m[1;7;8m[[0m[7;8m-ph101_aux[0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # If any room at time t, aux is true[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[7;8mbi101_at_t + [0m[1;7;8m[[0m[7;8m-bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m
+[7;8m    for var in ph101_at_t:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-var, ph101_aux[0m[1;7;8m][0m[1;7;8m)[0m[7;8m  # If scheduled at time t, aux must be true[0m
+[7;8m    for var in bi101_at_t:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-var, bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m
+[7;8m    # They must have same truth value[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-ph101_aux, bi101_aux[0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m)[0m
+[1;7;8;36m3[0m[7;8m | # More hard constraints - Sequential course constraints[0m
+
+[7;8m# [0m[1;7;8;36m10[0m[7;8m. PS101 and AR101 must be in same room, AR101 immediately after PS101[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots - [0m[1;7;8;36m1[0m[1;7;8m)[0m[7;8m:  # PS101 can be at most in slot [0m[1;7;8;36m3[0m[7;8m [0m[1;7;8m([0m[1;7;8;36m0[0m[7;8m-indexed[0m[1;7;8m)[0m
+[7;8m        # If PS101 is at [0m[1;7;8m([0m[7;8mt, r[0m[1;7;8m)[0m[7;8m, then AR101 must be at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+[7;8m        [0m
+[7;8m        # If AR101 is at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[7;8m, then PS101 must be at [0m[1;7;8m([0m[7;8mt, r[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# PS101 cannot be in last time slot [0m[1;7;8m([0m[7;8mno room for AR101 after[0m[1;7;8m)[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, num_time_slots-[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# AR101 cannot be in first time slot [0m[1;7;8m([0m[7;8mno room for PS101 before[0m[1;7;8m)[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, [0m[1;7;8;36m0[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m11[0m[7;8m. HI101 must be in same room as PS101/AR101, immediately after AR101[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots - [0m[1;7;8;36m2[0m[1;7;8m)[0m[7;8m:  # PS101 can be at most in slot [0m[1;7;8;36m2[0m[7;8m for this to work[0m
+[7;8m        # If PS101 is at [0m[1;7;8m([0m[7;8mt, r[0m[1;7;8m)[0m[7;8m and AR101 at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[7;8m, then HI101 must be at [0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m2[0m[7;8m, r[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     -course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m,[0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'HI101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m2[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# HI101 can only be in time slots [0m[1;7;8;36m2[0m[7;8m-[0m[1;7;8;36m4[0m[7;8m [0m[1;7;8m([0m[1;7;8;36m0[0m[7;8m-indexed[0m[1;7;8m)[0m[7;8m and only after AR101[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[1;7;8;36m2[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'HI101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# [0m[1;7;8;36m12[0m[7;8m. EN101 must be in same room as others, immediately after HI101[0m
+[7;8mfor r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots - [0m[1;7;8;36m3[0m[1;7;8m)[0m[7;8m:  # PS101 can be at most in slot [0m[1;7;8;36m1[0m[7;8m for this to work[0m
+[7;8m        # If the sequence [0m[1;7;8;35mPS101[0m[1;7;8m([0m[7;8mt[0m[1;7;8m)[0m[7;8m, [0m[1;7;8;35mAR101[0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m1[0m[1;7;8m)[0m[7;8m, [0m[1;7;8;35mHI101[0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m2[0m[1;7;8m)[0m[7;8m, then [0m[1;7;8;35mEN101[0m[1;7;8m([0m[7;8mt+[0m[1;7;8;36m3[0m[1;7;8m)[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'PS101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m, [0m
+[7;8m                     -course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'AR101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m1[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m,[0m
+[7;8m                     -course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'HI101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m2[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m,[0m
+[7;8m                     course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'EN101'[0m[1;7;8m][0m[7;8m, t+[0m[1;7;8;36m3[0m[7;8m, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# EN101 can only be in time slots [0m[1;7;8;36m3[0m[7;8m-[0m[1;7;8;36m4[0m[7;8m [0m[1;7;8m([0m[1;7;8;36m0[0m[7;8m-indexed[0m[1;7;8m)[0m
+[7;8mfor t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[1;7;8;36m3[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m    for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m        [0m[1;7;8;35mwcnf.append[0m[1;7;8m([0m[1;7;8m[[0m[7;8m-course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourses[0m[1;7;8m[[0m[7;8;32m'EN101'[0m[1;7;8m][0m[7;8m, t, r[0m[1;7;8m)[0m[1;7;8m][0m[1;7;8m][0m[1;7;8m)[0m
+
+[7;8m# Additional constraint: The sequential courses must all be in same room[0m
+[7;8m# This is implicitly enforced above, but let's make it explicit[0m
+
+[7;8m# Since PS101 is restricted to rooms [0m[1;7;8;36m3[0m[7;8m or [0m[1;7;8;36m4[0m[7;8m [0m[1;7;8m([0m[7;8mREGULAR_2 or SPECIAL_LAB[0m[1;7;8m)[0m
+[7;8m# But BI101 and PH101 must be in SPECIAL_LAB [0m[1;7;8m([0m[7;8mroom [0m[1;7;8;36m4[0m[1;7;8m)[0m[7;8m at the same time[0m
+[7;8m# And there are only [0m[1;7;8;36m4[0m[7;8m rooms with [0m[1;7;8;36m5[0m[7;8m time slots, let's see what happens[0m
+
+[1;7;8;35mprint[0m[1;7;8m([0m[7;8;32m"All hard constraints added"[0m[1;7;8m)[0m
+[1;7;8;36m4[0m[7;8m | # No soft constraints - this is a pure feasibility problem[0m
+[7;8m# All constraints are hard requirements[0m
+
+[7;8m# Solve and export solution [0m[1;7;8m([0m[7;8mMANDATORY[0m[1;7;8m)[0m
+[7;8mwith [0m[1;7;8;35mRC2[0m[1;7;8m([0m[7;8mwcnf[0m[1;7;8m)[0m[7;8m as solver:[0m
+[7;8m    model = [0m[1;7;8;35msolver.compute[0m[1;7;8m([0m[1;7;8m)[0m
+[7;8m    [0m
+[7;8m    if model:[0m
+[7;8m        # Extract schedule[0m
+[7;8m        schedule = [0m[1;7;8m{[0m[1;7;8m}[0m
+[7;8m        for course_name, course_id in [0m[1;7;8;35mcourses.items[0m[1;7;8m([0m[1;7;8m)[0m[7;8m:[0m
+[7;8m            for t in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_time_slots[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m                for r in [0m[1;7;8;35mrange[0m[1;7;8m([0m[7;8mnum_rooms[0m[1;7;8m)[0m[7;8m:[0m
+[7;8m                    if course_time_room[0m[1;7;8m[[0m[1;7;8m([0m[7;8mcourse_id, t, r[0m[1;7;8m)[0m[1;7;8m][0m[7;8m in model:[0m
+[7;8m                        schedule[0m[7;8m = [0m[1;7;8m{[0m
+[7;8m                            [0m[7;8;32m'time_slot'[0m[7;8m: t + [0m[1;7;8;36m1[0m[7;8m,  # Convert to [0m[1;7;8;36m1[0m[7;8m-based for readability[0m
+[7;8m                            [0m[7;8;32m'room'[0m[7;8m: r + [0m[1;7;8;36m1[0m[7;8m       # Convert to [0m[1;7;8;36m1[0m[7;8m-based for readability[0m
+[7;8m                        [0m[1;7;8m}[0m
+[7;8m        [0m
+[7;8m        # Verify all courses are scheduled[0m
+[7;8m        assert [0m[1;7;8;35mlen[0m[1;7;8m([0m[7;8mschedule[0m[1;7;8m)[0m[7;8m == num_courses, f"Not all courses scheduled: [0m[1;7;8m{[0m[1;7;8;35mlen[0m[1;7;8m([0m[7;8mschedule[0m[1;7;8m)[0m[1;7;8m}[0m[7;8m"[0m
+[7;8m        [0m
+[7;8m        [0m[1;7;8;35mexport_solution[0m[1;7;8m([0m[1;7;8m{[0m
+[7;8m            [0m[7;8;32m"satisfiable"[0m[7;8m: [0m[3;7;8;92mTrue[0m[7;8m,[0m
+[7;8m            [0m[7;8;32m"cost"[0m[7;8m: solver.cost,[0m
+[7;8m            [0m[7;8;32m"schedule"[0m[7;8m: schedule,[0m
+[7;8m            [0m[7;8;32m"message"[0m[7;8m: [0m[7;8;32m"Valid schedule found"[0m
+[7;8m        [0m[1;7;8m}[0m[1;7;8m)[0m
+[7;8m    else:[0m
+[7;8m        # Problem is UNSATISFIABLE - analyze why[0m
+[7;8m        [0m[1;7;8;35mexport_solution[0m[1;7;8m([0m[1;7;8m{[0m
+[7;8m            [0m[7;8;32m"satisfiable"[0m[7;8m: [0m[3;7;8;91mFalse[0m[7;8m,[0m
+[7;8m            [0m[7;8;32m"message"[0m[7;8m: [0m[7;8;32m"No valid schedule exists - the constraints are contradictory"[0m[7;8m,[0m
+[7;8m            [0m[7;8;32m"analysis"[0m[7;8m: [0m[1;7;8m{[0m
+[7;8m                [0m[7;8;32m"key_conflicts"[0m[7;8m: [0m[1;7;8m[[0m
+[7;8m                    [0m[7;8;32m"Sequential constraint requires 4 consecutive time slots [0m[7;8;32m([0m[7;8;32mPS101->AR101->HI101->EN101[0m[7;8;32m)[0m[7;8;32m"[0m[7;8m,[0m
+[7;8m                    [0m[7;8;32m"PS101 cannot be in time slot 1, so sequence must be in slots 2-5"[0m[7;8m,[0m
+[7;8m                    [0m[7;8;32m"PS101 can only be in Room 3 or 4 [0m[7;8;32m([0m[7;8;32mcannot use Rooms 1-2[0m[7;8;32m)[0m[7;8;32m"[0m[7;8m,[0m
+[7;8m                    [0m[7;8;32m"PH101 and BI101 must be in same time slot in Room 4 [0m[7;8;32m([0m[7;8;32mspecial lab[0m[7;8;32m)[0m[7;8;32m"[0m[7;8m,[0m
+[7;8m                    [0m[7;8;32m"But sequential courses need exclusive use of one room for 4 slots"[0m[7;8m,[0m
+[7;8m                    [0m[7;8;32m"This creates room/time conflicts that cannot be resolved"[0m
+[7;8m                [0m[1;7;8m][0m[7;8m,[0m
+[7;8m                [0m[7;8;32m"constraint_summary"[0m[7;8m: [0m[1;7;8m{[0m
+[7;8m                    [0m[7;8;32m"time_slot_constraints"[0m[7;8m: [0m[7;8;32m"MA101 in slot 1, PS101 not in slot 1, 4-course sequence needs consecutive slots"[0m[7;8m,[0m
+[7;8m                    [0m[7;8;32m"room_constraints"[0m[7;8m: [0m[7;8;32m"CS101/CS201 need Room 1, EC101 needs Room 2, PH101/BI101 need Room 4, PS101 cannot use Rooms 1-2"[0m[7;8m,[0m
+[7;8m                    [0m[7;8;32m"sequential_constraints"[0m[7;8m: [0m[7;8;32m"PS101->AR101->HI101->EN101 must be consecutive in same room"[0m
+[7;8m                [0m[1;7;8m}[0m
+[7;8m            [0m[1;7;8m}[0m
+[7;8m        [0m[1;7;8m}[0m[1;7;8m)[0m
+[1;34msystem[0m: ▶ solve_model called with args: [1m{[0m
+  [32m"timeout"[0m: [1;36m10[0m
+[1m}[0m
+2026-04-04 11:37:14,730 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-04-04 11:37:14,731 - mcp_solver.core.server - INFO - Solving model with timeout 10.0 seconds
+[1;34msystem[0m: ◀ solve_model output: [1m{[0m[32m'message'[0m: [32m'MaxSAT optimization completed [0m[32m([0m[32mno feasible solution found[0m[32m)[0m[32m'[0m, [32m'success'[0m: [3;92mTrue[0m, [32m'solve_time'[0m: [32m'0.334368 seconds'[0m, 
+[32m'output'[0m: [32m"Total variables: 200\nAll hard constraints added\nPYSAT_DEBUG_OUTPUT: [0m[32mcompute_returned_value[0m[32m=[0m[32mFalse[0m[32m\nPYSAT_DEBUG_OUTPUT: [0m[32msolver[0m[32m='solver'\nDEBUG - [0m
+[32m_LAST_SOLUTION set to: [0m[32m{[0m[32m'satisfiable': False, 'message': 'No valid schedule exists - the constraints are contradictory', 'analysis': [0m[32m{[0m[32m'key_conflicts': [0m
+[32m[[0m[32m'Sequential constraint requires 4 consecutive time slots [0m[32m([0m[32mPS101->AR101->HI101->EN101[0m[32m)[0m[32m', 'PS101 cannot be in time slot 1, so sequence must be in slots 2-5', [0m
+[32m'PS101 can only be in Room 3 or 4 [0m[32m([0m[32mcannot use Rooms 1-2[0m[32m)[0m[32m', 'PH101 and BI101 must be in same time slot in Room 4 [0m[32m([0m[32mspecial lab[0m[32m)[0m[32m', 'But sequential courses need [0m
+[32mexclusive use of one room for 4 slots', 'This creates room/time conflicts that cannot be resolved'[0m[32m][0m[32m, 'constraint_summary': [0m[32m{[0m[32m'time_slot_constraints': 'MA101 [0m
+[32min slot 1, PS101 not in slot 1, 4-course sequence needs consecutive slots', 'room_constraints': 'CS101/CS201 need Room 1, EC101 needs Room 2, PH101/BI101 [0m
+[32mneed Room 4, PS101 cannot use Rooms 1-2', 'sequential_constraints': 'PS101->AR101->HI101->EN101 must be consecutive in same room'[0m[32m}[0m[32m}[0m[32m, 'status': [0m
+[32m'unsatisfiable', 'values': [0m[32m{[0m[32m}[0m[32m, '_is_maxsat_solution': True[0m[32m}[0m[32m\n\n"[0m, [32m'satisfiable'[0m: [3;91mFalse[0m, [32m'status'[0m: [32m'unsatisfiable'[0m, [32m'is_optimization'[0m: [3;92mTrue[0m[1m}[0m
+2026-04-04 11:37:15,086 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+Agent response keys: ['messages']
+Agent reply received, length: 2856
+
+
+┌───────────────────┐
+│ PROBLEM STATEMENT │
+└───────────────────┘
+A university needs to schedule 10 courses across 5 time slots and 4 rooms. Each course has specific requirements:
+
+## Courses and Basic Requirements:
+
+1. CS101: Requires a computer lab
+2. CS201: Requires a computer lab
+3. MA101: Must be scheduled in the first time slot
+4. PH101: Requires a lab with special equipment
+5. EN101: No special room requirements
+6. BI101: Requires a lab with special equipment
+7. HI101: No special room requirements
+8. EC101: Must be scheduled in Room 2
+9. PS101: Cannot be scheduled in the first time slot
+10. AR101: No special room requirements
+
+## Room Types:
+
+- Room 1: Computer lab
+- Room 2: Regular classroom
+- Room 3: Regular classroom
+- Room 4: Lab with special equipment
+
+## Additional Constraints:
+
+1. No two courses can be scheduled in the same room at the same time
+2. CS101 and CS201 cannot be scheduled at the same time
+3. PH101 and BI101 must be scheduled in the same time slot
+4. PS101 cannot be scheduled in Room 1 or Room 2
+5. PS101 and AR101 must be in the same room, with AR101 in the time slot immediately after PS101
+6. HI101 must be in the same room as PS101 and AR101, and must be scheduled in the time slot immediately after AR101
+7. EN101 must be in the same room as HI101, PS101, and AR101, and must be scheduled in the time slot immediately after EN101
+
+A valid schedule assigns each course to exactly one time slot and one room while satisfying all of the above constraints.
+
+Show that no valid schedule exists.
+
+
+
+┌─────────────┐
+│ FINAL MODEL │
+└─────────────┘
+0 | from pysat.formula import WCNF
+from pysat.examples.rc2 import RC2
+# Note: Helper functions are already available
+
+wcnf = WCNF()
+1 | # PARAMETER VERIFICATION
+# Problem parameters (DO NOT CHANGE):
+# - Number of courses: 10
+# - Number of time slots: 5
+# - Number of rooms: 4
+# - Room types: Room 1 (computer lab), Room 2 (regular), Room 3 (regular), Room 4 (special lab)
+
+num_courses = 10
+num_time_slots = 5
+num_rooms = 4
+
+# Course IDs (0-indexed for iteration, 1-based variables)
+courses = {
+    'CS101': 0, 'CS201': 1, 'MA101': 2, 'PH101': 3, 'EN101': 4,
+    'BI101': 5, 'HI101': 6, 'EC101': 7, 'PS101': 8, 'AR101': 9
+}
+
+# Room types
+COMPUTER_LAB = 0  # Room 1
+REGULAR_1 = 1     # Room 2  
+REGULAR_2 = 2     # Room 3
+SPECIAL_LAB = 3   # Room 4
+
+# Variables: course_time_room[c][t][r] = course c is scheduled in time slot t and room r
+var_count = 0
+course_time_room = {}
+for c in range(num_courses):
+    for t in range(num_time_slots):
+        for r in range(num_rooms):
+            var_count += 1
+            course_time_room[(c, t, r)] = var_count
+
+# Verify parameters
+assert len(course_time_room) == num_courses * num_time_slots * num_rooms, "Wrong number of variables"
+print(f"Total variables: {var_count}")
+2 | # Hard constraints
+
+# 1. Each course must be scheduled exactly once (one time slot and one room)
+for c in range(num_courses):
+    course_vars = [course_time_room[(c, t, r)] for t in range(num_time_slots) for r in range(num_rooms)]
+    for clause in exactly_one(course_vars):
+        wcnf.append(clause)
+
+# 2. No two courses can be scheduled in the same room at the same time
+for t in range(num_time_slots):
+    for r in range(num_rooms):
+        room_time_vars = [course_time_room[(c, t, r)] for c in range(num_courses)]
+        for clause in at_most_one(room_time_vars):
+            wcnf.append(clause)
+
+# 3. Room type requirements
+# CS101 and CS201 require computer lab (Room 1)
+for c in [courses['CS101'], courses['CS201']]:
+    for t in range(num_time_slots):
+        for r in range(num_rooms):
+            if r != COMPUTER_LAB:
+                wcnf.append([-course_time_room[(c, t, r)]])  # Cannot be in non-computer lab
+
+# PH101 and BI101 require special lab (Room 4)
+for c in [courses['PH101'], courses['BI101']]:
+    for t in range(num_time_slots):
+        for r in range(num_rooms):
+            if r != SPECIAL_LAB:
+                wcnf.append([-course_time_room[(c, t, r)]])  # Cannot be in non-special lab
+
+# 4. MA101 must be in first time slot (t=0)
+for t in range(1, num_time_slots):
+    for r in range(num_rooms):
+        wcnf.append([-course_time_room[(courses['MA101'], t, r)]])
+
+# 5. EC101 must be in Room 2 (REGULAR_1)
+for t in range(num_time_slots):
+    for r in range(num_rooms):
+        if r != REGULAR_1:
+            wcnf.append([-course_time_room[(courses['EC101'], t, r)]])
+
+# 6. PS101 cannot be in first time slot (t=0)
+for r in range(num_rooms):
+    wcnf.append([-course_time_room[(courses['PS101'], 0, r)]])
+
+# 7. PS101 cannot be in Room 1 or Room 2
+for t in range(num_time_slots):
+    for r in [COMPUTER_LAB, REGULAR_1]:
+        wcnf.append([-course_time_room[(courses['PS101'], t, r)]])
+
+# 8. CS101 and CS201 cannot be at the same time
+for t in range(num_time_slots):
+    cs101_vars = [course_time_room[(courses['CS101'], t, r)] for r in range(num_rooms)]
+    cs201_vars = [course_time_room[(courses['CS201'], t, r)] for r in range(num_rooms)]
+    
+    # If CS101 is scheduled at time t, CS201 cannot be at time t
+    for cs101_var in cs101_vars:
+        for cs201_var in cs201_vars:
+            wcnf.append([-cs101_var, -cs201_var])
+
+# 9. PH101 and BI101 must be in same time slot
+for t in range(num_time_slots):
+    ph101_at_t = [course_time_room[(courses['PH101'], t, r)] for r in range(num_rooms)]
+    bi101_at_t = [course_time_room[(courses['BI101'], t, r)] for r in range(num_rooms)]
+    
+    # Create auxiliary variables for "course scheduled at time t"
+    ph101_aux = var_count + 1
+    var_count += 1
+    bi101_aux = var_count + 1
+    var_count += 1
+    
+    # Link auxiliary to actual scheduling
+    wcnf.append(ph101_at_t + [-ph101_aux])  # If any room at time t, aux is true
+    wcnf.append(bi101_at_t + [-bi101_aux])
+    
+    for var in ph101_at_t:
+        wcnf.append([-var, ph101_aux])  # If scheduled at time t, aux must be true
+    for var in bi101_at_t:
+        wcnf.append([-var, bi101_aux])
+    
+    # They must have same truth value
+    wcnf.append([-ph101_aux, bi101_aux])
+    wcnf.append([ph101_aux, -bi101_aux])
+3 | # More hard constraints - Sequential course constraints
+
+# 10. PS101 and AR101 must be in same room, AR101 immediately after PS101
+for r in range(num_rooms):
+    for t in range(num_time_slots - 1):  # PS101 can be at most in slot 3 (0-indexed)
+        # If PS101 is at (t, r), then AR101 must be at (t+1, r)
+        wcnf.append([-course_time_room[(courses['PS101'], t, r)], 
+                     course_time_room[(courses['AR101'], t+1, r)]])
+        
+        # If AR101 is at (t+1, r), then PS101 must be at (t, r)
+        wcnf.append([-course_time_room[(courses['AR101'], t+1, r)], 
+                     course_time_room[(courses['PS101'], t, r)]])
+
+# PS101 cannot be in last time slot (no room for AR101 after)
+for r in range(num_rooms):
+    wcnf.append([-course_time_room[(courses['PS101'], num_time_slots-1, r)]])
+
+# AR101 cannot be in first time slot (no room for PS101 before)
+for r in range(num_rooms):
+    wcnf.append([-course_time_room[(courses['AR101'], 0, r)]])
+
+# 11. HI101 must be in same room as PS101/AR101, immediately after AR101
+for r in range(num_rooms):
+    for t in range(num_time_slots - 2):  # PS101 can be at most in slot 2 for this to work
+        # If PS101 is at (t, r) and AR101 at (t+1, r), then HI101 must be at (t+2, r)
+        wcnf.append([-course_time_room[(courses['PS101'], t, r)], 
+                     -course_time_room[(courses['AR101'], t+1, r)],
+                     course_time_room[(courses['HI101'], t+2, r)]])
+
+# HI101 can only be in time slots 2-4 (0-indexed) and only after AR101
+for t in range(2):
+    for r in range(num_rooms):
+        wcnf.append([-course_time_room[(courses['HI101'], t, r)]])
+
+# 12. EN101 must be in same room as others, immediately after HI101
+for r in range(num_rooms):
+    for t in range(num_time_slots - 3):  # PS101 can be at most in slot 1 for this to work
+        # If the sequence PS101(t), AR101(t+1), HI101(t+2), then EN101(t+3)
+        wcnf.append([-course_time_room[(courses['PS101'], t, r)], 
+                     -course_time_room[(courses['AR101'], t+1, r)],
+                     -course_time_room[(courses['HI101'], t+2, r)],
+                     course_time_room[(courses['EN101'], t+3, r)]])
+
+# EN101 can only be in time slots 3-4 (0-indexed)
+for t in range(3):
+    for r in range(num_rooms):
+        wcnf.append([-course_time_room[(courses['EN101'], t, r)]])
+
+# Additional constraint: The sequential courses must all be in same room
+# This is implicitly enforced above, but let's make it explicit
+
+# Since PS101 is restricted to rooms 3 or 4 (REGULAR_2 or SPECIAL_LAB)
+# But BI101 and PH101 must be in SPECIAL_LAB (room 4) at the same time
+# And there are only 4 rooms with 5 time slots, let's see what happens
+
+print("All hard constraints added")
+4 | # No soft constraints - this is a pure feasibility problem
+# All constraints are hard requirements
+
+# Solve and export solution (MANDATORY)
+with RC2(wcnf) as solver:
+    model = solver.compute()
+    
+    if model:
+        # Extract schedule
+        schedule = {}
+        for course_name, course_id in courses.items():
+            for t in range(num_time_slots):
+                for r in range(num_rooms):
+                    if course_time_room[(course_id, t, r)] in model:
+                        schedule[course_name] = {
+                            'time_slot': t + 1,  # Convert to 1-based for readability
+                            'room': r + 1       # Convert to 1-based for readability
+                        }
+        
+        # Verify all courses are scheduled
+        assert len(schedule) == num_courses, f"Not all courses scheduled: {len(schedule)}"
+        
+        export_solution({
+            "satisfiable": True,
+            "cost": solver.cost,
+            "schedule": schedule,
+            "message": "Valid schedule found"
+        })
+    else:
+        # Problem is UNSATISFIABLE - analyze why
+        export_solution({
+            "satisfiable": False,
+            "message": "No valid schedule exists - the constraints are contradictory",
+            "analysis": {
+                "key_conflicts": [
+                    "Sequential constraint requires 4 consecutive time slots (PS101->AR101->HI101->EN101)",
+                    "PS101 cannot be in time slot 1, so sequence must be in slots 2-5",
+                    "PS101 can only be in Room 3 or 4 (cannot use Rooms 1-2)",
+                    "PH101 and BI101 must be in same time slot in Room 4 (special lab)",
+                    "But sequential courses need exclusive use of one room for 4 slots",
+                    "This creates room/time conflicts that cannot be resolved"
+                ],
+                "constraint_summary": {
+                    "time_slot_constraints": "MA101 in slot 1, PS101 not in slot 1, 4-course sequence needs consecutive slots",
+                    "room_constraints": "CS101/CS201 need Room 1, EC101 needs Room 2, PH101/BI101 need Room 4, PS101 cannot use Rooms 1-2",
+                    "sequential_constraints": "PS101->AR101->HI101->EN101 must be consecutive in same room"
+                }
+            }
+        })
+
+
+
+┌─────────────────┐
+│ SOLUTION RESULT │
+└─────────────────┘
+{'message': 'MaxSAT optimization completed (no feasible solution found)', 'success': True, 'solve_time': '0.334368 seconds', 'output': "Total variables: 200\nAll hard constraints added\nPYSAT_DEBUG_OUTPUT: compute_returned_value=False\nPYSAT_DEBUG_OUTPUT: solver='solver'\nDEBUG - _LAST_SOLUTION set to: {'satisfiable': False, 'message': 'No valid schedule exists - the constraints are contradictory', 'analysis': {'key_conflicts': ['Sequential constraint requires 4 consecutive time slots (PS101->AR101->HI101->EN101)', 'PS101 cannot be in time slot 1, so sequence must be in slots 2-5', 'PS101 can only be in Room 3 or 4 (cannot use Rooms 1-2)', 'PH101 and BI101 must be in same time slot in Room 4 (special lab)', 'But sequential courses need exclusive use of one room for 4 slots', 'This creates room/time conflicts that cannot be resolved'], 'constraint_summary': {'time_slot_constraints': 'MA101 in slot 1, PS101 not in slot 1, 4-course sequence needs consecutive slots', 'room_constraints': 'CS101/CS201 need Room 1, EC101 needs Room 2, PH101/BI101 need Room 4, PS101 cannot use Rooms 1-2', 'sequential_constraints': 'PS101->AR101->HI101->EN101 must be consecutive in same room'}}, 'status': 'unsatisfiable', 'values': {}, '_is_maxsat_solution': True}\n\n", 'satisfiable': False, 'status': 'unsatisfiable', 'is_optimization': True}
+
+[1;34msystem[0m: Entering Review Agent
+Starting solution review process...
+Preparing review prompt (16137 characters)...
+Calling model for review...
+Found verdict tag: correct
+Review complete: verdict is 'correct'
+Review complete: ✅ correct
+
+
+┌───────────────┐
+│ REVIEW RESULT │
+└───────────────┘
+Correctness: ✅ correct
+Explanation: Looking at this MaxSAT solution for the university course scheduling problem, I'll review it systematically:
+
+## 1. Structural Correctness ✅
+- **WCNF usage**: Correctly uses `WCNF()` for MaxSAT
+- **Hard constraints**: All constraints properly added with `wcnf.append(clause)` without weights
+- **Solver usage**: RC2 solver used correctly with `RC2(wcnf)`
+- **Export function**: `export_solution()` called with proper results
+
+## 2. Variable Encoding ✅
+- Uses 3D variable structure `course_time_room[(c, t, r)]` which is appropriate
+- Total of 200 variables (10 courses × 5 time slots × 4 rooms) matches the problem scope
+- Positive integer variables used correctly (1-200)
+
+## 3. Hard Constraint Coverage ✅
+The model addresses all requirements from the problem statement:
+- Each course scheduled exactly once
+- No room conflicts (one course per room per time slot)
+- Room type requirements (CS courses → computer lab, PH/BI → special lab)
+- Time slot constraints (MA101 in slot 1, PS101 not in slot 1, EC101 in Room 2)
+- Sequential constraints (PS101→AR101→HI101→EN101 in consecutive time slots, same room)
+- Mutual exclusions (CS101 and CS201 at different times)
+- Co-location requirements (PH101 and BI101 same time slot)
+
+## 4. Solution Format & Completeness ✅
+- Includes `"satisfiable": False`
+- Provides detailed analysis of why no solution exists
+- Contains proper structure with message and conflict analysis
+- Correctly identifies this as an unsatisfiable problem
+
+## 5. Unsatisfiable Result Analysis ✅
+The solution correctly identifies key conflicts:
+- Sequential constraint needs 4 consecutive time slots
+- PS101 cannot be in slot 1, forcing sequence to slots 2-5
+- Room restrictions create impossible conflicts
+- The analysis is reasonable and well-structured
+
+The solver determined the problem is unsatisfiable, which appears justified given the tight constraints combining:
+- Room type restrictions
+- Time slot limitations  
+- Sequential course requirements
+- Same-room requirements for multiple course groups
+
+## 6. Technical Implementation ✅
+- Proper auxiliary variables used for complex constraints
+- Correct handling of exactly-one and at-most-one constraints
+- Sequential constraint logic appears sound
+- Error handling and debugging output included
+
+
+
+             Tool Usage and Token Statistics              
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Category    ┃ Item                       ┃ Count/Value ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ TOOL USAGE  │                            │             │
+│ Tool        │ add_item                   │ 5           │
+│ Tool        │ clear_model                │ 1           │
+│ Tool        │ solve_model                │ 1           │
+│ Tool        │ get_model                  │ 1           │
+│ Tool        │ replace_item               │ 0           │
+│ Tool        │ delete_item                │ 0           │
+│ Tool        │ TOTAL                      │ 8           │
+│ TOKEN USAGE │                            │             │
+│ Token       │ ReAct Agent Input (exact)  │ 110k        │
+│ Token       │ ReAct Agent Output (exact) │ 4.5k        │
+│ Token       │ ReAct Agent Total (exact)  │ 114k        │
+│ Token       │ Reviewer Input (exact)     │ 5.1k        │
+│ Token       │ Reviewer Output (exact)    │ 651         │
+│ Token       │ Reviewer Total (exact)     │ 5.7k        │
+│ Token       │ COMBINED TOTAL             │ 120k        │
+└─────────────┴────────────────────────────┴─────────────┘
+Test completed successfully
+
